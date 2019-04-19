@@ -290,6 +290,21 @@ PRODUCT_PACKAGES += \
     526fc4fc-7ee6-4a12-96e3-83da9565bce8
 endif
 #BOARD_SECCOMP_POLICY := device/khadas/common/seccomp
+
+ifeq ($(BOARD_BUILD_VMX_DRM),true)
+#for drmplayer vmx
+PRODUCT_PACKAGES += libam_adp_adec \
+      libamadec_system \
+      libamavutils_sys \
+      libfaad_sys \
+      libmad_sys \
+      libDrmPlayer\
+      libdrmp\
+      libdec_ca\
+      41fe9859-71e4-4bf4-bbaad71435b127ae\
+      libdec_ca_vmx_iptv\
+      libdec_ca_vmx_web
+endif
 PRODUCT_COPY_FILES += \
     device/khadas/common/seccomp/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy \
     device/khadas/common/seccomp/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
