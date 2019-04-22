@@ -13,6 +13,7 @@ type hdcptx_device, dev_type;
 type hdcprx_device, dev_type;
 
 type dvb_device, dev_type, mlstrustedobject;
+type vendor_video_device, dev_type;
 type dvb_video_device, dev_type;
 type mediactl_video_device, dev_type;
 type avin_device, dev_type;
