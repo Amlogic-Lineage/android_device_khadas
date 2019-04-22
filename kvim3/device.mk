@@ -68,6 +68,7 @@ PRODUCT_COPY_FILES += \
     device/khadas/$(PRODUCT_DIR)/recovery/recovery.kl:recovery/root/etc/recovery.kl \
     device/khadas/$(PRODUCT_DIR)/files/mesondisplay.cfg:recovery/root/etc/mesondisplay.cfg \
     device/khadas/common/recovery/busybox:recovery/root/sbin/busybox \
+    device/khadas/common/recovery/resize2fs:recovery/root/sbin/resize2fs \
     device/khadas/$(PRODUCT_DIR)/recovery/remotecfg:recovery/root/sbin/remotecfg \
     device/khadas/$(PRODUCT_DIR)/files/remote.cfg:recovery/root/etc/remote.cfg \
     device/khadas/$(PRODUCT_DIR)/files/remote.tab1:recovery/root/etc/remote.tab1 \

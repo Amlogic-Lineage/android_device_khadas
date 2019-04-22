@@ -71,6 +71,7 @@ PRODUCT_COPY_FILES += \
     device/khadas/$(PRODUCT_DIR)/files/remote.tab2:recovery/root/etc/remote.tab2 \
     device/khadas/$(PRODUCT_DIR)/files/remote.tab3:recovery/root/etc/remote.tab3 \
     device/khadas/common/recovery/busybox:recovery/root/sbin/busybox \
+    device/khadas/common/recovery/resize2fs:recovery/root/sbin/resize2fs \
     device/khadas/$(PRODUCT_DIR)/recovery/sh:recovery/root/sbin/sh
 
 $(shell python $(LOCAL_PATH)/auto_generator.py preinstall)
