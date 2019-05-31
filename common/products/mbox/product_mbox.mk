@@ -16,7 +16,6 @@ PRODUCT_PACKAGES += \
     libtv \
     libtv_linker \
     libtvbinder \
-    libtv_jni \
     tvserver \
     libtvplay \
     libvendorfont \
@@ -24,7 +23,6 @@ PRODUCT_PACKAGES += \
     libntsc_decode \
     libtinyxml \
     libzvbi \
-    droidlogic-tv \
     TvProvider \
     DroidLogicTvInput \
     DroidLogicFactoryMenu \
