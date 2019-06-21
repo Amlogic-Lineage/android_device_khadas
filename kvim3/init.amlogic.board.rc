@@ -34,6 +34,9 @@ on boot
 #uboot env
     chmod 666 /dev/block/env
 
+#led
+    chmod 666 /sys/class/leds/sys_led/trigger
+
 #NET LED
     chmod 666 sys/class/leds/net_green/brightness
     chmod 666 sys/class/leds/net_red/brightness
