@@ -37,6 +37,11 @@ on boot
 #led
     chmod 666 /sys/class/leds/sys_led/trigger
 
+#cooling fan
+    chmod 666 /sys/class/fan/mode
+    chmod 666 /sys/class/fan/level
+    chmod 666 /sys/class/fan/enable
+
 #NET LED
     chmod 666 sys/class/leds/net_green/brightness
     chmod 666 sys/class/leds/net_red/brightness
