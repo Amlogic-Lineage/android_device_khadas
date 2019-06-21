@@ -409,6 +409,12 @@ service watchdogd /sbin/watchdogd 10 20
     disabled
     seclabel u:r:watchdogd:s0
 
+service preinstall /system/bin/preinstall.sh
+    user root
+    group root
+    oneshot
+    seclabel u:r:preinstall:s0
+
 #wifi firmware_path
 #on property:wlan.driver.status=ok
 #   chown system wifi /sys/module/dhd/parameters/firmware_path
@@ -462,6 +468,9 @@ service bugreport /system/bin/dumpstate -d -p -B -P -z \
     class main
     disabled
     oneshot
+
+on property:sys.boot_completed=1
+    start preinstall
 
 on property:sys.boot_completed=1
     # Enable ZRAM on boot_complete
