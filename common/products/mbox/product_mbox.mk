@@ -62,6 +62,10 @@ PRODUCT_PACKAGES += \
     Launcher3
 endif
 
+PRODUCT_PACKAGES += \
+    setbootenv \
+    getbootenv
+
 #droid vold
 PRODUCT_PACKAGES += \
     droidvold

@@ -31,6 +31,9 @@ on boot
     # chmod 0666 /dev/ge2d
     chmod 666 /dev/cec
 
+#uboot env
+    chmod 666 /dev/block/env
+
 #NET LED
     chmod 666 sys/class/leds/net_green/brightness
     chmod 666 sys/class/leds/net_red/brightness
