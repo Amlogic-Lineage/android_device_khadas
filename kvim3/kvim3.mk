@@ -71,7 +71,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
         ro.hdmi.device_type=4 \
         persist.sys.hdmi.keep_awake=false
 PRODUCT_PROPERTY_OVERRIDES += \
-        ro.build.display.id=VIM3_Pie_$(BUILD_NUMBER)
+        ro.build.display.id=VIM3_Pie_$(shell date +%Y%m%d)
 
 PRODUCT_NAME := kvim3
 PRODUCT_DEVICE := kvim3
