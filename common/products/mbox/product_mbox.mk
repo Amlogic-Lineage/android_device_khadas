@@ -1,4 +1,7 @@
 $(call inherit-product, device/khadas/common/core_amlogic.mk)
+ifeq ($(BUILD_WITH_GAPPS_CONFIG),true)
+$(call inherit-product-if-exists, vendor/amlogic/google/gapps.mk)
+endif
 
 ifeq ($(TARGET_BUILD_LIVETV),true)
 #TV input HAL
