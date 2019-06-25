@@ -366,13 +366,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.has.pppoe=true
 endif
 
-#################################################################################
-#
-#                                                DEFAULT LOWMEMORYKILLER CONFIG
-#
-#################################################################################
-BUILD_WITH_LOWMEM_COMMON_CONFIG := true
-
 BOARD_USES_USB_PM := true
 
 
