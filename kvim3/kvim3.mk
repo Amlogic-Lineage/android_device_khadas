@@ -72,6 +72,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
         persist.sys.hdmi.keep_awake=false
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.build.display.id=VIM3_Pie_$(shell date +%Y%m%d)
+PRODUCT_PROPERTY_OVERRIDES += \
+        persist.vendor.sys.cec.set_menu_language=false
 
 PRODUCT_NAME := kvim3
 PRODUCT_DEVICE := kvim3
