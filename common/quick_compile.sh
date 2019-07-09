@@ -30,12 +30,13 @@ read_platform_type() {
         "       15. t962x2_skt   [T962x2]\n" \
         "       16. t962x2_t309  [T962X2]\n"\
         "       17. t962x_r314   [T962X]\n" \
+        "       18. kvim3    [A311D]\n" \
 
         read -p "please select your platform type (default ampere):" platform_type
         if [ ${#platform_type} -eq 0 ]; then
             platform_type=1
         fi
-        if [[ $platform_type -le 0 || $platform_type -gt 17 ]]; then
+        if [[ $platform_type -le 0 || $platform_type -gt 18 ]]; then
             echo -e "the platform type is illegal, need select again\n"
         else
             break
@@ -136,6 +137,10 @@ select_platform_type() {
             platform_name="t962x_r314"
             platform_uboot_name="txlx_t962x_r314_v1"
             platform_tdk_path="vendor/amlogic/common/tdk/secureos/txlx/bl32.img";;
+        18)
+            platform_name="kvim3"
+            platform_uboot_name="kvim3"
+            platform_tdk_path="vendor/amlogic/common/tdk/secureos/g12a/bl32.img";;
     esac
 }
 
@@ -159,7 +164,7 @@ if [ $# -eq 1 ]; then
         read_platform_type
         read_android_type
         select_platform_type
-        cd bootloader/uboot-repo
+        cd bootloader/uboot
         compile_uboot
         cd ../../
         exit
@@ -170,7 +175,7 @@ if [ $# -eq 1 ]; then
         for ((platform_type=1; platform_type < 18; platform_type++))
         do
             select_platform_type
-            cd bootloader/uboot-repo
+            cd bootloader/uboot
             compile_uboot
             cd ../../
         done
@@ -179,19 +184,19 @@ if [ $# -eq 1 ]; then
         echo -e "Problem:"
         echo -e "need update bootloader\n"
         echo "Solution:"
-        cd bootloader/uboot-repo/bl2/bin/
+        cd bootloader/uboot/bl2/bin/
         echo "bl2       : "$(git log --pretty=format:"%H" -1)
         cd ../../../../
-        cd bootloader/uboot-repo/bl30/bin/
+        cd bootloader/uboot/bl30/bin/
         echo "bl30      : "$(git log --pretty=format:"%H" -1)
         cd ../../../../
-        cd bootloader/uboot-repo/bl31/bin/
+        cd bootloader/uboot/bl31/bin/
         echo "bl31      : "$(git log --pretty=format:"%H" -1)
         cd ../../../../
-        cd bootloader/uboot-repo/bl31_1.3/bin/
+        cd bootloader/uboot/bl31_1.3/bin/
         echo "bl31_1.3  : "$(git log --pretty=format:"%H" -1)
         cd ../../../../
-        cd bootloader/uboot-repo/fip/
+        cd bootloader/uboot/fip/
         echo "fip       : "$(git log --pretty=format:"%H" -1)
         echo -e
         cd ../../../../
@@ -211,7 +216,7 @@ elif [ $uboot_drm_type -eq 3 ]; then
     export  BOARD_COMPILE_ATV=true
 fi
 lunch "$platform_name-userdebug"
-cd bootloader/uboot-repo
+cd bootloader/uboot
 compile_uboot
 cd ../../
 make otapackage -j8

@@ -1,1 +1,1 @@
-../../../../bootloader/uboot-repo/build/u-boot.bin.usb.tpl
+../../../../bootloader/uboot/build/u-boot.bin.usb.tpl

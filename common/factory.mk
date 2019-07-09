@@ -616,7 +616,7 @@ ifeq ($(wildcard $(PRODUCT_CFG_EMMC_LGC_TABLE)),)
 	PRODUCT_CFG_EMMC_LGC_TABLE	:= \
 		$(PRODUCT_COMMON_DIR)/upgrade_4.9/$(notdir $(PRODUCT_CFG_EMMC_LGC_TABLE))
 endif#ifeq ($(wildcard $(PRODUCT_CFG_EMMC_LGC_TABLE)),)
-PRODUCT_CFG_EMMC_CAP := bootloader/uboot-repo/bl33/include/emmc_partitions.h
+PRODUCT_CFG_EMMC_CAP := bootloader/uboot/include/emmc_partitions.h
 
 $(INSTALLED_AML_EMMC_BIN): $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET) $(PRODUCT_CFG_EMMC_CAP) \
 	$(PRODUCT_CFG_EMMC_LGC_TABLE) | $(SIMG2IMG) $(MINIGZIP)
