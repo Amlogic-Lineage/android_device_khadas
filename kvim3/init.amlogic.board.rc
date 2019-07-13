@@ -42,6 +42,9 @@ on boot
     chmod 666 /sys/class/fan/level
     chmod 666 /sys/class/fan/enable
 
+#wol
+    chmod 666 /sys/class/wol/enable
+
 #NET LED
     chmod 666 sys/class/leds/net_green/brightness
     chmod 666 sys/class/leds/net_red/brightness
