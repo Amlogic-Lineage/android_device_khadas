@@ -46,6 +46,9 @@ on boot
 #wol
     chmod 666 /sys/class/wol/enable
 
+#mac
+    chmod 666 /sys/class/efuse/mac
+
 #NET LED
     chmod 666 sys/class/leds/net_green/brightness
     chmod 666 sys/class/leds/net_red/brightness
