@@ -36,6 +36,7 @@ on boot
 
 #led
     chmod 666 /sys/class/leds/sys_led/trigger
+    chmod 666 /sys/class/redled/mode
 
 #cooling fan
     chmod 666 /sys/class/fan/mode
