@@ -49,6 +49,9 @@ on boot
 #mac
     chmod 666 /sys/class/efuse/mac
 
+#mcu
+    chmod 666 /sys/class/mcu/rst
+
 #NET LED
     chmod 666 sys/class/leds/net_green/brightness
     chmod 666 sys/class/leds/net_red/brightness
