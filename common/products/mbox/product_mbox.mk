@@ -63,6 +63,9 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_PACKAGES += \
+    FactoryTest
+
+PRODUCT_PACKAGES += \
     setbootenv \
     getbootenv
 
