@@ -52,6 +52,9 @@ on boot
 #mcu
     chmod 666 /sys/class/mcu/rst
 
+#cmdline
+    chmod 666 /proc/cmdline
+
 #NET LED
     chmod 666 sys/class/leds/net_green/brightness
     chmod 666 sys/class/leds/net_red/brightness
