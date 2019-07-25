@@ -26,3 +26,6 @@ on boot
 #uboot env
     chmod 666 /dev/block/env
 
+#led
+    chmod 666 /sys/class/leds/led-sys/trigger
+
