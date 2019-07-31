@@ -395,6 +395,10 @@ service fuse_udisk1 /system/bin/sdcard -u 1023 -g 1023 /mnt/media_rw/udisk1 /sto
     class late_start
     disabled
 
+service fuse_pcie0 /system/bin/sdcard -u 1023 -g 1023 /mnt/media_rw/pcie0 /storage/pcie0
+    class late_start
+    disabled
+
 service fuse_sr0 /system/bin/sdcard -u 1023 -g 1023 /mnt/media_rw/sr0 /storage/sr0
     class late_start
     disabled

@@ -45,4 +45,9 @@
              android:removable="true"
              android:maxFileSize="4096" />
 
+    <storage
+             android:mountPoint="/storage/pcie0"
+             android:storageDescription="@string/storage_pcie"
+             android:removable="false"
+             android:maxFileSize="4096" />
 </StorageList>
