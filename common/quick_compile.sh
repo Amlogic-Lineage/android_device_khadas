@@ -31,12 +31,13 @@ read_platform_type() {
         "       16. t962x2_t309  [T962X2]\n"\
         "       17. t962x_r314   [T962X]\n" \
         "       18. kvim3    [A311D]\n" \
+        "       19. kvim    [S905X]\n" \
 
         read -p "please select your platform type (default ampere):" platform_type
         if [ ${#platform_type} -eq 0 ]; then
             platform_type=1
         fi
-        if [[ $platform_type -le 0 || $platform_type -gt 18 ]]; then
+        if [[ $platform_type -le 0 || $platform_type -gt 19 ]]; then
             echo -e "the platform type is illegal, need select again\n"
         else
             break
@@ -141,6 +142,10 @@ select_platform_type() {
             platform_name="kvim3"
             platform_uboot_name="kvim3"
             platform_tdk_path="vendor/amlogic/common/tdk/secureos/g12a/bl32.img";;
+        19)
+            platform_name="kvim"
+            platform_uboot_name="kvim"
+            platform_tdk_path="vendor/amlogic/common/tdk/secureos/gxl/bl32.img";;
     esac
 }
 
@@ -172,7 +177,7 @@ if [ $# -eq 1 ]; then
 
     if [ $1 == "all" ]; then
         read_android_type
-        for ((platform_type=1; platform_type < 18; platform_type++))
+        for ((platform_type=1; platform_type < 20; platform_type++))
         do
             select_platform_type
             cd bootloader/uboot
