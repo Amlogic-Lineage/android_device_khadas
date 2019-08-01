@@ -77,6 +77,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
         ro.hdmi.set_menu_language=true \
         persist.sys.hdmi.keep_awake=false
 
+PRODUCT_PROPERTY_OVERRIDES += \
+        ro.build.display.id=VIM_Pie_$(shell date +%Y%m%d)
+
 PRODUCT_NAME := kvim
 PRODUCT_DEVICE := kvim
 PRODUCT_BRAND := Droidlogic
