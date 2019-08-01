@@ -73,6 +73,11 @@ PRODUCT_COPY_FILES += \
     device/khadas/common/recovery/busybox:recovery/root/sbin/busybox \
     device/khadas/$(PRODUCT_DIR)/recovery/sh:recovery/root/sbin/sh
 
+$(shell python $(LOCAL_PATH)/auto_generator.py preinstall)
+-include device/khadas/kvim/preinstall/preinstall.mk
+PRODUCT_COPY_FILES += \
+    device/khadas/kvim/preinstall/preinstall.sh:system/bin/preinstall.sh
+
 # remote IME config file
 PRODUCT_COPY_FILES += \
     device/khadas/common/products/mbox/Vendor_0001_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl \
