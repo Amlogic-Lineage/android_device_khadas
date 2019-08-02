@@ -176,7 +176,6 @@ PRODUCT_PACKAGES += \
     RemoteIME \
     DeskClock \
     MusicFX \
-    Browser2 \
     LatinIME \
     Music
 endif
