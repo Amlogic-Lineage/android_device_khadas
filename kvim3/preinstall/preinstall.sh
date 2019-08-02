@@ -6,7 +6,7 @@ PKGS=/system/preinstall/
 if [ ! -e $MARK ]; then
 echo "booting the first time, so pre-install some APKs."
 
-busybox find $PKGS -name "*\.apk" -exec sh /system/bin/pm install {} \;
+find $PKGS -name "*\.apk" -exec sh /system/bin/pm install {} \;
 
 # NO NEED to delete these APKs since we keep a mark under data partition.
 # And the mark will be wiped out after doing factory reset, so you can install
