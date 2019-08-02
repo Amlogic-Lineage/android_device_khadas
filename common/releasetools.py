@@ -26,37 +26,13 @@ import add_img_to_target_files
 
 OPTIONS = common.OPTIONS
 OPTIONS.ota_zip_check = True
+OPTIONS.data_save = False
+OPTIONS.backup_zip = True
+OPTIONS.hdcp_key_write = False
 
 def SetBootloaderEnv(script, name, val):
   """Set bootloader env name with val."""
   script.AppendExtra('set_bootloader_env("%s", "%s");' % (name, val))
-
-def LoadInfoDict_amlogic(info_dict, input_file, input_dir=None):
-  """Read and parse the META/misc_info.txt key/value pairs from the
-  input target files and return a dict."""
-
-  data = input_file.read("VENDOR/build.prop")
-  data += input_file.read("VENDOR/default.prop")
-
-  info_dict["vendor.prop"] = common.LoadDictionaryFromLines(data.split("\n"))
-
-  print("--- *************** ---")
-  common.DumpInfoDict(info_dict)
-
-  return True
-
-def GetBuildProp(prop, info_dict):
-  """Return the fingerprint of the build of a given target-files info_dict."""
-  try:
-    return info_dict.get("build.prop", {})[prop]
-  except KeyError:
-    print "couldn't find %s in build.prop, try vendor.prop" %(prop)
-    #raise common.ExternalError("couldn't find %s in build.prop" % (prop,))
-
-  try:
-    return info_dict.get("vendor.prop", {})[prop]
-  except KeyError:
-    raise common.ExternalError("couldn't find %s in build.prop & vendor.prop" % (prop,))
 
 def HasTargetImage(target_files_zip, image_path):
   try:
@@ -64,11 +40,6 @@ def HasTargetImage(target_files_zip, image_path):
     return True
   except KeyError:
     return False
-
-def BuildExt4(name, input_dir, info_dict, block_list=None):
-  """Build the (sparse) vendor image and return the name of a temp
-  file containing it."""
-  return add_img_to_target_files.CreateImage(input_dir, info_dict, name, block_list=block_list)
 
 def ZipOtherImage(which, tmpdir, output):
   """Returns an image object from IMAGES.
@@ -108,73 +79,6 @@ def GetImage(which, tmpdir):
 
   return sparse_img.SparseImage(path, mappath, clobbered_blocks)
 
-def mycopyfile(srcfile, dstfile):
-    if not os.path.isfile(srcfile):
-        print "%s not exist!" %(srcfile)
-    else:
-        fpath,fname=os.path.split(dstfile)
-        if not os.path.exists(fpath):
-            os.makedirs(fpath)
-        shutil.copyfile(srcfile,dstfile)
-        print "copy %s -> %s" %( srcfile,dstfile)
-
-
-def HasOdmPartition(target_files_zip):
-  try:
-    target_files_zip.getinfo("ODM/")
-    return True
-  except KeyError:
-    return False
-
-def BuildCustomerImage(info):
-  print "amlogic extensions:BuildCustomerImage"
-  if info.info_dict.get("update_user_parts") == "true" :
-    partsList = info.info_dict.get("user_parts_list");
-    for list_i in partsList.split(' '):
-      tmp_tgt = GetImage(list_i, info.input_tmp, info.info_dict)
-      tmp_tgt.ResetFileMap()
-      tmp_diff = common.BlockDifference(list_i, tmp_tgt, src = None)
-      tmp_diff.WriteScript(info.script,info.output_zip)
-
-def BuildCustomerIncrementalImage(info, *par, **dictarg):
-  print "amlogic extensions:BuildCustomerIncrementalImage"
-  fun = []
-  for pp in par:
-    fun.append(pp)
-  if info.info_dict.get("update_user_parts") == "true" :
-    partsList = info.info_dict.get("user_parts_list");
-    for list_i in partsList.split(' '):
-      if HasTargetImage(info.source_zip, list_i.upper() + "/"):
-        tmp_diff = fun[0](list_i, info.source_zip, info.target_zip, info.output_zip)
-        recovery_mount_options = common.OPTIONS.info_dict.get("recovery_mount_options")
-        info.script.Mount("/"+list_i, recovery_mount_options)
-        so_far = tmp_diff.EmitVerification(info.script)
-        size = []
-        if tmp_diff.patch_list:
-          size.append(tmp_diff.largest_source_size)
-        tmp_diff.RemoveUnneededFiles(info.script)
-        total_patch_size = 1.0 + tmp_diff.TotalPatchSize()
-        total_patch_size += tmp_diff.TotalPatchSize()
-        tmp_diff.EmitPatches(info.script, total_patch_size, 0)
-        tmp_items = fun[1](list_i, "META/" + list_i + "_filesystem_config.txt")
-
-        fun[2](tmp_items, info.target_zip, None)
-        temp_script = info.script.MakeTemporary()
-        tmp_items.GetMetadata(info.target_zip)
-        tmp_items.Get(list_i).SetPermissions(temp_script)
-        fun[2](tmp_items, info.source_zip, None)
-        if tmp_diff and tmp_diff.verbatim_targets:
-          info.script.Print("Unpacking new files...")
-          info.script.UnpackPackageDir(list_i, "/" + list_i)
-
-        tmp_diff.EmitRenames(info.script)
-        if common.OPTIONS.verify and tmp_diff:
-          info.script.Print("Remounting and verifying partition files...")
-          info.script.Unmount("/" + list_i)
-          info.script.Mount("/" + list_i)
-          tmp_diff.EmitExplicitTargetVerification(info.script)
-
-
 def FullOTA_Assertions(info):
   print "amlogic extensions:FullOTA_Assertions"
   try:
@@ -187,31 +91,33 @@ def FullOTA_Assertions(info):
     common.ZipWriteStr(info.output_zip, "bootloader.img", bootloader_img)
   if OPTIONS.ota_zip_check:
     info.script.AppendExtra('if ota_zip_check() == "1" then')
+    if OPTIONS.data_save:
+      info.script.AppendExtra('backup_data_partition_check("500");')
     info.script.AppendExtra('backup_data_cache(dtb, /cache/recovery/);')
     info.script.AppendExtra('backup_data_cache(recovery, /cache/recovery/);')
     info.script.AppendExtra('set_bootloader_env("upgrade_step", "3");')
+    # backup the update package to /cache or /dev/block/mmcblk0
+    if OPTIONS.backup_zip:
+      info.script.AppendExtra('backup_update_package("/dev/block/mmcblk0", "1894");')
+    # use resize2fs for /dev/block/data and backup data partition
+    if OPTIONS.data_save:
+      info.script.AppendExtra('backup_data_partition();')
+    info.script.AppendExtra('package_extract_file("logo.img", "/dev/block/logo");')
     info.script.AppendExtra('write_dtb_image(package_extract_file("dt.img"));')
     info.script.WriteRawImage("/recovery", "recovery.img")
-    info.script.AppendExtra('backup_update_package("/dev/block/mmcblk0", "1894");')
     if OPTIONS.ota_partition_change:
       info.script.AppendExtra('ui_print("update bootloader.img...");')
       info.script.AppendExtra('write_bootloader_image(package_extract_file("bootloader.img"));')
-    info.script.AppendExtra('set_bootloader_env("upgrade_step", "2");')
-    info.script.AppendExtra('set_bootloader_env("upgrade_step", "3");')
+    info.script.AppendExtra('delete_file("/cache/recovery/dtb.img");')
+    info.script.AppendExtra('delete_file("/cache/recovery/recovery.img");')
     info.script.AppendExtra('reboot_recovery();')
     info.script.AppendExtra('else')
 
 def FullOTA_InstallBegin(info):
   print "amlogic extensions:FullOTA_InstallBegin"
-  LoadInfoDict_amlogic(info.info_dict, info.input_zip);
-  platform = GetBuildProp("ro.board.platform", info.info_dict)
-  print "ro.board.platform: %s" % (platform)
-  if "meson3" in platform:
-    SetBootloaderEnv(info.script, "upgrade_step", "0")
-  elif "meson6" in platform:
-    SetBootloaderEnv(info.script, "upgrade_step", "0")
-  else:
-    SetBootloaderEnv(info.script, "upgrade_step", "3")
+  SetBootloaderEnv(info.script, "upgrade_step", "3")
+  if OPTIONS.data_save:
+    info.script.AppendExtra('recovery_data_partition();')
 
 def FullOTA_InstallEnd(info):
   print "amlogic extensions:FullOTA_InstallEnd"
@@ -240,9 +146,9 @@ ui_print("update dtbo.img...");
 package_extract_file("dtbo.img", "/dev/block/dtbo");
 ui_print("update dtb.img...");
 backup_data_cache(dtb, /cache/recovery/);
+backup_data_cache(recovery, /cache/recovery/);
 write_dtb_image(package_extract_file("dt.img"));
 ui_print("update recovery.img...");
-backup_data_cache(recovery, /cache/recovery/);
 package_extract_file("recovery.img", "/dev/block/recovery");
 ui_print("update vbmeta.img...");
 package_extract_file("vbmeta.img", "/dev/block/vbmeta");""")
@@ -250,6 +156,12 @@ package_extract_file("vbmeta.img", "/dev/block/vbmeta");""")
   if OPTIONS.ota_partition_change:
     info.script.AppendExtra('ui_print("update bootloader.img...");')
     info.script.AppendExtra('write_bootloader_image(package_extract_file("bootloader.img"));')
+
+  if OPTIONS.hdcp_key_write:
+    info.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/param", "/param");')
+    info.script.AppendExtra('ui_print("update hdcp22_rx_fw...");')
+    info.script.AppendExtra('write_hdcp_22rxfw();')
+    info.script.AppendExtra('unmount("/param");')
 
   info.script.AppendExtra('if get_update_stage() == "2" then')
   info.script.FormatPartition("/metadata")
@@ -259,6 +171,8 @@ package_extract_file("vbmeta.img", "/dev/block/vbmeta");""")
   info.script.AppendExtra('endif;')
 
   SetBootloaderEnv(info.script, "upgrade_step", "1")
+  info.script.AppendExtra('delete_file("/cache/recovery/dtb.img");')
+  info.script.AppendExtra('delete_file("/cache/recovery/recovery.img");')
   SetBootloaderEnv(info.script, "force_auto_update", "false")
 
   if OPTIONS.ota_zip_check:
@@ -272,16 +186,8 @@ def IncrementalOTA_VerifyEnd(info):
   print "amlogic extensions:IncrementalOTA_VerifyEnd"
 
 def IncrementalOTA_InstallBegin(info):
-  LoadInfoDict_amlogic(info.info_dict, info.target_zip);
-  platform = GetBuildProp("ro.board.platform", info.info_dict)
-  print "ro.board.platform: %s" % (platform)
-  if "meson3" in platform:
-    SetBootloaderEnv(info.script, "upgrade_step", "0")
-  elif "meson6" in platform:
-    SetBootloaderEnv(info.script, "upgrade_step", "0")
-  else:
-    SetBootloaderEnv(info.script, "upgrade_step", "3")
   print "amlogic extensions:IncrementalOTA_InstallBegin"
+  SetBootloaderEnv(info.script, "upgrade_step", "3")
 
 def IncrementalOTA_ImageCheck(info, name):
   source_image = False; target_image = False; updating_image = False;
@@ -316,9 +222,31 @@ def IncrementalOTA_ImageCheck(info, name):
     else:
       SetBootloaderEnv(info.script, "upgrade_step", "2")
 
+def IncrementalOTA_Ext4ImageCheck(info, name):
+  source_image = False; target_image = False; updating_image = False;
+
+  image_path = "IMAGES/" + name + ".img"
+  image_name = name + ".img"
+
+  if HasTargetImage(info.source_zip, image_path):
+    source_image = GetImage(name, OPTIONS.source_tmp)
+
+  if HasTargetImage(info.target_zip, image_path):
+    target_image = GetImage(name, OPTIONS.target_tmp)
+
+  if source_image:
+    if target_image:
+      updating_image = common.BlockDifference(name, source_image, target_image,
+                                       True,
+                                       version=4,
+                                       disable_imgdiff=False)
+      updating_image.WriteScript(info.script, info.output_zip, progress=0.1)
+
 
 def IncrementalOTA_InstallEnd(info):
   print "amlogic extensions:IncrementalOTA_InstallEnd"
+  IncrementalOTA_Ext4ImageCheck(info, "odm");
+  IncrementalOTA_Ext4ImageCheck(info, "product");
   IncrementalOTA_ImageCheck(info, "logo");
   IncrementalOTA_ImageCheck(info, "dt");
   IncrementalOTA_ImageCheck(info, "recovery");
