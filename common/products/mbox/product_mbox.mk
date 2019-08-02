@@ -86,8 +86,7 @@ PRODUCT_PACKAGES += \
 #Tvsettings
 PRODUCT_PACKAGES += \
     TvSettings \
-    DroidTvSettings \
-    Settings
+    DroidTvSettings
 
 
 #USB PM
