@@ -27,7 +27,7 @@ on boot
     chmod 666 /dev/block/env
 
 #led
-    chmod 666 /sys/class/leds/led-sys/trigger
+    chmod 666 /sys/class/leds/sys_led/trigger
 
 #cooling fan
     chmod 666 /sys/class/fan/mode
