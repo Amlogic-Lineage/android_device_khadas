@@ -57,6 +57,8 @@ else
 -include device/khadas/common/wifi_modules.mk
 -include device/khadas/common/npu_modules.mk
 -include device/khadas/common/arm_isp_modules.mk
+-include device/amlogic/common/tb_modules.mk
+
 KERNEL_DEVICETREE := kvim3
 KERNEL_DEFCONFIG := kvim_defconfig
 KERNEL_ARCH := arm64
@@ -96,7 +98,8 @@ BOARD_VENDOR_KERNEL_MODULES += \
 	$(PRODUCT_OUT)/obj/lib_vendor/ddr_window_64.ko
 
 BOARD_VENDOR_KERNEL_MODULES	+= $(DEFAULT_MEDIA_KERNEL_MODULES)
-BOARD_VENDOR_KERNEL_MODULES     += $(DEFAULT_WIFI_KERNEL_MODULES)
+BOARD_VENDOR_KERNEL_MODULES += $(DEFAULT_WIFI_KERNEL_MODULES)
+BOARD_VENDOR_KERNEL_MODULES += $(DEFAULT_TB_DETECT_KERNEL_MODULES)
 BOARD_VENDOR_KERNEL_MODULES += $(PRODUCT_OUT)/obj/lib_vendor/galcore.ko
 WIFI_OUT  := $(TARGET_OUT_INTERMEDIATES)/hardware/wifi
 
@@ -129,6 +132,7 @@ endif
 #	$(MAKE) -C $(shell pwd)/$(PRODUCT_OUT)/obj/KERNEL_OBJ M=$(shell pwd)/hardware/amlogic/thermal/ ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(PREFIX_CROSS_COMPILE) modules
 	#$(gpu-modules)
 	$(MAKE) KERNEL_ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(PREFIX_CROSS_COMPILE) -f device/khadas/common/wifi_driver.mk $(WIFI_MODULE)
+	$(tb-modules)
 	$(cp-modules)
 	$(media-modules)
 	$(npu-modules)
