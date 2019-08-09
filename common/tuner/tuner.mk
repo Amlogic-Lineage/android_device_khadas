@@ -73,10 +73,10 @@ endif
 ifeq ($(TUNER_MODULE), si2168)
 ifeq ($(KERNEL_A32_SUPPORT), true)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/tuner/32/si2168_fe_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/si2168_fe.ko
+    device/khadas/common/tuner/32/si2168_fe_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/si2168_fe.ko
 else
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/tuner/64/si2168_fe_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/si2168_fe.ko
+    device/khadas/common/tuner/64/si2168_fe_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/si2168_fe.ko
 endif
 endif
 
@@ -95,9 +95,9 @@ endif
 ifeq ($(TUNER_MODULE), avl6762)
 ifeq ($(KERNEL_A32_SUPPORT), true)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/tuner/32/avl6762_fe_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/avl6762_fe.ko
+    device/khadas/common/tuner/32/avl6762_fe_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/avl6762_fe.ko
 else
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/tuner/64/avl6762_fe_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/avl6762_fe.ko
+    device/khadas/common/tuner/64/avl6762_fe_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/avl6762_fe.ko
 endif
 endif

@@ -124,9 +124,9 @@ endif
 
 # Bluetooth idc config file
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/tv/Vendor_1915_Product_0001.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_1915_Product_0001.idc
+    device/khadas/common/products/tv/Vendor_1915_Product_0001.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_1915_Product_0001.idc
 
-custom_keylayouts := $(wildcard device/amlogic/common/keyboards/*.kl)
+custom_keylayouts := $(wildcard device/khadas/common/keyboards/*.kl)
 PRODUCT_COPY_FILES += $(foreach file,$(custom_keylayouts),\
     $(file):$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/$(notdir $(file)))
 

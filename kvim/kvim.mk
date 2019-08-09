@@ -364,7 +364,7 @@ endif
 #########################################################################
 
 
-$(call inherit-product, device/amlogic/common/media.mk)
+$(call inherit-product, device/khadas/common/media.mk)
 
 #########################################################################
 #
@@ -487,7 +487,7 @@ endif
 #                        TB detect
 #
 #########################################################################
-$(call inherit-product, device/amlogic/common/tb_detect.mk)
+$(call inherit-product, device/khadas/common/tb_detect.mk)
 
 include device/khadas/common/gpu/mali450-user-arm64.mk
 

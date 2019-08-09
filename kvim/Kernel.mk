@@ -51,8 +51,8 @@ else
 
 KERNEL_DEVICETREE := kvim
 KERNEL_DEFCONFIG := kvim_defconfig
--include device/amlogic/common/media_modules.mk
--include device/amlogic/common/tb_modules.mk
+-include device/khadas/common/media_modules.mk
+-include device/khadas/common/tb_modules.mk
 -include hardware/amlogic/wifi/configs/wifi_modules.mk
 -include hardware/amlogic/bluetooth/configs/bluetooth_modules.mk
 
@@ -82,7 +82,7 @@ CONFIG_DIR := $(KERNEL_ROOTDIR)/arch/$(KERNEL_ARCH)/configs/
 KASAN_DEFCONFIG := kasan_defconfig
 BUILD_CONFIG := $(KASAN_DEFCONFIG)
 $(shell cat $(CONFIG_DIR)/$(KERNEL_DEFCONFIG) > $(CONFIG_DIR)/$(KASAN_DEFCONFIG))
-$(shell cat device/amlogic/common/kasan.cfg >> $(CONFIG_DIR)/$(KASAN_DEFCONFIG))
+$(shell cat device/khadas/common/kasan.cfg >> $(CONFIG_DIR)/$(KASAN_DEFCONFIG))
 endif
 
 KERNEL_CONFIG := $(KERNEL_OUT)/.config
