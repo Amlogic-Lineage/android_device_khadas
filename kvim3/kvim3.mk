@@ -490,14 +490,6 @@ PRODUCT_PACKAGES += \
 	libVSC \
 	libOvx12VXCBinary
 #endif
-#########################################################################
-#
-#                                     Auto Patch
-#                          must put in the end of mk files
-#########################################################################
-AUTO_PATCH_SHELL_FILE := vendor/amlogic/common/tools/auto_patch/auto_patch.sh
-AUTO_PATCH_AB := vendor/amlogic/common/tools/auto_patch/auto_patch_ab.sh
-HAVE_WRITED_SHELL_FILE := $(shell test -f $(AUTO_PATCH_SHELL_FILE) && echo yes)
 
 ifneq ($(TARGET_BUILD_LIVETV),true)
 TARGET_BUILD_LIVETV := false

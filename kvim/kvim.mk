@@ -491,15 +491,6 @@ $(call inherit-product, device/amlogic/common/tb_detect.mk)
 
 include device/khadas/common/gpu/mali450-user-arm64.mk
 
-#########################################################################
-#
-#                                     Auto Patch
-#                          must put in the end of mk files
-#########################################################################
-AUTO_PATCH_SHELL_FILE := vendor/amlogic/common/tools/auto_patch/auto_patch.sh
-AUTO_PATCH_AB := vendor/amlogic/common/tools/auto_patch/auto_patch_ab.sh
-HAVE_WRITED_SHELL_FILE := $(shell test -f $(AUTO_PATCH_SHELL_FILE) && echo yes)
-
 ifneq ($(TARGET_BUILD_LIVETV),true)
 TARGET_BUILD_LIVETV := false
 endif
