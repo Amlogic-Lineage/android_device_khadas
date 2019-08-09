@@ -190,6 +190,17 @@ PRODUCT_AML_SECUREBOOT_SIGBIN	:= $(PRODUCT_AML_SECUREBOOT_SIGNTOOL) --binsig \
 					--amluserkey $(PRODUCT_AML_SECUREBOOT_USERKEY)
 endif # ifeq ($(PRODUCT_AML_SECURE_BOOT_VERSION3),true)
 
+
+########################################################################
+#
+#                           Kernel Arch
+#
+########################################################################
+KERNEL_A32_SUPPORT := false
+ifndef KERNEL_A32_SUPPORT
+KERNEL_A32_SUPPORT := true
+endif
+
 ########################################################################
 #
 #                           ATV
