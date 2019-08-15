@@ -147,6 +147,7 @@
 /sys/class/tsync/mode                                           u:object_r:sysfs_xbmc:s0
 /sys/class/tsync/checkin_firstapts                              u:object_r:sysfs_xbmc:s0
 /sys/class/tsync/checkin_firstvpts                              u:object_r:sysfs_xbmc:s0
+/sys/class/tsync_pcr/tsync_pcr_mode                             u:object_r:sysfs_xbmc:s0
 /sys/devices/virtual/amhdmitx/amhdmitx0(/.*)?                   u:object_r:sysfs_amhdmitx:s0
 
 /sys/class/audiodsp/digital_codec       		        u:object_r:sysfs_digital_codec:s0
