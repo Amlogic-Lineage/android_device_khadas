@@ -187,7 +187,7 @@ endif# PRODUCT_AML_SECURE_BOOT_VERSION3 := true
 #                           Kernel Arch
 #
 ########################################################################
-KERNEL_A32_SUPPORT := false
+#KERNEL_A32_SUPPORT := false
 ifndef KERNEL_A32_SUPPORT
 KERNEL_A32_SUPPORT := true
 endif
