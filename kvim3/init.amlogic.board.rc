@@ -58,6 +58,9 @@ on boot
     chmod 666 /sys/class/mcu/rst
     chmod 666 /sys/class/mcu/portmode
 
+#hardware version
+    chmod 666 /sys/class/khadas/hwver
+
 #cmdline
     chmod 666 /proc/cmdline
 
