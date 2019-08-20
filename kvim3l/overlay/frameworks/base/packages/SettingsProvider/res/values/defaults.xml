@@ -25,4 +25,5 @@
     <bool name="def_wifi_on">true</bool>
     <bool name="def_lockscreen_disabled">true</bool>
     <bool name="def_user_setup_complete">true</bool>
+    <bool name="def_device_provisioned">true</bool>
 </resources>
