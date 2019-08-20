@@ -24,4 +24,5 @@
     <!--<string name="config_defaultIME">com.amlogic.inputmethod.remote/.RemoteIME</string>-->
     <bool name="def_wifi_on">true</bool>
     <bool name="def_lockscreen_disabled">true</bool>
+    <bool name="def_user_setup_complete">true</bool>
 </resources>
