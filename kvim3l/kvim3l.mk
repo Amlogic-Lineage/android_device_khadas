@@ -79,6 +79,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.build.display.id=VIM3L_Pie_$(shell date +%Y%m%d)
 
+PRODUCT_PROPERTY_OVERRIDES += \
+        persist.vendor.sys.cec.set_menu_language=false
+
 PRODUCT_NAME := kvim3l
 PRODUCT_DEVICE := kvim3l
 PRODUCT_BRAND := Khadas
