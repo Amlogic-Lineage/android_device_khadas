@@ -76,6 +76,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
         ro.hdmi.set_menu_language=true \
         persist.sys.hdmi.keep_awake=false
 
+PRODUCT_PROPERTY_OVERRIDES += \
+        ro.build.display.id=VIM3L_Pie_$(shell date +%Y%m%d)
+
 PRODUCT_NAME := kvim3l
 PRODUCT_DEVICE := kvim3l
 PRODUCT_BRAND := Khadas
