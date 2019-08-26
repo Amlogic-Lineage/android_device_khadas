@@ -27,4 +27,5 @@
     <bool name="def_lockscreen_disabled">true</bool>
     <bool name="def_device_provisioned">true</bool>
     <bool name="def_user_setup_complete">true</bool>
+    <bool name="def_install_non_market_apps">true</bool>
 </resources>
