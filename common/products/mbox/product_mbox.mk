@@ -79,6 +79,12 @@ PRODUCT_PACKAGES += \
     setbootenv \
     getbootenv
 
+#screencontrol
+PRODUCT_PACKAGES += \
+    screencontrol \
+    libscreencontrolservice \
+    libscreencontrol_jni \
+
 #droid vold
 PRODUCT_PACKAGES += \
     droidvold
