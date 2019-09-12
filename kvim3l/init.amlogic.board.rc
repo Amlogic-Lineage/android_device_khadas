@@ -50,5 +50,9 @@ on boot
 #hardware version
     chmod 666 /sys/class/khadas/hwver
 
+#4G
+    chmod 777 /dev/ttyUSB0
+    chmod 777 /dev/ttyUSB2
+
 #cmdline
     chmod 666 /proc/cmdline

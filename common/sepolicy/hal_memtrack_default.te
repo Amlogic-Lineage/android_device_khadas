@@ -86,6 +86,11 @@ allow hal_memtrack_default hdcp_rx22:file { read open getattr };
 allow hal_memtrack_default dtvkitserver:dir {search};
 allow hal_memtrack_default dtvkitserver:file {read open getattr};
 
+allow hal_memtrack_default imageserver:dir {read write create open ioctl search};
+allow hal_memtrack_default rild:dir {read write create ioctl open search};
+allow hal_memtrack_default rild:file {read write create ioctl open getattr};
+allow hal_memtrack_default device:file {read write create open ioctl};
+
 allow hal_memtrack_default debugfs_mali:dir { search read open };
 allow hal_memtrack_default debugfs_mali:file { r_file_perms };
 allow hal_memtrack_default { hal_drm_clearkey imageserver rc_server hal_wifi_supplicant_default }:dir { search };

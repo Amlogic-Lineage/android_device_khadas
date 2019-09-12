@@ -444,6 +444,13 @@ service preinstall /system/bin/preinstall.sh
     oneshot
     seclabel u:r:preinstall:s0
 
+service ril-daemon /vendor/bin/hw/rild -l /vendor/lib/libhuawei-ril.so
+    class main
+    socket rild stream 777 root radio
+    socket rild-debug stream 777 radio system
+    user root
+    group radio cache inet misc audio sdcard_rw log
+
 #wifi firmware_path
 #on property:wlan.driver.status=ok
 #   chown system wifi /sys/module/dhd/parameters/firmware_path
