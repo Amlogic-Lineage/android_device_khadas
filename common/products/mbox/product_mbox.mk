@@ -143,6 +143,17 @@ PRODUCT_COPY_FILES += \
     device/khadas/common/products/mbox/Vendor_1915_Product_0001.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_1915_Product_0001.idc \
     device/khadas/common/products/mbox/Vendor_1d5a_Product_c082.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_1d5a_Product_c082.idc
 
+# USB HID Multitouch
+PRODUCT_COPY_FILES += \
+    device/khadas/common/products/mbox/Vendor_0eef_Product_0005.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_0eef_Product_0005.idc \
+    device/khadas/common/products/mbox/Vendor_03fc_Product_05d8.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_03fc_Product_05d8.idc \
+    device/khadas/common/products/mbox/Vendor_1870_Product_0119.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_1870_Product_0119.idc \
+    device/khadas/common/products/mbox/Vendor_1870_Product_0100.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_1870_Product_0100.idc \
+    device/khadas/common/products/mbox/Vendor_2808_Product_81c9.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_2808_Product_81c9.idc \
+    device/khadas/common/products/mbox/Vendor_16b4_Product_0704.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_16b4_Product_0704.idc \
+    device/khadas/common/products/mbox/Vendor_16b4_Product_0705.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_16b4_Product_0705.idc \
+    device/khadas/common/products/mbox/Vendor_04d8_Product_0c03.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_04d8_Product_0c03.idc
+
 custom_keylayouts := $(wildcard device/khadas/common/keyboards/*.kl)
 PRODUCT_COPY_FILES += $(foreach file,$(custom_keylayouts),\
     $(file):$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/$(notdir $(file)))
