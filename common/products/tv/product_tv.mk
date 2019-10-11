@@ -39,10 +39,11 @@ PRODUCT_PACKAGES += \
 # DTVKit
 ifeq ($(PRODUCT_SUPPORT_DTVKIT), true)
 PRODUCT_PACKAGES += \
-    libdtvkit_midware   \
-    libdtvkit_platform \
     inputsource \
-    libdtvkit_jni
+    libdtvkit_jni \
+    libdtvkitserver \
+    droidlogic-dtvkit \
+    droidlogic.dtvkit.software.core.xml
 endif
 
 endif
