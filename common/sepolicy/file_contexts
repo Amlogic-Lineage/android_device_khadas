@@ -138,9 +138,11 @@
 /sys/class/dmx/demux0_scramble                                  u:object_r:sysfs_audio:s0
 /sys/class/tsync/firstapts                                      u:object_r:sysfs_xbmc:s0
 /sys/class/tsync/pts_audio                                      u:object_r:sysfs_xbmc:s0
-/sys/class/tsync/pts_video                                     u:object_r:sysfs_xbmc:s0
+/sys/class/tsync/pts_video                                      u:object_r:sysfs_xbmc:s0
 /sys/class/tsync/event                                          u:object_r:sysfs_xbmc:s0
 /sys/class/tsync/pts_pcrscr                                     u:object_r:sysfs_xbmc:s0
+/sys/class/stb/audio_pts                                        u:object_r:sysfs_xbmc:s0
+/sys/class/stb/video_pts                                        u:object_r:sysfs_xbmc:s0
 /sys/class/tsync/firstvpts                                      u:object_r:sysfs_xbmc:s0
 /sys/class/tsync/mode                                           u:object_r:sysfs_xbmc:s0
 /sys/class/tsync/checkin_firstapts                              u:object_r:sysfs_xbmc:s0
