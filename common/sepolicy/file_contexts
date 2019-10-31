@@ -340,3 +340,9 @@
 /system/bin/ntfs-3g             u:object_r:fsck_exec:s0
 /system/bin/ntfsfix             u:object_r:fsck_exec:s0
 /system/bin/fsck.exfat          u:object_r:fsck_exec:s0
+
+#ctsplayer
+/sys/class/tsync/av_threshold_min   u:object_r:ctsplayer_file:s0
+/sys/class/tsync/vpause_flag    u:object_r:ctsplayer_file:s0
+/sys/module/amvdec_h264/parameters/error_recovery_mode    u:object_r:ctsplayer_file:s0
+/sys/class/amaudio/audio_channels_mask    u:object_r:ctsplayer_file:s0

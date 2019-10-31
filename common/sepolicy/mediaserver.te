@@ -38,6 +38,11 @@ allow mediaserver sysfs_audio:lnk_file {read};
 allow mediaserver self:udp_socket { ioctl read};
 
 #============= mediaserver ctsplayer==============
+allow mediaserver ctsplayer_file:file { open read write };
+allow mediaserver uboot_prop:file { getattr open read };
 allow mediaserver sysfs_amvdec:file { open read write };
 allow mediaserver sysfs_di:dir search;
 allow mediaserver sysfs_display:lnk_file read;
+allow mediaserver sysfs_display:dir search;
+allow mediaserver systemcontrol_hwservice:hwservice_manager find;
+allow mediaserver system_control:binder { call transfer };

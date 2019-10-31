@@ -89,3 +89,5 @@ type debugfs_demod, fs_type, sysfs_type, debugfs_type;
 type debugfs_mali, fs_type, sysfs_type, debugfs_type;
 
 type proc_vm_writable, fs_type, proc_type;
+
+type ctsplayer_file, fs_type, sysfs_type;
