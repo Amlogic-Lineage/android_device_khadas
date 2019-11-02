@@ -34,6 +34,7 @@ on boot
     chmod 666 /sys/class/fan/mode
     chmod 666 /sys/class/fan/level
     chmod 666 /sys/class/fan/enable
+    chmod 666 /sys/class/fan/type
 
 #mcu
     chmod 666 /sys/class/mcu/rst
