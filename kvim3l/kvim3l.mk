@@ -471,6 +471,9 @@ AB_OTA_POSTINSTALL_CONFIG += \
     POSTINSTALL_OPTIONAL_system=true
 endif
 
+PRODUCT_PACKAGES += \
+    SettingsIntelligence
+
 #########################################################################
 #
 #                                     TB detect

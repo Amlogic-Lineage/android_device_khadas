@@ -481,6 +481,9 @@ AB_OTA_POSTINSTALL_CONFIG += \
 
 endif
 
+PRODUCT_PACKAGES += \
+   SettingsIntelligence
+
 
 #########################################################################
 #

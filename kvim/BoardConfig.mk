@@ -48,6 +48,7 @@ TARGET_NO_RADIOIMAGE := true
 
 TARGET_BOARD_PLATFORM := gxl
 TARGET_BOOTLOADER_BOARD_NAME := kvim
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/khadas/kvim/bluetooth
 
 # Allow passing `--second` to mkbootimg via 2ndbootloader.
 TARGET_BOOTLOADER_IS_2ND := true
