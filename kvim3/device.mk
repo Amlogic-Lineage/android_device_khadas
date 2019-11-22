@@ -113,6 +113,10 @@ PRODUCT_COPY_FILES += \
     device/khadas/common/ril/libhuawei-ril/libhuawei-ril.so:vendor/lib/libhuawei-ril.so \
     device/khadas/common/ril/apns-conf.xml:system/etc/apns-conf.xml
 
+# Light HAL
+PRODUCT_PACKAGES += \
+    lights.amlogic
+
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
