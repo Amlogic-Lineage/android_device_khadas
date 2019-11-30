@@ -110,7 +110,10 @@ PRODUCT_PACKAGES += \
     TeleService
 
 PRODUCT_COPY_FILES += \
-    device/khadas/common/ril/libhuawei-ril/libhuawei-ril.so:vendor/lib/libhuawei-ril.so \
+    device/khadas/common/ril/libquectel-ril/chat:system/bin/chat \
+    device/khadas/common/ril/libquectel-ril/libquectel-ril.so:vendor/lib/libquectel-ril.so \
+    device/khadas/common/ril/libquectel-ril/ip-up:system/etc/ppp/ip-up \
+    device/khadas/common/ril/libquectel-ril/ip-down:system/etc/ppp/ip-down \
     device/khadas/common/ril/apns-conf.xml:system/etc/apns-conf.xml
 
 # Light HAL
