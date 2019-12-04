@@ -25,6 +25,7 @@ allow hal_memtrack_default hal_thermal_default:file { r_file_perms };
 allow hal_memtrack_default thermalserviced:dir search;
 allow hal_memtrack_default thermalserviced:file { r_file_perms };
 allow hal_memtrack_default debugfs:dir { read open };
+allow hal_memtrack_default sysfs:file { r_file_perms };
 
 allow hal_memtrack_default incidentd:dir search;
 allow hal_memtrack_default incidentd:file { getattr open read };
@@ -95,7 +96,12 @@ allow hal_memtrack_default subtitleserver:dir {search};
 allow hal_memtrack_default subtitleserver:file r_file_perms;
 
 allow hal_memtrack_default debugfs_mali:dir { search read open };
+allow hal_memtrack_default debugfs_ion:dir { search read open };
+
 allow hal_memtrack_default debugfs_mali:file { r_file_perms };
+allow hal_memtrack_default debugfs_ion:file { r_file_perms };
+allow hal_memtrack_default sysfs_mali:file { r_file_perms };
+
 allow hal_memtrack_default { hal_drm_clearkey imageserver rc_server hal_wifi_supplicant_default screen_control }:dir { search };
 allow hal_memtrack_default { hal_drm_clearkey imageserver rc_server hal_wifi_supplicant_default screen_control }:file { read open getattr };
 
