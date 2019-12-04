@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+BUILD_WITH_AMADEC_CTC := false
+
 PRODUCT_PACKAGES += \
     audio_policy.default \
     audio.primary.amlogic \
@@ -38,6 +40,10 @@ PRODUCT_PACKAGES += \
     libvirtualx \
     libdbx \
 
+ifeq ($(BUILD_WITH_AMADEC_CTC),true)
+PRODUCT_PACKAGES += libfaad_sys \
+                    libmad_sys
+endif
 #PRODUCT_COPY_FILES += \
 #    $(TARGET_PRODUCT_DIR)/audio_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy.conf \
 #    $(TARGET_PRODUCT_DIR)/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf
