@@ -417,6 +417,9 @@ include device/khadas/common/software.mk
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=280
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.boot.wificountrycode=CN
+
 
 #########################################################################
 #
