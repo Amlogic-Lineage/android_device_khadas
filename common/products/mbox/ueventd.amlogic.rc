@@ -137,3 +137,7 @@
 /dev/dvb0.frontend0                 0666   root       system
 
 /dev/vndbinder						0666   root       root
+
+# TEE
+/dev/tee0                 0666   system       system
+/dev/teepriv0             0666   system       system
