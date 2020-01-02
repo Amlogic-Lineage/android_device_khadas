@@ -418,6 +418,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.boot.wificountrycode=CN
 
 
+
 #########################################################################
 #
 #                          Khadas Build Config

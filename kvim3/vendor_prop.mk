@@ -96,19 +96,12 @@ PRODUCT_PROPERTY_OVERRIDES +=  \
 PRODUCT_PROPERTY_OVERRIDES +=  \
     service.adb.tcp.port=5555
 
-#enable/disable afbc
-PRODUCT_PROPERTY_OVERRIDES +=  \
-    vendor.afbcd.enable=0
-
 # default enable sdr to hdr
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.sdr2hdr.enable=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.is.tv=0
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.omx.dw=1
 
 #bootvideo
 #0                      |050
