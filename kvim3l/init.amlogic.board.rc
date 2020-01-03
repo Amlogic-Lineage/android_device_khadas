@@ -37,7 +37,7 @@ on boot
     chmod 666 /sys/class/fan/level
     chmod 666 /sys/class/fan/enable
     chmod 666 /sys/class/fan/type
-
+    chmod 0666 /sys/class/mcu/ageing_test
 #wol
     chmod 666 /sys/class/wol/enable
 
