@@ -270,10 +270,14 @@ INSTALLED_AML_USER_IMAGES :=
 ifeq ($(TARGET_BUILD_USER_PARTS),true)
 define aml-mk-user-img-template
 INSTALLED_AML_USER_IMAGES += $(2)
+INSTALLED_RADIOIMAGE_TARGET += $(2) $(3)
+BOARD_PACK_RADIOIMAGES += $(strip $(1)).img $(strip $(1)).map
 $(eval tempUserSrcDir := $$($(strip $(1))_PART_DIR))
 $(2): $(call intermediates-dir-for,ETC,file_contexts.bin)/file_contexts.bin $(MAKE_EXT4FS) $(shell find $(tempUserSrcDir) -type f)
 	@out/host/linux-x86/bin/mkuserimg_mke2fs.sh -s $(tempUserSrcDir) $$@ ext4  $(1) $$($(strip $(1))_PART_SIZE) -T 1230739200 -B $(strip $(PRODUCT_OUT))/$(strip $(1)).map -L $(1) -M 0 $$< && \
 	out/host/linux-x86/bin/mkuserimg_mke2fs.sh -s $(tempUserSrcDir) $$@ ext4  $(1) $$($(strip $(1))_PART_SIZE) -T 1230739200 -B $(strip $(PRODUCT_OUT))/$(strip $(1)).map -L $(1) -M 0 $$<
+$(3):$(2)
+	echo "already build"
 endef
 .PHONY:contexts_add
 contexts_add:$(TARGET_ROOT_OUT)/file_contexts
@@ -281,7 +285,7 @@ contexts_add:$(TARGET_ROOT_OUT)/file_contexts
 		$(shell sed -i "/\/$(strip $(userPartName))/d" $< && \
 		echo -e "/$(strip $(userPartName))(/.*)?      u:object_r:system_file:s0" >> $<))
 $(foreach userPartName, $(BOARD_USER_PARTS_NAME), \
-	$(eval $(call aml-mk-user-img-template, $(userPartName),$(PRODUCT_OUT)/$(userPartName).img)))
+	$(eval $(call aml-mk-user-img-template, $(userPartName),$(PRODUCT_OUT)/$(userPartName).img, $(PRODUCT_OUT)/$(userPartName).map)))
 
 define aml-user-img-update-pkg
 	ln -sf $(shell readlink -f $(PRODUCT_OUT)/$(1).img) $(PRODUCT_UPGRADE_OUT)/$(1).img && \
