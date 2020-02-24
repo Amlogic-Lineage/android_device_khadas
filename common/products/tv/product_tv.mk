@@ -47,6 +47,7 @@ PRODUCT_PACKAGES += \
     droidlogic-dtvkit \
     droidlogic.dtvkit.software.core.xml
 
+    PRODUCT_SUPPORT_CIPLUS := true
 # libswdemux
 ifeq ($(PRODUCT_SUPPORT_SWDEMUX), true)
 PRODUCT_PACKAGES += \

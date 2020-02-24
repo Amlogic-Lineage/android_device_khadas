@@ -52,6 +52,8 @@ PRODUCT_PACKAGES += \
     libdtvkitserver \
     droidlogic-dtvkit \
     droidlogic.dtvkit.software.core.xml
+
+    PRODUCT_SUPPORT_CIPLUS := false
 endif
 
 PRODUCT_COPY_FILES += \
