@@ -29,6 +29,7 @@ OPTIONS.ota_zip_check = True
 OPTIONS.data_save = False
 OPTIONS.backup_zip = True
 OPTIONS.hdcp_key_write = False
+OPTIONS.ddr_wipe = False
 
 def SetBootloaderEnv(script, name, val):
   """Set bootloader env name with val."""
@@ -178,6 +179,8 @@ package_extract_file("vbmeta.img", "/dev/block/vbmeta");""")
   if OPTIONS.ota_partition_change:
     info.script.AppendExtra('ui_print("update bootloader.img...");')
     info.script.AppendExtra('write_bootloader_image(package_extract_file("bootloader.img"));')
+    if OPTIONS.ddr_wipe:
+      info.script.AppendExtra('wipe_ddr_parameter();')
 
   if OPTIONS.hdcp_key_write:
     info.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/param", "/param");')
