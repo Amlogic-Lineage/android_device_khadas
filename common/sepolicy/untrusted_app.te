@@ -8,3 +8,4 @@ allow untrusted_app vendor_file:file { read open getattr };
 get_prop(untrusted_app, netflix_prop)
 
 allow untrusted_app debugfs_mali:dir { search };
+allow untrusted_app galcore_device:chr_file { write open read getattr ioctl };
