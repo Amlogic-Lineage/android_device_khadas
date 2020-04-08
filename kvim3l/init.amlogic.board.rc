@@ -47,6 +47,7 @@ on boot
 #mcu
     chmod 666 /sys/class/mcu/rst
     chmod 666 /sys/class/mcu/portmode
+    chmod 666 /sys/class/mcu/ethernet_mode
 
 #hardware version
     chmod 666 /sys/class/khadas/hwver
