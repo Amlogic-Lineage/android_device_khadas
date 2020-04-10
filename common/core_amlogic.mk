@@ -194,6 +194,7 @@ PRODUCT_PACKAGES += \
     droidlogic.software.core.xml \
     systemcontrol \
     systemcontrol_static \
+    subtitleserver \
     libsystemcontrolservice \
     libsystemcontrol_jni  \
     vendor.amlogic.hardware.systemcontrol@1.0_vendor
@@ -257,7 +258,9 @@ PRODUCT_PACKAGES += \
     libremotecontrol_jni \
     libremotecontrolserver \
     vendor.amlogic.hardware.remotecontrol@1.0 \
-    vendor.amlogic.hardware.remotecontrol@1.0_vendor
+    vendor.amlogic.hardware.remotecontrol@1.0_vendor \
+    vendor.amlogic.hardware.subtitleserver@1.0 \
+    vendor.amlogic.hardware.subtitleserver@1.0_vendor \
 
 PRODUCT_PACKAGES += libomx_av_core_alt \
     libOmxCore \
@@ -483,6 +486,8 @@ ifeq ($(BUILD_WITH_MIRACAST_HDCP), true)
 PRODUCT_PACKAGES += \
     libstagefright_hdcp \
     807798e0-f011-11e5-a5fe0002a5d5c51b
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.miracast.hdcp2=true
 endif
 
 ifeq ($(TARGET_BUILD_GOOGLE_ATV), true)
@@ -521,18 +526,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.af.client_heap_size_kbyte=1536
 
-# Google need add this prop ATV00VPSZYR<KEY> (<KEY> optional, OEM Custom)
-# ATV00: specification value
-# V: whether included voice remote, Not included:0 included:1
-# PSZ: 3-Digit Panel Size (inches).043 = 43” panel size, For non TV devices, set to 000
-# YR: 2-Digit Model Year. Example: 19 = 2019 model year
-# <KEY> (optional)
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.oem.key1=ATV00104319
-
 #fix android.permission2.cts.ProtectedBroadcastsTest
 #PRODUCT_PACKAGES += \
 #    TeleService
+
+# add keys burn api
+PRODUCT_PACKAGES += \
+   libkeys_burn
 
 #add copy alarm file to product
 PRODUCT_COPY_FILES += \

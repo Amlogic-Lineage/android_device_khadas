@@ -21,6 +21,7 @@ key 106   DPAD_RIGHT
 key 115   VOLUME_UP
 key 114   VOLUME_DOWN
 key 116   POWER
+key 139   MENU
 
 #key usage 0x0c00b3    MEDIA_FAST_FORWARD
 #key usage 0x0c00cd    MEDIA_PLAY_PAUSE

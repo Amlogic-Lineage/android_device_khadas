@@ -86,6 +86,7 @@
 /sys/devices/bt-dev.*/rfkill/rfkill0   type    0660    bluetooth   bluetooth
 /dev/rtk_btusb            0660   bluetooth  bluetooth
 /dev/rtkbt_dev            0660   bluetooth  bluetooth
+/dev/bt_usb0              0660   bluetooth  bluetooth
 /dev/hidraw*              0660   system     audio
 #hdmi cec
 /sys/class/amhdmitx/amhdmitx0   phy_addr     0664    system    system

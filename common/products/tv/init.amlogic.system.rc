@@ -15,6 +15,9 @@ on init
     chown system wifi /dev/wifi_power
     chmod 0660 /dev/wifi_power
     chmod 666 /dev/amvideo
+    chmod 664 /sys/class/video/hdmin_delay_duration
+    chmod 664 /sys/class/video/hdmin_delay_start
+    chmod 644 /sys/class/video/vframe_walk_delay
 
     chmod 666 /sys/class/audiodsp/codec_fatal_err
     chmod 666 /sys/class/ppmgr/angle
@@ -113,6 +116,8 @@ on boot
     chown media system /sys/module/ionvideo/parameters/freerun_mode
     chown system graphics /sys/module/fb/parameters/osd_logo_index
 
+    chmod 0666 /sys/class/tsync_pcr/tsync_vpts_adjust
+    chmod 0666 /sys/class/amstream/reset_audio_port
     chmod 0664 /sys/class/graphics/fb0/blank
     chmod 0664 /sys/class/graphics/fb1/blank
     chmod 0664 /sys/class/graphics/fb0/free_scale_switch
@@ -128,6 +133,9 @@ on boot
     chown media system /sys/class/video/zoom
     chown media system /sys/class/video/free_keep_buffer
     chown media system /sys/class/video/free_cma_buffer
+    chown system mediadrm /sys/class/video/hdmin_delay_duration
+    chown system mediadrm /sys/class/video/hdmin_delay_start
+    chown system mediadrm /sys/class/video/vframe_walk_delay
     chown media system /sys/class/video/crop
     chown meida system /sys/class/video/crop_pip
     chown mediacodec mediadrm /sys/class/codec_mm/tvp_enable

@@ -105,9 +105,15 @@ def FullOTA_Assertions(info):
     info.script.AppendExtra('if ota_zip_check() == "1" then')
     if OPTIONS.data_save:
       info.script.AppendExtra('backup_data_partition_check("500");')
-    info.script.AppendExtra('backup_data_cache(dtb, /cache/recovery/);')
-    info.script.AppendExtra('backup_data_cache(recovery, /cache/recovery/);')
+    info.script.AppendExtra('if recovery_backup_exist() == "0" then')
+    info.script.AppendExtra('package_extract_file("dt.img", "/cache/recovery/dtb.img");')
+    info.script.AppendExtra('package_extract_file("recovery.img", "/cache/recovery/recovery.img");')
+    info.script.AppendExtra('endif;')
     info.script.AppendExtra('set_bootloader_env("upgrade_step", "3");')
+    if OPTIONS.ota_partition_change:
+      info.script.AppendExtra('ui_print("update bootloader.img...");')
+      info.script.AppendExtra('write_bootloader_image(package_extract_file("bootloader.img"));')
+      info.script.AppendExtra('set_bootloader_env("recovery_from_flash", "defenv_resev;save;reset");')
     # backup the update package to /cache or /dev/block/mmcblk0
     if OPTIONS.backup_zip:
       info.script.AppendExtra('backup_update_package("/dev/block/mmcblk0", "1894");')
@@ -117,9 +123,6 @@ def FullOTA_Assertions(info):
     info.script.AppendExtra('package_extract_file("logo.img", "/dev/block/logo");')
     info.script.AppendExtra('write_dtb_image(package_extract_file("dt.img"));')
     info.script.WriteRawImage("/recovery", "recovery.img")
-    if OPTIONS.ota_partition_change:
-      info.script.AppendExtra('ui_print("update bootloader.img...");')
-      info.script.AppendExtra('write_bootloader_image(package_extract_file("bootloader.img"));')
     info.script.AppendExtra('delete_file("/cache/recovery/dtb.img");')
     info.script.AppendExtra('delete_file("/cache/recovery/recovery.img");')
     info.script.AppendExtra('reboot_recovery();')
@@ -159,13 +162,18 @@ package_extract_file("logo.img", "/dev/block/logo");
 ui_print("update dtbo.img...");
 package_extract_file("dtbo.img", "/dev/block/dtbo");
 ui_print("update dtb.img...");
+if recovery_backup_exist() == "0" then
 backup_data_cache(dtb, /cache/recovery/);
 backup_data_cache(recovery, /cache/recovery/);
+endif;
 write_dtb_image(package_extract_file("dt.img"));
 ui_print("update recovery.img...");
 package_extract_file("recovery.img", "/dev/block/recovery");
 ui_print("update vbmeta.img...");
 package_extract_file("vbmeta.img", "/dev/block/vbmeta");""")
+
+  info.script.AppendExtra('delete_file("/cache/recovery/dtb.img");')
+  info.script.AppendExtra('delete_file("/cache/recovery/recovery.img");')
 
   if OPTIONS.ota_partition_change:
     info.script.AppendExtra('ui_print("update bootloader.img...");')
@@ -185,8 +193,6 @@ package_extract_file("vbmeta.img", "/dev/block/vbmeta");""")
   info.script.AppendExtra('endif;')
 
   SetBootloaderEnv(info.script, "upgrade_step", "1")
-  info.script.AppendExtra('delete_file("/cache/recovery/dtb.img");')
-  info.script.AppendExtra('delete_file("/cache/recovery/recovery.img");')
   SetBootloaderEnv(info.script, "force_auto_update", "false")
 
   if OPTIONS.ota_zip_check:
@@ -228,7 +234,10 @@ def IncrementalOTA_ImageCheck(info, name):
     if name == "dt":
       info.script.AppendExtra('write_dtb_image(package_extract_file("dt.img"));')
     else:
-      info.script.WriteRawImage("/" + name, image_name)
+      if name == "bootloader":
+        info.script.AppendExtra('write_bootloader_image(package_extract_file("bootloader.img"));')
+      else:
+        info.script.WriteRawImage("/" + name, image_name)
 
   if name == "bootloader":
     if updating_image:
@@ -250,7 +259,7 @@ def IncrementalOTA_Ext4ImageCheck(info, name):
 
   if source_image:
     if target_image:
-      updating_image = common.BlockDifference(name, source_image, target_image,
+      updating_image = common.BlockDifference(name, target_image, source_image,
                                        True,
                                        version=4,
                                        disable_imgdiff=False)

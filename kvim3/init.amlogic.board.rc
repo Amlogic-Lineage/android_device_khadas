@@ -15,7 +15,7 @@ on late-init
 
 on post-fs-data
     insmod /vendor/lib/modules/cfg80211.ko
-    insmod /vendor/lib/dovi.ko
+    insmod /vendor/lib/modules/dovi.ko
     insmod /vendor/lib/sl_hdr.ko
     insmod /vendor/lib/modules/galcore.ko
     insmod /vendor/lib/modules/iv009_isp_iq.ko

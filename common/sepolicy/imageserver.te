@@ -39,6 +39,11 @@ allow imageserver imageserver:capability { net_raw };
 allow imageserver dnsproxyd_socket:sock_file { write };
 allow imageserver netd:unix_stream_socket { connectto };
 allow imageserver shell_data_file:file { create };
+#allow imageserver vndbinder_device:chr_file { read write open ioctl };
+allow imageserver system_prop:property_service { set };
+allow imageserver sysfs_di:dir { search };
+allow imageserver sysfs_di:file { read write open };
+#allow imageserver sysfs:file {read write open };
 
 set_prop(imageserver, hwservicemanager_prop)
 get_prop(imageserver, hwservicemanager_prop)

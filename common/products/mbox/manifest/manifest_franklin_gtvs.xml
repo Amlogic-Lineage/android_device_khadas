@@ -1,5 +1,14 @@
 <manifest version="1.0" type="device" target-level="3">
     <hal format="hidl">
+        <name>vendor.amlogic.hardware.subtitleserver</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISubtitleServer</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
         <name>android.hardware.configstore</name>
         <transport>hwbinder</transport>
         <version>1.1</version>

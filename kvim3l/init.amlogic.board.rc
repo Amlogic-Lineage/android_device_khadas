@@ -10,7 +10,7 @@ on init
 
 on post-fs-data
     insmod /vendor/lib/modules/cfg80211.ko
-    insmod /vendor/lib/dovi.ko
+    insmod /vendor/lib/modules/dovi.ko
     insmod /vendor/lib/modules/galcore.ko
 
 on boot

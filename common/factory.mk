@@ -138,6 +138,8 @@ $(INSTALLED_BOARDDTB_TARGET) : $(KERNEL_DEVICETREE_SRC) $(DTCTOOL) $(DTIMGTOOL) 
 		fi;\
 		$(MAKE) -C $(KERNEL_ROOTDIR) O=../$(KERNEL_OUT) ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(PREFIX_CROSS_COMPILE) $(strip $(aDts)).dtb; \
 	)
+	cp device/khadas/common/common_partition.xml $(PRODUCT_OUT)/emmc_burn.xml
+	./device/khadas/common/dtsi2xml.sh $(KERNEL_ROOTDIR)/$(KERNEL_DEVICETREE_DIR)/$(TARGET_PARTITION_DTSI)  $(PRODUCT_OUT)/emmc_burn.xml
 
 ifneq ($(strip $(word 2, $(KERNEL_DEVICETREE)) ),)
 	$(hide) $(DTBTOOL) -o $@ -p $(KERNEL_OUT)/scripts/dtc/ $(KERNEL_OUT)/$(KERNEL_DEVICETREE_DIR)
@@ -270,8 +272,8 @@ define aml-mk-user-img-template
 INSTALLED_AML_USER_IMAGES += $(2)
 $(eval tempUserSrcDir := $$($(strip $(1))_PART_DIR))
 $(2): $(call intermediates-dir-for,ETC,file_contexts.bin)/file_contexts.bin $(MAKE_EXT4FS) $(shell find $(tempUserSrcDir) -type f)
-	@out/host/linux-x86/bin/mkuserimg_mke2fs.sh -s $(tempUserSrcDir) $$@ ext4  $(1) $$($(strip $(1))_PART_SIZE) -j 0 -T 1230739200 -B $(strip $(PRODUCT_OUT))/$(strip $(1)).map -L $(1) -M 0 $$< && \
-	out/host/linux-x86/bin/mkuserimg_mke2fs.sh -s $(tempUserSrcDir) $$@ ext4  $(1) $$($(strip $(1))_PART_SIZE) -j 0 -T 1230739200 -B $(strip $(PRODUCT_OUT))/$(strip $(1)).map -L $(1) -M 0 $$<
+	@out/host/linux-x86/bin/mkuserimg_mke2fs.sh -s $(tempUserSrcDir) $$@ ext4  $(1) $$($(strip $(1))_PART_SIZE) -T 1230739200 -B $(strip $(PRODUCT_OUT))/$(strip $(1)).map -L $(1) -M 0 $$< && \
+	out/host/linux-x86/bin/mkuserimg_mke2fs.sh -s $(tempUserSrcDir) $$@ ext4  $(1) $$($(strip $(1))_PART_SIZE) -T 1230739200 -B $(strip $(PRODUCT_OUT))/$(strip $(1)).map -L $(1) -M 0 $$<
 endef
 .PHONY:contexts_add
 contexts_add:$(TARGET_ROOT_OUT)/file_contexts

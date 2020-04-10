@@ -115,6 +115,8 @@ on boot
     chown media system /sys/module/ionvideo/parameters/freerun_mode
     chown system graphics /sys/module/fb/parameters/osd_logo_index
 
+    chmod 0666 /sys/class/tsync_pcr/tsync_vpts_adjust
+    chmod 0666 /sys/class/amstream/reset_audio_port
     chmod 0664 /sys/class/graphics/fb0/blank
     chmod 0664 /sys/class/graphics/fb1/blank
     chmod 0664 /sys/class/graphics/fb0/free_scale_switch
@@ -167,9 +169,6 @@ on boot
     chmod 0664  /sys/class/amaudio/debug
     chmod 0666 /dev/ilitek_ctrl
     chmod 0660 /dev/wifi_power
-    chmod 0666  /dev/vdin0
-    chmod 0666  /dev/video11
-    chmod 0666  /dev/video12
 
 # default support XBMC
     chmod 666 /sys/class/video/axis
@@ -472,12 +471,6 @@ service ril-daemon /vendor/bin/hw/rild -l /vendor/lib/libquectel-ril.so
 on property:ro.debuggable=1
     write /sys/module/kgdboc/parameters/kgdboc ttyFIQ2
     write /sys/module/fiq_debugger/parameters/kgdb_enable 1
-
-on property:vendor.sys.mtkbtdriver=true
-	insmod /vendor/lib/modules/btmtksdio.ko
-
-on property:vendor.sys.mtkbtdriver=false
-	rmmod btmtksdio
 
 service remotecfg /vendor/bin/remotecfg /vendor/etc/remote.conf
     class main

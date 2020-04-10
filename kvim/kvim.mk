@@ -332,6 +332,16 @@ BUILD_WITH_VIEWRIGHT_WEB := false
 BUILD_WITH_VIEWRIGHT_STB := false
 #########################################################################
 
+#########################################################################
+#
+#                                                Widevine CAS
+BUILD_WITH_WIDEVINECAS := true
+ifeq ($(BUILD_WITH_WIDEVINECAS),true)
+PRODUCT_PACKAGES += libwvmediacas \
+                    liboemcrypto_cas
+PRODUCT_PACKAGES += e043cde0-61d0-11e5-9c260002a5d5c5ca
+endif
+##########################################################################
 
 #DRM Widevine
 ifeq ($(BOARD_WIDEVINE_OEMCRYPTO_LEVEL),)

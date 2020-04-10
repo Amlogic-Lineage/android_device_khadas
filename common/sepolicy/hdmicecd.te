@@ -22,3 +22,4 @@ allow hdmicecd { hal_tv_cec_default system_app }:binder { call transfer };
 
 allow hdmicecd vendor_platform_prop:file { open read getattr };
 
+allow hdmicecd hdmicecd:netlink_kobject_uevent_socket { create setopt bind read shutdown };

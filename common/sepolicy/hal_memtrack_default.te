@@ -91,10 +91,13 @@ allow hal_memtrack_default rild:dir {read write create ioctl open search};
 allow hal_memtrack_default rild:file {read write create ioctl open getattr};
 allow hal_memtrack_default device:file {read write create open ioctl};
 
+allow hal_memtrack_default subtitleserver:dir {search};
+allow hal_memtrack_default subtitleserver:file r_file_perms;
+
 allow hal_memtrack_default debugfs_mali:dir { search read open };
 allow hal_memtrack_default debugfs_mali:file { r_file_perms };
-allow hal_memtrack_default { hal_drm_clearkey imageserver rc_server hal_wifi_supplicant_default }:dir { search };
-allow hal_memtrack_default { hal_drm_clearkey imageserver rc_server hal_wifi_supplicant_default }:file { read open getattr };
+allow hal_memtrack_default { hal_drm_clearkey imageserver rc_server hal_wifi_supplicant_default screen_control }:dir { search };
+allow hal_memtrack_default { hal_drm_clearkey imageserver rc_server hal_wifi_supplicant_default screen_control }:file { read open getattr };
 
 allow hal_memtrack_default { miracast_hdcp2 }:dir { search read };
 allow hal_memtrack_default { miracast_hdcp2 }:file { read open getattr };

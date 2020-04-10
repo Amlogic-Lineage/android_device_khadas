@@ -64,6 +64,7 @@
 /dev/block/odm          		u:object_r:odm_block_device:s0
 /dev/block/odm_a                        u:object_r:odm_block_device:s0
 /dev/block/odm_b                        u:object_r:odm_block_device:s0
+/dev/block/recovery        		u:object_r:recovery_block_device:s0
 /dev/block/mmcblk[0-9]  		u:object_r:sda_block_device:s0
 /dev/block/mmcblk[0-9]p(.*)             u:object_r:sda_block_device:s0
 /dev/block/mmcblk[0-9]rpmb              u:object_r:sda_block_device:s0
@@ -98,6 +99,7 @@
 /dev/picdec         			u:object_r:picture_device:s0
 /dev/rtk_btusb      			u:object_r:hci_attach_dev:s0
 /dev/rtkbt_dev      			u:object_r:hci_attach_dev:s0
+/dev/bt_usb0        			u:object_r:hci_attach_dev:s0
 /dev/socket/dig	        		u:object_r:dig_socket:s0
 /dev/socket/pppoe_wrapper		u:object_r:pppoe_wrapper_socket:s0
 /dev/sw_sync           			u:object_r:sw_sync_device:s0
@@ -129,8 +131,8 @@
 /sys/class/audiodsp/digital_raw					u:object_r:sysfs_audio:s0
 /sys/class/amaudio/debug                                        u:object_r:sysfs_audio:s0
 /sys/class/amaudio/mute_unmute                                  u:object_r:sysfs_audio:s0
-/sys/class/astream/addr_offset                                  u:object_r:sysfs_audio:s0
-/sys/class/astream/format                                       u:object_r:sysfs_audio:s0
+/sys/class/astream(/.*)?                                        u:object_r:sysfs_audio:s0
+/sys/devices/virtual/astream/astream-dev/subsystem(/.*)?        u:object_r:sysfs_audio:s0
 /sys/class/astream/astream-dev/uio0/maps/map0(/.*)?             u:object_r:sysfs_audio:s0
 /sys/devices/virtual/astream/astream-dev/uio0/maps/map0(/.*)?   u:object_r:sysfs_audio:s0
 /sys/class/dmx/demux0_scramble                                  u:object_r:sysfs_audio:s0
@@ -210,6 +212,7 @@
 /acct/uid_0/cgroup.procs                                        u:object_r:reco_file:s0
 
 /vendor/etc/mesondisplay.cfg                                    u:object_r:vendor_app_file:s0
+/vendor/etc/filteredid.cfg                                      u:object_r:vendor_app_file:s0
 /sys/class/display2/mode                                        u:object_r:sysfs_display:s0
 /sys/class/display/mode                                         u:object_r:sysfs_display:s0
 
@@ -264,10 +267,12 @@
 /vendor/bin/hdcp_rp22         u:object_r:hdcp_rp22_exec:s0
 /vendor/bin/remotecfg         u:object_r:remotecfg_exec:s0
 /vendor/bin/systemcontrol     u:object_r:system_control_exec:s0
+/vendor/bin/subtitleserver    u:object_r:subtitleserver_exec:s0
 /vendor/bin/hdmicecd          u:object_r:hdmicecd_exec:s0
 /vendor/bin/droidvold         u:object_r:droidvold_exec:s0
 /vendor/bin/rc_server         u:object_r:rc_server_exec:s0
 /vendor/bin/tee-supplicant    u:object_r:tee_exec:s0
+/vendor/bin/tee_hdcp          u:object_r:tee_exec:s0
 /vendor/bin/tee_preload_fw    u:object_r:firmload_exec:s0
 
 /vendor/bin/tvserver          u:object_r:tvserver_exec:s0
@@ -325,6 +330,7 @@
 /vendor/lib(64)?/vendor\.amlogic\.hardware\.systemcontrol@1\.1\.so  u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/vendor\.amlogic\.hardware\.systemcontrol@1\.0\.so  u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/vendor\.amlogic\.hardware\.tvserver@1\.0\.so  u:object_r:vendor_app_file:s0
+/vendor/lib(64)?/vendor\.amlogic\.hardware\.subtitleserver@1\.0\.so  u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libjnidtvepgscanner\.so   u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libjniuevent\.so            u:object_r:vendor_app_file:s0
 /vendor/lib(64)?/libsubjni\.so        u:object_r:vendor_app_file:s0

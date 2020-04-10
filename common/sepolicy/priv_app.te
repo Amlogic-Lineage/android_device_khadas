@@ -18,6 +18,8 @@ allow priv_app proc_stat:file { getattr open };
 allow priv_app { su_exec bootanim_exec bootstat_exec }:file { getattr };
 allow priv_app proc_uptime:file read;
 
+allow priv_app hdmicecd_hwservice:hwservice_manager { find };
+allow priv_app hdmicecd:binder { call transfer };
 allow priv_app tvserver_hwservice:hwservice_manager { find };
 allow priv_app systemcontrol_hwservice:hwservice_manager { find };
 allow priv_app system_control:binder { call transfer };

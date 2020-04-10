@@ -17,9 +17,16 @@ allow platform_app droidvold:binder { call transfer };
 allow platform_app tvserver_hwservice:hwservice_manager { find };
 allow platform_app tvserver:binder { call transfer };
 
+allow platform_app subtitleserver_hwservice:hwservice_manager { find };
+allow platform_app subtitleserver:binder { call transfer };
+
 allow platform_app imageserver_hwservice:hwservice_manager { find };
 allow platform_app imageserver:binder { call transfer };
 
 allow platform_app dtvkitserver_hwservice:hwservice_manager { find };
 allow platform_app dtvkitserver:binder {call transfer};
 allow platform_app debugfs_mali:dir search;
+
+allow platform_app vendor_platform_prop:file { read open getattr };
+allow platform_app param_tv_file:file { create open read write setattr getattr lock unlink };
+allow platform_app param_tv_file:dir { search read open write add_name remove_name getattr };

@@ -23,7 +23,6 @@
 /dev/video1               0660   system     camera
 /dev/video10              0660   system	   mediadrm
 /dev/video11              0660   media     system
-/dev/video12              0660   media     system
 /dev/video13              0660   system     mediadrm
 /dev/video14              0660   system     mediadrm
 /dev/video15              0660   system     mediadrm
@@ -87,6 +86,7 @@
 /sys/devices/bt-dev.*/rfkill/rfkill0   state   0660    bluetooth   bluetooth
 /sys/devices/bt-dev.*/rfkill/rfkill0   type    0660    bluetooth   bluetooth
 /dev/rtk_btusb            0660   bluetooth  bluetooth
+/dev/bt_usb0              0660   bluetooth  bluetooth
 #mtkbt
 /dev/stpbt			0664   bluetooth  bluetooth
 #/vendor/lib/btmtksdio.ko  	0660   bluetooth  bluetooth

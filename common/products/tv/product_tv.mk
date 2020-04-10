@@ -13,6 +13,8 @@ PRODUCT_PACKAGES += \
     libtv \
     libtv_linker \
     libtvbinder \
+    tvtest \
+    libscreencontrol_jni \
     tvserver \
     libtvplay \
     libvendorfont \
@@ -44,6 +46,13 @@ PRODUCT_PACKAGES += \
     libdtvkitserver \
     droidlogic-dtvkit \
     droidlogic.dtvkit.software.core.xml
+
+# libswdemux
+ifeq ($(PRODUCT_SUPPORT_SWDEMUX), true)
+PRODUCT_PACKAGES += \
+    libswdemux
+endif
+
 endif
 
 endif
@@ -75,8 +84,7 @@ endif
 #screencontrol
 PRODUCT_PACKAGES += \
     screencontrol \
-    libscreencontrolservice \
-    libscreencontrol_jni \
+    libscreencontrolservice
 
 #droid vold
 PRODUCT_PACKAGES += \
@@ -142,6 +150,12 @@ custom_keylayouts := $(wildcard device/khadas/common/keyboards/*.kl)
 PRODUCT_COPY_FILES += $(foreach file,$(custom_keylayouts),\
     $(file):$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/$(notdir $(file)))
 
+# hdcp_rp key tools and firmware
+PRODUCT_COPY_FILES += \
+    device/khadas/common/hdcp_rp22/hdcp_rp22:$(TARGET_COPY_OUT_VENDOR)/bin/hdcp_rp22 \
+    device/khadas/common/hdcp_rp22/firmware/firmware_rprx.le:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/hdcp_rp22/firmware_rprx.le \
+    device/khadas/common/hdcp_rp22/firmware/firmware_rptx.le:$(TARGET_COPY_OUT_VENDOR)/etc/firmware/hdcp_rp22/firmware_rptx.le \
+
 # bootanimation
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bootanimation.zip:system/media/bootanimation.zip
@@ -178,3 +192,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #TV project, need use 8 ch 32 bit output.
 TARGET_WITH_TV_AUDIO_MODE := true
+
+BOARD_HAVE_CEC_HIDL_SERVICE := true

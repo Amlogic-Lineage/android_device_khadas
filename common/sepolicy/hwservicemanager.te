@@ -23,6 +23,11 @@ allow hwservicemanager imageserver:dir { search };
 allow hwservicemanager imageserver:file { read open };
 allow hwservicemanager imageserver:process { getattr };
 
+allow hwservicemanager subtitleserver:binder { call transfer };
+allow hwservicemanager subtitleserver:dir { search };
+allow hwservicemanager subtitleserver:file { read open };
+allow hwservicemanager subtitleserver:process { getattr };
+
 allow hwservicemanager dtvkitserver:binder { call transfer };
 allow hwservicemanager dtvkitserver:dir { search };
 allow hwservicemanager dtvkitserver:file { read open };

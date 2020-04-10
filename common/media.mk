@@ -298,13 +298,30 @@ PRODUCT_PACKAGES += libam_adp_adec \
       libamavutils_sys \
       libfaad_sys \
       libmad_sys \
-      libDrmPlayer\
-      libdrmp\
-      libdec_ca\
-      41fe9859-71e4-4bf4-bbaad71435b127ae\
-      libdec_ca_vmx_iptv\
+      libteec_sys \
+      libDrmPlayer \
+      libdrmp \
+      libdec_ca \
+      41fe9859-71e4-4bf4-bbaad71435b127ae \
+      libdec_ca_vmx_iptv \
       libdec_ca_vmx_web
 endif
+
+ifeq ($(BUILD_WITH_WIDEVINECAS),true)
+#for drmplayer wvcas
+PRODUCT_PACKAGES += libam_adp_adec \
+      libamadec_system \
+      libamavutils_sys \
+      libfaad_sys \
+      libmad_sys \
+      libteec_sys \
+      libDrmPlayer \
+      libdrmp \
+      libdec_ca \
+      41fe9859-71e4-4bf4-bbaad71435b127ae \
+      libdec_ca_wvcas
+endif
+
 PRODUCT_COPY_FILES += \
     device/khadas/common/seccomp/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy \
     device/khadas/common/seccomp/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy

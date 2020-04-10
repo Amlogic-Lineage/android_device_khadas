@@ -101,14 +101,30 @@ PRODUCT_COPY_FILES += \
     device/khadas/common/tuner/64/avl6762_fe_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/avl6762_fe.ko
 endif
 endif
+
+#atbm2040 tuner
+ifeq ($(TUNER_MODULE), atbm2040)
+ifeq ($(KERNEL_A32_SUPPORT), true)
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/tuner/32/atbm2040_fe_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/atbm2040_fe.ko
+else
+PRODUCT_COPY_FILES += \
+    device/amlogic/common/tuner/64/atbm2040_fe_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/atbm2040_fe.ko
+endif
+endif
+
 #sony cxd2856a tuner
 ifeq ($(TUNER_MODULE), cxd2856)
 ifeq ($(KERNEL_A32_SUPPORT), true)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/tuner/32/cxd2856_fe_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/cxd2856_fe.ko
+    device/khadas/common/tuner/32/cxd2856_fe_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/cxd2856_fe.ko
 else
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/tuner/64/cxd2856_fe_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/cxd2856_fe.ko
+    device/khadas/common/tuner/64/cxd2856_fe_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/cxd2856_fe.ko
 endif
 endif
 
+#PRODUCT_COPY_FILES += $(foreach tuner, $(TUNER_MODULE),\
+#    $(if $(call streq, $($(KERNEL_A32_SUPPORT), true)), \
+#        device/khadas/common/tuner/32/$(tuner)_fe_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/$(tuner)_fe.ko,\
+#        device/khadas/common/tuner/64/$(tuner)_fe_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/$(tuner)_fe.ko))

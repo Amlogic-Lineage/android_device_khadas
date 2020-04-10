@@ -26,7 +26,12 @@ PRODUCT_PACKAGES += \
     TvProvider \
     DroidLogicTvInput \
     DroidLogicFactoryMenu \
-    libjnidtvsubtitle
+    libjnidtvsubtitle \
+    libfbc
+
+# CTC subtitle
+PRODUCT_PACKAGES += \
+    libsubtitlebinder
 
 # DTV
 PRODUCT_PACKAGES += \

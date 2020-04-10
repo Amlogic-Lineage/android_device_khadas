@@ -6,6 +6,7 @@ allow system_server vendor_framework_file:file { read getattr open };
 allow system_server bluetooth:file { open read write };
 
 get_prop(system_server, media_prop)
+get_prop(system_server, vendor_platform_prop)
 
 # For writing to /proc/<tid>/timerslack_ns (XXX - this is probably wrong)
 allow system_server priv_app:file write;
@@ -42,5 +43,13 @@ allow system_server mediaprovider:file { write open };
 
 allow system_server dvb_device:chr_file rw_file_perms;
 
+allow system_server sysfs_cec:file { read open write getattr };
+
 allow system_server vendor_video_device:dir r_dir_perms;
 allow system_server vendor_video_device:chr_file rw_file_perms;
+
+allow system_server servicemanager:process { signal };
+allow system_server system_control:process { signal };
+allow system_server tvserver:process { signal };
+allow system_server hal_tv_input_default:process { signal };
+allow system_server hdmicecd:process { signal };

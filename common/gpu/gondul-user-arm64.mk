@@ -21,8 +21,6 @@ GPU_DRV_VERSION?=r16p0
 GRALLOC_USE_GRALLOC1_API:=1
 GRALLOC_DISABLE_FRAMEBUFFER_HAL:=1
 
-#BOARD_INSTALL_VULKAN default is false                                                                                                                                                                  #It should defined in $(TARGET_PRODUCT).mk if Vulkan is needed.
-BOARD_INSTALL_VULKAN ?= false
 
 ifeq ($(GRALLOC_USE_GRALLOC1_API), 1)
 PRODUCT_PACKAGES += \
