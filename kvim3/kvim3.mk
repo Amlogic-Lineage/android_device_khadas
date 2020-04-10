@@ -478,7 +478,9 @@ $(call inherit-product, device/khadas/common/tb_detect.mk)
 
 include device/khadas/common/gpu/gondul-user-arm64.mk
 #####npu ovx service
-#ifeq ($(BOARD_NPU_SERVICE_ENABLE), true)
+BOARD_NPU_SERVICE_ENABLE := true
+ifeq ($(BOARD_NPU_SERVICE_ENABLE), true)
+PRODUCT_CHIP_ID :=PID0x88
 PRODUCT_PACKAGES += android.hardware.neuralnetworks@1.1-service-ovx-driver
 PRODUCT_PACKAGES += \
     libCLC \
@@ -491,7 +493,7 @@ PRODUCT_PACKAGES += \
 	libovxlib \
 	libVSC \
 	libOvx12VXCBinary
-#endif
+endif
 
 ifneq ($(TARGET_BUILD_LIVETV),true)
 TARGET_BUILD_LIVETV := false
