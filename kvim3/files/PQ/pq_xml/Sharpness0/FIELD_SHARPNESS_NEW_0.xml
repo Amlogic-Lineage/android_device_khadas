@@ -2,12 +2,15 @@
 <Form name="FIELD_SHARPNESS_NEW_0" platform="txlx" commands="">
 <Group num="" val="">
 <Page tab_title="FIELD" layout="50x3">
-<Control type="field" tablename="Sharpness_0_CVBS_PAL" tableid="0" port="10," sig="1025,1026,1029,1030,1031,1032,1033,1034,1035,1038,1039,1040,1041,1042,1047,1048,1052,1053,1056,1057,1058,1059,1060,1061,1075,1076,1077,1078,1100,1101," trans="0,1," cvbs="0,"/>
-<Control type="field" tablename="Sharpness_0_CVBS_NTSC" tableid="0" port="10," sig="1025,1026,1029,1030,1031,1032,1033,1034,1035,1038,1039,1040,1041,1042,1047,1048,1052,1053,1056,1057,1058,1059,1060,1061,1075,1076,1077,1078,1100,1101," trans="0,1," cvbs="1,"/>
-<Control type="field" tablename="Sharpness_0_MPEG_HD" tableid="0" port="10," sig="0,1027,1028,1034,1036,1037,1043,1044,1045,1046,1049,1050,1051,1054,1055,1062,1063,1064,1065,1066,1067,1068,1069,1070,1071,1072,1073,1074,1078,1079,1080,1081,1082,1083,1084,1085,1086,1087,1088,1089,1090,1091,1092,1102," trans="0,1,"/>
-<Control type="field" tablename="Sharpness_0_MPEG_SD" tableid="0" port="10," sig="1025,1026,1029,1030,1031,1032,1033,1034,1035,1038,1039,1040,1041,1042,1047,1048,1052,1053,1056,1057,1058,1059,1060,1061,1075,1076,1077,1078,1100,1101," trans="0,1,"/>
-<Control type="field" tablename="Sharpness_0_MPEG_4K" tableid="0" port="10," sig="1093,1094," trans="0,1,"/>
-<Control type="field" tablename="Sharpness_0_HDR" tableid="0" port="10," sig="1095," trans="0,1,"/>
+<Control type="field" tablename="Sharpness_0_CVBS_PAL" tableid="0" port="10,11," sig="1025,1026,1029,1030,1031,1032,1033,1034,1035,1038,1039,1040,1041,1042,1047,1048,1052,1053,1056,1057,1058,1059,1060,1061,1075,1076,1077,1078,1100,1101," trans="0,1," cvbs="0,"/>
+<Control type="field" tablename="Sharpness_0_CVBS_NTSC" tableid="0" port="10,11," sig="1025,1026,1029,1030,1031,1032,1033,1034,1035,1038,1039,1040,1041,1042,1047,1048,1052,1053,1056,1057,1058,1059,1060,1061,1075,1076,1077,1078,1100,1101," trans="0,1," cvbs="1,"/>
+<Control type="field" tablename="Sharpness_0_MPEG_HD_UPSCALE" tableid="0" port="10,11," sig="0,1027,1028,1034,1036,1037,1043,1044,1045,1046,1049,1050,1051,1054,1055,1062,1063,1064,1065,1066,1067,1068,1069,1070,1071,1072,1073,1074,1078,1079,1080,1081,1082,1083,1084,1085,1086,1087,1088,1089,1090,1091,1092,1102," trans="0,1," cvbs="11,"/>
+<Control type="field" tablename="Sharpness_0_MPEG_SD_UPSCALE" tableid="0" port="10,11," sig="1025,1026,1029,1030,1031,1032,1033,1034,1035,1038,1039,1040,1041,1042,1047,1048,1052,1053,1056,1057,1058,1059,1060,1061,1075,1076,1077,1078,1100,1101," trans="0,1," cvbs="12,"/>
+<Control type="field" tablename="Sharpness_0_MPEG_NOSCALE" tableid="0" port="10,11," sig="1025,1026,1027,1028,1029,1030,1031,1032,1033,1034,1035,1036,1037,1038,1039,1040,1041,1042,1043,1044,1045,1046,1047,1048,1049,1050,1051,1052,1053,1054,1055,1056,1057,1058,1059,1060,1061,1062,1063,1064,1065,1066,1067,1068,1069,1070,1071,1072,1073,1074,1075,1076,1077,1078,1079,1080,1081,1082,1083,1084,1085,1086,1087,1088,1089,1090,1091,1092,1100,1101," trans="0,1," cvbs="13,"/>
+<Control type="field" tablename="Sharpness_0_MPEG_4K" tableid="0" port="10,11," sig="1093,1094," trans="0,1," cvbs="10,"/>
+<Control type="field" tablename="Sharpness_0_MPEG_SD_SMPTE" tableid="0" port="10,11," sig="1025,1026,1029,1030,1031,1032,1033,1034,1035,1038,1039,1040,1041,1042,1047,1048,1052,1053,1056,1057,1058,1059,1060,1061,1075,1076,1077,1078,1100,1101," trans="0,1," cvbs="14,"/>
+<Control type="field" tablename="Sharpness_0_MPEG_HD_SMPTE" tableid="0" port="10,11," sig="1027,1028,1036,1037,1043,1044,1045,1046,1049,1050,1051,1054,1055,1062,1063,1064,1065,1066,1067,1068,1069,1070,1071,1072,1073,1074,1078,1079,1080,1081,1082,1083,1084,1085,1086,1087,1088,1089,1090,1091,1092," trans="0,1," cvbs="15,"/>
+<Control type="field" tablename="Sharpness_0_HDR" tableid="0" port="10,11," sig="1095," trans="0,1," cvbs=""/>
 <Control type="port" name="TVIN_PORT_TV" value="0"/>
 <Control type="port" name="TVIN_PORT_AV1" value="1"/>
 <Control type="port" name="TVIN_PORT_AV2" value="2"/>
@@ -118,8 +121,14 @@
 <Control type="sig" name="TVIN_SIG_FMT_NULL2" value="5"/>
 <Control type="trans" name="TVIN_TFMT0_2D" value="0"/>
 <Control type="trans" name="TVIN_TFMT0_3D" value="1"/>
-<Control type="cvbs" name="CVBS_NTSC" value="1"/>
 <Control type="cvbs" name="CVBS_PAL" value="0"/>
+<Control type="cvbs" name="CVBS_NTSC" value="1"/>
+<Control type="cvbs" name="SR_4K_LEVEL" value="10"/>
+<Control type="cvbs" name="SR_HD_UPSCALE_LEVEL" value="11"/>
+<Control type="cvbs" name="SR_SD_UPSCALE_LEVEL" value="12"/>
+<Control type="cvbs" name="SR_NOSCALE_LEVEL" value="13"/>
+<Control type="cvbs" name="SR_SD_4096_LEVEL" value="14"/>
+<Control type="cvbs" name="SR_HD_4096_LEVEL" value="15"/>
 </Page>
 </Group>
 </Form>

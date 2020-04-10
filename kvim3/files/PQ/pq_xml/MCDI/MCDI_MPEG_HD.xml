@@ -430,7 +430,7 @@
 <Control ui_type="CheckBox" name="reg_mcdi_referrfrqchken" range="0~1" addr="0x2f04" mask="10:10" dst="U" desc=" enable mv frquency check while finding min err in ref." default="1" value="1" cmd="common:2,0xff900000"/>
 <Control ui_type="CheckBox" name="reg_mcdi_refnmven" range="0~1" addr="0x2f04" mask="12:12" dst="U" desc=" use neighoring mvs in refinement." default="1" value="1" cmd="common:2,0xff900000"/>
 <Control ui_type="CheckBox" name="reg_mcdi_reflmven" range="0~1" addr="0x2f04" mask="13:13" dst="U" desc=" use lmvs in refinement." default="1" value="1" cmd="common:2,0xff900000"/>
-<Control ui_type="CheckBox" name="reg_mcdi_refgmven" range="0~1" addr="0x2f04" mask="14:14" dst="U" desc=" use gmv in refinement." default="1" value="1" cmd="common:2,0xff900000"/>
+<Control ui_type="CheckBox" name="reg_mcdi_refgmven" range="0~1" addr="0x2f04" mask="14:14" dst="U" desc=" use gmv in refinement." default="1" value="0" cmd="common:2,0xff900000"/>
 <Control ui_type="CheckBox" name="reg_mcdi_refrptmven" range="0~1" addr="0x2f04" mask="15:15" dst="U" desc=" use repeat mv in refinement." default="1" value="1" cmd="common:2,0xff900000"/>
 <Control ui_type="CheckBox" name="reg_mcdi_qmeen" range="0~1" addr="0x2f04" mask="16:16" dst="U" desc=" enable quarter motion estimation." default="1" value="1" cmd="common:2,0xff900000"/>
 <Control ui_type="CheckBox" name="reg_mcdi_reldetfrqchken" range="0~1" addr="0x2f04" mask="17:17" dst="U" desc=" enable mv frequency check in rel det." default="1" value="1" cmd="common:2,0xff900000"/>
@@ -472,8 +472,8 @@
 <Control ui_type="slider" name="reg_mcdi_chkedgemaxedgethd" range="0~15" addr="0x2f0a" mask="15:12" dst="U" desc="max drt of edge" default="15" value="15" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="reg_mcdi_chkedgeminedgethd" range="0~15" addr="0x2f0a" mask="11:8" dst="U" desc="max drt of edge" default="2" value="2" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="reg_mcdi_chkedgevdifthd" range="0~127" addr="0x2f0a" mask="6:0" dst="U" desc="thd for vertical dif in check edge" default="14" value="14" cmd="common:2,0xff900000"/>
-<Control ui_type="slider" name="reg_mcdi_chkedgedifthd1" range="0~15" addr="0x2f0b" mask="23:20" dst="U" desc="thd1 for edge dif check (less than or equal to)" default="4" value="4" cmd="common:2,0xff900000"/>
-<Control ui_type="slider" name="reg_mcdi_chkedgedifthd0" range="0~15" addr="0x2f0b" mask="19:16" dst="U" desc="thd0 for edge dif check (&gt;=)" default="15" value="15" cmd="common:2,0xff900000"/>
+<Control ui_type="slider" name="reg_mcdi_chkedgedifthd1" range="0~15" addr="0x2f0b" mask="23:20" dst="U" desc="thd1 for edge dif check (less than or equal to)" default="4" value="2" cmd="common:2,0xff900000"/>
+<Control ui_type="slider" name="reg_mcdi_chkedgedifthd0" range="0~15" addr="0x2f0b" mask="19:16" dst="U" desc="thd0 for edge dif check (&gt;=)" default="15" value="7" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="reg_mcdi_chkedgechklen" range="1~24" addr="0x2f0b" mask="14:10" dst="U" desc="total check length for edge check, 1~24 (&gt;0)" default="24" value="24" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="reg_mcdi_chkedgeedgesel" range="1~3" addr="0x2f0b" mask="9:8" dst="U" desc="final edge select mode, 0: original start edge, 1: lpf start edge, 2: orignal start+end edge, 3: lpf start+end edge" default="1" value="1" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="reg_mcdi_chkedgesaddstgain" range="0~31" addr="0x2f0b" mask="7:3" dst="U" desc="distance gain for sad calc while getting edges" default="4" value="4" cmd="common:2,0xff900000"/>
@@ -543,8 +543,8 @@
 <Control ui_type="slider" name="reg_mcdi_lmvlocklmvcntrt0" range="0~255" addr="0x2f4c" mask="7:0" dst="U" desc="ratio when use max lmv for lock check, normalized 256 as 1, 255 is set to 256" default="106" value="106" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="reg_mcdi_gmvmtnrt0" range="0~127" addr="0x2f14" mask="30:24" dst="U" desc="ratio 0 for motion senario, set 127 to 128, normalized 128 as 1" default="32" value="32" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="reg_mcdi_gmvmtnrt1" range="0~127" addr="0x2f14" mask="22:16" dst="U" desc="ratio 1 for motion senario, set 127 to 128, normalized 128 as 1" default="56" value="56" cmd="common:2,0xff900000"/>
-<Control ui_type="slider" name="reg_mcdi_gmvstlrt0" range="0~127" addr="0x2f14" mask="14:8" dst="U" desc="ratio 0 for still senario, set 127 to 128, normalized 128 as 1" default="56" value="56" cmd="common:2,0xff900000"/>
-<Control ui_type="slider" name="reg_mcdi_gmvstlrt1" range="0~127" addr="0x2f14" mask="6:0" dst="U" desc="ratio 1 for still senario, set 127 to 128, normalized 128 as 1" default="72" value="80" cmd="common:2,0xff900000"/>
+<Control ui_type="slider" name="reg_mcdi_gmvstlrt0" range="0~127" addr="0x2f14" mask="14:8" dst="U" desc="ratio 0 for still senario, set 127 to 128, normalized 128 as 1" default="56" value="48" cmd="common:2,0xff900000"/>
+<Control ui_type="slider" name="reg_mcdi_gmvstlrt1" range="0~127" addr="0x2f14" mask="6:0" dst="U" desc="ratio 1 for still senario, set 127 to 128, normalized 128 as 1" default="72" value="60" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="reg_mcdi_gmvzeromvlockrt0" range="0~127" addr="0x2f15" mask="31:25" dst="U" desc="ratio 0 for locking zero mv, set 127 to 128, normalized 128 as 1" default="100" value="100" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="reg_mcdi_gmvzeromvlockrt1" range="0~127" addr="0x2f15" mask="24:18" dst="U" desc="ratio 1 for locking zero mv, set 127 to 128, normalized 128 as 1" default="112" value="112" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="reg_mcdi_gmvvalidmode" range="0~3" addr="0x2f15" mask="17:16" dst="U" desc="valid mode for gmv calc., 10b: use flt, 01b: use hori flg" default="3" value="3" cmd="common:2,0xff900000"/>
@@ -573,12 +573,12 @@
 <Control ui_type="slider" name="reg_mcdi_bisadcorepxlgain" range="0~3" addr="0x2f07" mask="10:9" dst="U" desc="bi-sad core pixels gain" default="3" value="3" cmd="common:2,0xff900000"/>
 <Control ui_type="checkbox" name="reg_mcdi_bisadcorepxlnormen" range="0~1" addr="0x2f07" mask="8:8" dst="U" desc="enable bi-sad core pixels normalization" default="0" value="1" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="reg_mcdi_refmcmode" range="0~3" addr="0x2f17" mask="1:0" dst="U" desc="motion compensated mode used in refinement, 0: pre, 1: next, 2: (pre+next)/2" default="2" value="2" cmd="common:2,0xff900000"/>
-<Control ui_type="slider" name="reg_mcdi_refbadwcnt2gain" range="0~15" addr="0x2f18" mask="27:24" dst="U" desc="gain for badwv count num==3" default="6" value="8" cmd="common:2,0xff900000"/>
-<Control ui_type="slider" name="reg_mcdi_refbadwcnt1gain" range="0~15" addr="0x2f18" mask="23:20" dst="U" desc="gain for badwv count num==2" default="3" value="6" cmd="common:2,0xff900000"/>
-<Control ui_type="slider" name="reg_mcdi_refbadwcnt0gain" range="0~15" addr="0x2f18" mask="19:16" dst="U" desc="gain for badwv count num==1" default="1" value="6" cmd="common:2,0xff900000"/>
-<Control ui_type="slider" name="reg_mcdi_refbadwthd3" range="0~15" addr="0x2f18" mask="15:12" dst="U" desc="threshold 3 for detect badweave with largest average luma" default="4" value="2" cmd="common:2,0xff900000"/>
-<Control ui_type="slider" name="reg_mcdi_refbadwthd2" range="0~15" addr="0x2f18" mask="11:8" dst="U" desc="threshold 2 for detect badweave with third smallest average luma" default="3" value="2" cmd="common:2,0xff900000"/>
-<Control ui_type="slider" name="reg_mcdi_refbadwthd1" range="0~15" addr="0x2f18" mask="7:4" dst="U" desc="threshold 1 for detect badweave with second smallest average luma" default="2" value="1" cmd="common:2,0xff900000"/>
+<Control ui_type="slider" name="reg_mcdi_refbadwcnt2gain" range="0~15" addr="0x2f18" mask="27:24" dst="U" desc="gain for badwv count num==3" default="6" value="6" cmd="common:2,0xff900000"/>
+<Control ui_type="slider" name="reg_mcdi_refbadwcnt1gain" range="0~15" addr="0x2f18" mask="23:20" dst="U" desc="gain for badwv count num==2" default="3" value="3" cmd="common:2,0xff900000"/>
+<Control ui_type="slider" name="reg_mcdi_refbadwcnt0gain" range="0~15" addr="0x2f18" mask="19:16" dst="U" desc="gain for badwv count num==1" default="1" value="1" cmd="common:2,0xff900000"/>
+<Control ui_type="slider" name="reg_mcdi_refbadwthd3" range="0~15" addr="0x2f18" mask="15:12" dst="U" desc="threshold 3 for detect badweave with largest average luma" default="4" value="4" cmd="common:2,0xff900000"/>
+<Control ui_type="slider" name="reg_mcdi_refbadwthd2" range="0~15" addr="0x2f18" mask="11:8" dst="U" desc="threshold 2 for detect badweave with third smallest average luma" default="3" value="3" cmd="common:2,0xff900000"/>
+<Control ui_type="slider" name="reg_mcdi_refbadwthd1" range="0~15" addr="0x2f18" mask="7:4" dst="U" desc="threshold 1 for detect badweave with second smallest average luma" default="2" value="2" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="reg_mcdi_refbadwthd0" range="0~15" addr="0x2f18" mask="3:0" dst="U" desc="threshold 0 for detect badweave with smallest average luma" default="1" value="1" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="reg_mcdi_refbadwsumgain0" range="0~16" addr="0x2f19" mask="12:8" dst="U" desc="sum gain for r channel, 0~16" default="8" value="8" cmd="common:2,0xff900000"/>
 <Control ui_type="checkbox" name="reg_mcdi_refbadwcalcmode" range="0~1" addr="0x2f19" mask="4:4" dst="U" desc="mode for badw calculation, 0:sum, 1:max" default="0" value="1" cmd="common:2,0xff900000"/>
@@ -657,7 +657,7 @@
 <Control ui_type="slider" name="reg_mcdi_reldetgmvdifmin" range="0~7" addr="0x2f2f" mask="10:8" dst="U" desc="min mv dif for gmv dif check, default = 1, note: dif between reg_mcdi_rel_det_gmv_dif_max and reg_mcdi_rel_det_gmv_dif_min should be; 0,1,3,7, not work for others" default="1" value="1" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="reg_mcdi_reldetgmvdifmax" range="0~15" addr="0x2f2f" mask="7:4" dst="U" desc="max mv dif for gmv dif check, default = 4" default="4" value="4" cmd="common:2,0xff900000"/>
 <Control ui_type="checkbox" name="reg_mcdi_reldetgmvdifmvmode" range="0~1" addr="0x2f2f" mask="0:0" dst="U" desc="0, reg_mcdi_reldetgmvdifmvmode.          mv mode used for gmv dif check, 0: use refmv, 1: use qmv, default = 0" default="0" value="0" cmd="common:2,0xff900000"/>
-<Control ui_type="slider" name="reg_mcdi_reldetlmvfltthd" range="0~255" addr="0x2f30" mask="23:16" dst="U" desc="flat thd (&gt;=) for lmv lock decision, default = 12" default="12" value="12" cmd="common:2,0xff900000"/>
+<Control ui_type="slider" name="reg_mcdi_reldetlmvfltthd" range="0~255" addr="0x2f30" mask="23:16" dst="U" desc="flat thd (&gt;=) for lmv lock decision, default = 12" default="12" value="0" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="reg_mcdi_reldetlmvlockchkmode" range="0~3" addr="0x2f30" mask="13:12" dst="U" desc="lmv lock check mode, 0:cur Lmv, 1: curand(last | next), 2: lastandcurandnext Lmv, default = 1" default="1" value="0" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="reg_mcdi_reldetlmvdifmin" range="0~7" addr="0x2f30" mask="10:8" dst="U" desc="min mv dif for lmv dif check, default = 1, note: dif between reg_mcdi_rel_det_lmv_dif_max and reg_mcdi_rel_det_lmv_dif_min should be; 0,1,3,7, not work for others" default="1" value="0" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="reg_mcdi_reldetlmvdifmax" range="0~15" addr="0x2f30" mask="7:4" dst="U" desc="max mv dif for lmv dif check, default = 4" default="4" value="4" cmd="common:2,0xff900000"/>
