@@ -30,6 +30,7 @@
 #set on some prducts,used libplayer.
 BUILD_WITH_BOOT_PLAYER :=true
 BUILD_WITH_ES_PLAYER := true
+BUILD_WITH_CTC_MEDIAPROCESSOR := false
 
 #########################################################################
 #
@@ -337,3 +338,21 @@ BOARD_AML_MEDIA_HAL_CONFIG := $(BOARD_AML_MEDIAHAL_PATH)/media_base_config.mk
 PRODUCT_COPY_FILES += \
 	device/khadas/common/init.amlogic.media.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.media.rc
 
+#########################################################################
+#
+#
+#
+#########################################################################
+ifeq ($(BUILD_WITH_CTC_MEDIAPROCESSOR),true)
+PRODUCT_PACKAGES += \
+    libffmpeg40 \
+    libFFExtractor \
+    libamFFExtractor \
+    libCTC_MediaProcessor \
+    libCTC_MediaProcessorjni \
+    libCTC_AmlPlayer \
+    mediaProcessorDemo \
+    libminiframework \
+    libliveplayer \
+    libAmIptvMedia
+endif

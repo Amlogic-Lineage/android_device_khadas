@@ -422,22 +422,6 @@ BUILD_WITH_LOWMEM_COMMON_CONFIG := true
 
 BOARD_USES_USB_PM := true
 
-BUILD_WITH_CTC_MEDIAPROCESSOR := false
-
-ifeq ($(BUILD_WITH_CTC_MEDIAPROCESSOR),true)
-PRODUCT_PACKAGES += \
-    libffmpeg40 \
-    libFFExtractor \
-    libamFFExtractor \
-    libCTC_MediaProcessor \
-    libCTC_MediaProcessorjni \
-    libCTC_AmlPlayer \
-    mediaProcessorDemo \
-    libminiframework \
-    libliveplayer \
-    libAmIptvMedia
-endif
-
 include device/khadas/common/software.mk
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=280
