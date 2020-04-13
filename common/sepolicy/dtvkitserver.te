@@ -12,7 +12,7 @@ allow dtvkitserver vendor_data_file:file {ioctl getattr read write open create l
 allow dtvkitserver vendor_data_file:chr_file{ioctl};
 allow dtvkitserver vndbinder_device:chr_file { read write open ioctl };
 allow dtvkitserver vndservicemanager:binder { call transfer };
-allow dtvkitserver dvb_device:chr_file { open read write ioctl getattr};
+#allow dtvkitserver dvb_device:chr_file { open read write ioctl getattr};
 allow dtvkitserver vendor_shell_exec:file execute_no_trans;
 allow dtvkitserver sysfs:file { write open };
 allow dtvkitserver platform_app:binder { call };

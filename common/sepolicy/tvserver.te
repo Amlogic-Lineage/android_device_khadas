@@ -62,7 +62,7 @@ allow tvserver platform_app:binder { call };
 allow tvserver sysfs:file { read write open };
 
 #add for search channel
-allow tvserver dvb_device:chr_file { open read write ioctl };
+#allow tvserver dvb_device:chr_file { open read write ioctl };
 allow tvserver frontend_device:chr_file { open read write ioctl };
 allow tvserver priv_app:binder { call };
 allow tvserver codec_device:chr_file { read write open ioctl };

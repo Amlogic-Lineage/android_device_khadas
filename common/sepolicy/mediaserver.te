@@ -29,7 +29,7 @@ allow mediaserver sysfs_audio_cap:file {open read};
 allow mediaserver sysfs_amhdmitx:dir {search};
 allow mediaserver sysfs_stb:file   { read open write getattr};
 allow mediaserver sysfs_stb:dir   {search};
-allow mediaserver dvb_device:chr_file { open read write ioctl };
+#allow mediaserver dvb_device:chr_file { open read write ioctl };
 allow mediaserver sysfs_vdec:file   {read write open getattr};
 allow mediaserver tv_prop:file    {open read getattr};
 allow mediaserver mediaserver:netlink_kobject_uevent_socket {create setopt bind read};
