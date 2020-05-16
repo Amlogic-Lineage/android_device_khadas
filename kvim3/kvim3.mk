@@ -483,16 +483,19 @@ ifeq ($(BOARD_NPU_SERVICE_ENABLE), true)
 PRODUCT_CHIP_ID :=PID0x88
 PRODUCT_PACKAGES += android.hardware.neuralnetworks@1.1-service-ovx-driver
 PRODUCT_PACKAGES += \
-    libCLC \
-	libGAL \
-	libLLVM_viv \
-	libNNVXCBinary \
-	libOpenCL \
-	libOpenVX \
-	libOpenVXU \
-	libovxlib \
-	libVSC \
-	libOvx12VXCBinary
+        libCLC \
+        libGAL \
+        libarchmodelSw \
+        libNNArchPerf \
+        libOpenCL \
+        libOpenVX \
+        libOpenVXU \
+        libovxlib \
+        libVSC \
+        libnnrt \
+        libNNGPUBinary \
+        libNNVXCBinary \
+        libOvx12VXCBinary
 endif
 
 ifneq ($(TARGET_BUILD_LIVETV),true)
