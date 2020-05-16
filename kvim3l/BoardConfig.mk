@@ -67,6 +67,9 @@ USE_HWC2 := true
 #HWC_ENABLE_PRIMARY_HOTPLUG := true
 #HWC_ENABLE_SECURE_LAYER_PROCESS := true
 #HWC_DISABLE_CURSOR_PLANE := true
+#panel does not support AFBC in default
+HWC_PRIMARY_DISP_SUPPORT_AFBC := false
+HWC_EXTEND_DISP_SUPPORT_AFBC := true
 
 # Camera
 USE_CAMERA_STUB := false
