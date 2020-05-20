@@ -50,6 +50,9 @@ PRODUCT_PROPERTY_OVERRIDES +=  \
 PRODUCT_PROPERTY_OVERRIDES +=  \
     ro.net.pppoe=true
 
+PRODUCT_PROPERTY_OVERRIDES +=  \
+    vendor.afbcd.enable=1
+
 # Low memory platform
 PRODUCT_PROPERTY_OVERRIDES +=  \
     ro.vendor.platform.support.dolbyvision=false
