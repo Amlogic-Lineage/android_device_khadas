@@ -52,6 +52,9 @@ on boot
 #wol
     chmod 666 /sys/class/wol/enable
 
+#ircut for mipi camera
+    chmod 666 /sys/class/camera/ircut 
+
 #mac
     chmod 666 /sys/class/efuse/mac
 
