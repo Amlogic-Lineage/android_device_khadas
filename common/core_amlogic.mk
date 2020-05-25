@@ -457,6 +457,12 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl \
     android.hardware.light@2.0-service
 
+#gnss hal
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0 \
+    android.hardware.gnss@1.0-impl \
+    android.hardware.gnss@1.0-service
+
 #thermal hal
 PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-impl \

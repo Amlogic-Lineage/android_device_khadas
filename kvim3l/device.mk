@@ -120,6 +120,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     lights.amlogic
 
+# GPS HAL
+PRODUCT_PACKAGES += \
+    gps.amlogic
+
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
