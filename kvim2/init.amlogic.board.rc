@@ -25,3 +25,19 @@ on boot
     # chmod 0666 /dev/ge2d
     chmod 666 /dev/cec
 
+#led
+    chmod 666 /sys/class/leds/sys_led/trigger
+
+#wol
+    chmod 666 /sys/class/wol/enable
+
+#mac
+    chmod 666 /sys/class/efuse/mac
+
+#cooling fan
+    chmod 666 /sys/class/fan/mode
+    chmod 666 /sys/class/fan/level
+    chmod 666 /sys/class/fan/enable
+    chmod 666 /sys/class/fan/type
+    chmod 0666 /sys/class/mcu/ageing_test
+
