@@ -20,6 +20,7 @@
     <!-- Do not enable auto rotation switching -->
     <bool name="def_accelerometer_rotation">false</bool>
     <integer name="def_screen_off_timeout">-1</integer>
+    <integer name="def_long_press_timeout_millis">1000</integer>
     <bool name="def_wifi_display_on">true</bool>
     <!--<string name="config_defaultIME">com.amlogic.inputmethod.remote/.RemoteIME</string>-->
     <bool name="def_wifi_on">true</bool>
