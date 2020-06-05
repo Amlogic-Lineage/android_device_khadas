@@ -1134,6 +1134,8 @@
   <apn carrier="China Unicom 3G" mcc="460" mnc="01" apn="3gnet" port="80" type="default,supl" /> 
   <apn carrier="中国联通 3g 彩信 (China Unicom)" mcc="460" mnc="01" apn="3gwap" mmsc="http://mmsc.myuni.com.cn" mmsproxy="10.0.0.172" mmsport="80" type="mms" />
   <apn carrier="China Unicom MMS" mcc="460" mnc="01" apn="uniwap" mmsc="http://mmsc.myuni.com.cn" mmsproxy="10.0.0.172" mmsport="80" type="mms" /> 
+  <apn carrier="ChinaTelecom net" mcc="460"  mnc="11"  apn="ctnet"  type="default,supl"/>
+  <apn carrier="China Telecom Mms" apn="CTWAP"  mcc="460" mnc="11" user="ctwap@mycdma.cn" password="vnet.mobi" server="" proxy="10.0.0.200" port="80" mmsproxy="10.0.0.200" mmsport="80" mmsc="http://mmsc.vnet.mobi" type="mms" />
   <apn carrier="China Telecom" apn="CTNET"  mcc="460" mnc="03" user="ctnet@mycdma.cn" password="vnet.mobi" server="" proxy="" port="" mmsproxy="" mmsport="" mmsc="" type="default" /> 
   <apn carrier="China Telecom wap" apn="CTWAP"  mcc="460"  mnc="03" user="ctwap@mycdma.cn" password="vnet.mobi" server="" proxy="" port="" mmsproxy="10.0.0.200" mmsport="80" mmsc="http://mmsc.vnet.mobi" type="default" />
   <apn carrier="China Telecom Mms" apn="CTWAP"  mcc="460" mnc="03" user="ctwap@mycdma.cn" password="vnet.mobi" server="" proxy="10.0.0.200" port="80" mmsproxy="10.0.0.200" mmsport="80" mmsc="http://mmsc.vnet.mobi" type="mms" />
@@ -1418,7 +1420,11 @@
   <apn carrier="Movistar UY" mcc="748" mnc="07" apn="apnumt.movistar.com.uy" user="movistar" password="movistar" type="default,supl" />
   <apn carrier="Claro UY" mcc="748" mnc="10" apn="gprs.claro.com.uy" user="ctigpr" password="ctigpr999" type="default,supl" />
   <apn carrier="Claro UY MMS" mcc="748" mnc="10" apn="mms.ctimovil.com.uy" user="ctimms" password="ctimms999" mmsc="http://mms.ctimovil.com.uy" mmsproxy="170.051.255.240" mmsport="9201" type="mms" />
-
+	<apn carrier="中国移动物联网4G" mcc="460" mnc="04" apn="cmiot" type="default,supl" />
+  <apn carrier="中国移动物联网2G" mcc="460" mnc="04" apn="cmmtm" type="default,supl" />
+	<apn carrier="中国联通物联网gzm2mapn" mcc="460" mnc="06" apn="unim2m.gzm2mapn" port="80" type="default,supl" />
+	<apn carrier="中国联通物联网njm2mapn" mcc="460" mnc="06" apn="unim2m.njm2mapn"  type="default,supl" />
+	<apn carrier="中国电信物联网m2m" mcc="460" mnc="03" apn="CTNET" user="m2m" password="vnet.mobi" type="default" />
 
 
 	 
@@ -1814,6 +1820,110 @@
 	type="mms" /> 
 
 
+<apn carrier="中国联通"
+    apn="3gnet"
+    proxy=""
+    port=""
+    user=""
+    password=""
+    server=""
+    mmsc=""
+    mcc="460"
+    mnc="01"
+    mmsproxy=""
+    mmsport=""
+    type=""
+/>
+<apn carrier="中国联通"
+    apn="3gnet"
+    proxy=""
+    port=""
+    user=""
+    password=""
+    server=""
+    mmsc=""
+    mcc="460"
+    mnc="05"
+    mmsproxy=""
+    mmsport=""
+    type=""
+/>
+<apn carrier="中国联通"
+    apn="3gnet"
+    proxy=""
+    port=""
+    user=""
+    password=""
+    server=""
+    mmsc=""
+    mcc="460"
+    mnc="07"
+    mmsproxy=""
+    mmsport=""
+    type=""
+/>
+<apn carrier="中国移动"
+    apn="cmnet"
+    proxy=""
+    port=""
+    user=""
+    password=""
+    server=""
+    mmsc=""
+    mcc="460"
+    mnc="00"
+    mmsproxy=""
+    mmsport=""
+    type=""
+/>
+<apn carrier="中国移动"
+    apn="cmnet"
+    proxy=""
+    port=""
+    user=""
+    password=""
+    server=""
+    mmsc=""
+    mcc="460"
+    mnc="02"
+    mmsproxy=""
+    mmsport=""
+    type=""
+/>
+<apn carrier="中国移动"
+    apn="cmnet"
+    proxy=""
+    port=""
+    user=""
+    password=""
+    server=""
+    mmsc=""
+    mcc="460"
+    mnc="04"
+    mmsproxy=""
+    mmsport=""
+    type=""
+/>
 
+<apn carrier="中国电信"
+    apn="ctnet"
+    proxy=""
+    port=""
+    user=""
+    password=""
+    server=""
+    mmsc=""
+    mcc="460"
+    mnc="11"
+    mmsproxy=""
+    mmsport=""
+    type=""
+/>
+  <apn carrier="沃宽带用户连接互联网"
+      mcc="460"
+      mnc="09"
+      apn="3gnet"
+      type="default,supl"
+  />
 
 </apns>
