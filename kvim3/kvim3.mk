@@ -493,6 +493,7 @@ PRODUCT_PACKAGES += \
         libovxlib \
         libVSC \
         libnnrt \
+        libnnapi \
         libNNGPUBinary \
         libNNVXCBinary \
         libOvx12VXCBinary
