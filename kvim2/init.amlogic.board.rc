@@ -25,6 +25,9 @@ on boot
     # chmod 0666 /dev/ge2d
     chmod 666 /dev/cec
 
+#rtc timer
+    chmod 666 /sys/class/rtc/rtc0/bootalarm
+
 #led
     chmod 666 /sys/class/leds/sys_led/trigger
 
