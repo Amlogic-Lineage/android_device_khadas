@@ -117,6 +117,9 @@ PRODUCT_PACKAGES += \
     TvSettings \
     DroidTvSettings
 
+#Browser
+PRODUCT_PACKAGES += \
+    Lightning
 
 #USB PM
 PRODUCT_PACKAGES += \
