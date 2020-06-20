@@ -6,3 +6,5 @@ kvim3l/preinstall/Android.mk
 kvim3l/preinstall/preinstall.mk
 kvim/preinstall/Android.mk
 kvim/preinstall/preinstall.mk
+kvim2/preinstall/Android.mk
+kvim2/preinstall/preinstall.mk
