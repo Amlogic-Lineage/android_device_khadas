@@ -34,6 +34,10 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.1-service.clearkey \
     move_widevine_data.sh
 
+#GPS HAL
+PRODUCT_PACKAGES += \
+    gps.amlogic
+
 PRODUCT_COPY_FILES += \
     device/khadas/$(PRODUCT_DIR)/files/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
     device/khadas/$(PRODUCT_DIR)/files/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
