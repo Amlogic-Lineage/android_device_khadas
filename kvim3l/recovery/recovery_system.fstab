@@ -28,3 +28,10 @@
 /dev/block/mmcblk2p6    /sdcard vfat    defaults    defaults
 /dev/block/mmcblk    /sdcard vfat    defaults    defaults
 /dev/block/sd##         /udisk  auto    defaults    defaults
+/dev/block/nvme0n1      /pcie  auto    defaults    defaults
+/dev/block/nvme0n1p1    /pcie  auto    defaults    defaults
+/dev/block/nvme0n1p2    /pcie  auto    defaults    defaults
+/dev/block/nvme0n1p3    /pcie  auto    defaults    defaults
+/dev/block/nvme0n1p4    /pcie  auto    defaults    defaults
+/dev/block/nvme0n1p5    /pcie  auto    defaults    defaults
+/dev/block/nvme0n1p6    /pcie  auto    defaults    defaults

@@ -9,6 +9,7 @@
 /devices/*.sd*/mmc_host/sd*  auto                auto      defaults                       voldmanaged=sdcard1:auto,encryptable=userdata
 /devices/*dwc3/xhci-hcd.0.auto/usb?/*/host*/target*/block/sd*  auto             auto      defaults                       voldmanaged=usb:auto,encryptable=userdata
 /devices/*dwc3/xhci-hcd.0.auto/usb?/*/host*/target*/block/sr*  auto             auto      defaults                       voldmanaged=sr0:auto,encryptable=userdata
+/devices/*pcieA/pci*/nvme*  auto          auto       defaults     voldmanaged=pcie:auto,encryptable=userdata
 /dev/block/loop     auto                loop      defaults                                  voldmanaged=loop:auto
 /dev/block/param    /mnt/vendor/param                ext4      noatime,nosuid,nodev,nodelalloc,nomblk_io_submit,errors=panic    wait,check,encryptable=footer,quota,formattable
 # Add for zram. zramsize can be in numeric (byte) , in percent
