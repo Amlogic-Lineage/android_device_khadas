@@ -439,8 +439,8 @@ BUILD_WITH_GAPPS_CONFIG := false
 
 #Khadas OTA
 PRODUCT_PROPERTY_OVERRIDES += \
-   ro.product.firmware=00900002 \
-   ro.product.otaupdateurl=http://dl.khadas.com:8089/otaupdate/update
+   ro.product.firmware=00902002 \
+   ro.product.otaupdateurl=http://dl.khadas.com:8088/otaupdate/update
 
 #########################################################################
 #
