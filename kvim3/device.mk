@@ -114,7 +114,8 @@ PRODUCT_COPY_FILES += \
     device/khadas/common/ril/libquectel-ril/libquectel-ril.so:vendor/lib/libquectel-ril.so \
     device/khadas/common/ril/libquectel-ril/ip-up:system/etc/ppp/ip-up \
     device/khadas/common/ril/libquectel-ril/ip-down:system/etc/ppp/ip-down \
-    device/khadas/common/ril/apns-conf.xml:system/etc/apns-conf.xml
+    device/khadas/common/ril/apns-conf.xml:system/etc/apns-conf.xml \
+    device/khadas/common/ril/ql-ril.conf:system/etc/ql-ril.conf
 
 # Light HAL
 PRODUCT_PACKAGES += \
