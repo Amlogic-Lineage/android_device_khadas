@@ -49,8 +49,8 @@ $(INSTALLED_2NDBOOTLOADER_TARGET): $(INSTALLED_BOARDDTB_TARGET) $(BOARD_PREBUILT
 
 else
 
-KERNEL_DEVICETREE := kvim
-KERNEL_DEFCONFIG := kvim_defconfig
+KERNEL_DEVICETREE := gxm_q201_2g
+KERNEL_DEFCONFIG := meson64_defconfig
 -include device/khadas/common/media_modules.mk
 -include device/khadas/common/tb_modules.mk
 -include hardware/amlogic/wifi/configs/wifi_modules.mk
@@ -63,13 +63,13 @@ DTBO_DEVICETREE := android_p_overlay_dt
 KERNEL_OUT := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ
 
 ifeq ($(KERNEL_A32_SUPPORT), true)
-KERNEL_DEFCONFIG := kvim_a32_defconfig
+KERNEL_DEFCONFIG := meson64_a32_defconfig
 KERNEL_ARCH := arm
 INTERMEDIATES_KERNEL := $(KERNEL_OUT)/arch/$(KERNEL_ARCH)/boot/uImage
 PREFIX_CROSS_COMPILE=/opt/toolchains/gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
 BUILD_CONFIG := $(KERNEL_DEFCONFIG)
 else
-KERNEL_DEFCONFIG := kvim_defconfig
+KERNEL_DEFCONFIG := meson64_defconfig
 KERNEL_ARCH := arm64
 INTERMEDIATES_KERNEL := $(KERNEL_OUT)/arch/$(KERNEL_ARCH)/boot/Image.gz
 PREFIX_CROSS_COMPILE=/opt/toolchains/gcc-linaro-6.3.1-2017.02-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
