@@ -17,7 +17,7 @@
 # build for Meson reference board.
 #
 
-PRODUCT_DIR := kvim
+PRODUCT_DIR := hertz
 
 # Dynamic enable start/stop zygote_secondary in 64bits
 # and 32bit system, default closed
@@ -71,7 +71,7 @@ endif
 endif
 
 
-# kvim:
+# hertz
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.hdmi.device_type=4 \
         ro.hdmi.set_menu_language=true \
@@ -83,11 +83,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
         persist.vendor.sys.cec.set_menu_language=false
 
-PRODUCT_NAME := kvim
-PRODUCT_DEVICE := kvim
-PRODUCT_BRAND := khadas
-PRODUCT_MODEL := VIM1
-PRODUCT_MANUFACTURER := khadas
+PRODUCT_NAME := hertz
+PRODUCT_DEVICE := hertz
+PRODUCT_BRAND := Droidlogic
+PRODUCT_MODEL := hertz
+PRODUCT_MANUFACTURER := Droidlogic
 
 TARGET_KERNEL_BUILT_FROM_SOURCE := true
 
@@ -95,7 +95,7 @@ PRODUCT_TYPE := mbox
 
 WITH_LIBPLAYER_MODULE := false
 
-OTA_UP_PART_NUM_CHANGED := false
+OTA_UP_PART_NUM_CHANGED := true
 
 BOARD_AML_VENDOR_PATH := vendor/amlogic/common/
 
@@ -439,11 +439,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #########################################################################
 BUILD_WITH_GAPPS_CONFIG := false
 
-
-#Khadas OTA
-PRODUCT_PROPERTY_OVERRIDES += \
-   ro.product.firmware=00900002 \
-   ro.product.otaupdateurl=http://dl.khadas.com:8089/otaupdate/update
 
 #########################################################################
 #

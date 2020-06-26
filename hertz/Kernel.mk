@@ -13,8 +13,8 @@ ifeq ($(PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY),true)
 endif# ifeq ($(PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY),true)
 
 ifneq ($(TARGET_KERNEL_BUILT_FROM_SOURCE), true)
-TARGET_PREBUILT_KERNEL := device/khadas/kvim-kernel/Image.gz
-LOCAL_DTB := device/khadas/kvim-kernel/kvim.dtb
+TARGET_PREBUILT_KERNEL := device/khadas/hertz-kernel/Image.gz
+LOCAL_DTB := device/khadas/hertz-kernel/hertz.dtb
 
 $(TARGET_PREBUILT_KERNEL): $(INSTALLED_BOARDDTB_TARGET)
 	@echo "cp kernel modules"
@@ -24,16 +24,16 @@ $(TARGET_PREBUILT_KERNEL): $(INSTALLED_BOARDDTB_TARGET)
 	mkdir -p $(PRODUCT_OUT)/obj/KERNEL_OBJ/
 	mkdir -p $(PRODUCT_OUT)/recovery/root/boot
 	mkdir -p $(KERNEL_KO_OUT)
-	cp device/khadas/kvim-kernel/lib/mali.ko $(PRODUCT_OUT)/vendor/lib/
-	cp device/khadas/kvim-kernel/lib/modules/* $(KERNEL_KO_OUT)/
-	cp device/khadas/kvim-kernel/lib/optee_armtz.ko $(PRODUCT_OUT)/vendor/lib/
-	cp device/khadas/kvim-kernel/lib/optee.ko $(PRODUCT_OUT)/vendor/lib/
-	cp device/khadas/kvim-kernel/lib/firmware/video/* $(PRODUCT_OUT)/vendor/lib/firmware/video/
-	-cp device/khadas/kvim-kernel/obj/KERNEL_OBJ/vmlinux $(PRODUCT_OUT)/obj/KERNEL_OBJ/
+	cp device/khadas/hertz-kernel/lib/mali.ko $(PRODUCT_OUT)/vendor/lib/
+	cp device/khadas/hertz-kernel/lib/modules/* $(KERNEL_KO_OUT)/
+	cp device/khadas/hertz-kernel/lib/optee_armtz.ko $(PRODUCT_OUT)/vendor/lib/
+	cp device/khadas/hertz-kernel/lib/optee.ko $(PRODUCT_OUT)/vendor/lib/
+	cp device/khadas/hertz-kernel/lib/firmware/video/* $(PRODUCT_OUT)/vendor/lib/firmware/video/
+	-cp device/khadas/hertz-kernel/obj/KERNEL_OBJ/vmlinux $(PRODUCT_OUT)/obj/KERNEL_OBJ/
 	mkdir -p $(PRODUCT_OUT)/$(TARGET_COPY_OUT_VENDOR)/lib/modules/
 	cp $(KERNEL_KO_OUT)/* $(PRODUCT_OUT)/$(TARGET_COPY_OUT_VENDOR)/lib/modules/
 	mkdir -p $(PRODUCT_OUT)/vendor/lib/egl
-	cp device/khadas/kvim-kernel/lib/egl/* $(PRODUCT_OUT)/vendor/lib/egl/
+	cp device/khadas/hertz-kernel/lib/egl/* $(PRODUCT_OUT)/vendor/lib/egl/
 
 $(INSTALLED_KERNEL_TARGET): $(TARGET_PREBUILT_KERNEL) | $(ACP)
 	@echo "Kernel installed"
