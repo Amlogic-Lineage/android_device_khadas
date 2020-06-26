@@ -500,7 +500,7 @@ endif
 #########################################################################
 $(call inherit-product, device/khadas/common/tb_detect.mk)
 
-include device/khadas/common/gpu/mali450-user-arm64.mk
+include device/khadas/common/gpu/t82x-user-arm64.mk
 
 ifneq ($(TARGET_BUILD_LIVETV),true)
 TARGET_BUILD_LIVETV := false
