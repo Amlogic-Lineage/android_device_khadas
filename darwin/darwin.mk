@@ -17,7 +17,7 @@
 # build for Meson reference board.
 #
 
-PRODUCT_DIR := kvim
+PRODUCT_DIR := darwin
 
 # Dynamic enable start/stop zygote_secondary in 64bits
 # and 32bit system, default closed
@@ -33,8 +33,9 @@ endif
 endif
 
 $(call inherit-product, device/khadas/$(PRODUCT_DIR)/vendor_prop.mk)
-$(call inherit-product, device/khadas/common/products/mbox/product_mbox.mk)
+$(call inherit-product, device/khadas/common/products/tv/product_tv.mk)
 $(call inherit-product, device/khadas/$(PRODUCT_DIR)/device.mk)
+$(call inherit-product-if-exists, vendor/amlogic/darwin/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/google/products/gms.mk)
 #########################################################################
 #
@@ -71,11 +72,10 @@ endif
 endif
 
 
-# kvim:
+# darwin:
 PRODUCT_PROPERTY_OVERRIDES += \
-        ro.hdmi.device_type=4 \
-        ro.hdmi.set_menu_language=true \
-        persist.sys.hdmi.keep_awake=false
+        sys.fb.bits=32 \
+        ro.hdmi.device_type=5
 
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.build.display.id=VIM_Pie_$(shell date +%Y%m%d)
@@ -83,19 +83,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
         persist.vendor.sys.cec.set_menu_language=false
 
-PRODUCT_NAME := kvim
-PRODUCT_DEVICE := kvim
-PRODUCT_BRAND := khadas
-PRODUCT_MODEL := VIM1
-PRODUCT_MANUFACTURER := khadas
+PRODUCT_NAME := darwin
+PRODUCT_DEVICE := darwin
+PRODUCT_BRAND := Droidlogic
+PRODUCT_MODEL := darwin
+PRODUCT_MANUFACTURER := Droidlogic
 
 TARGET_KERNEL_BUILT_FROM_SOURCE := true
 
-PRODUCT_TYPE := mbox
+PRODUCT_TYPE := tv
 
 WITH_LIBPLAYER_MODULE := false
 
-OTA_UP_PART_NUM_CHANGED := false
+OTA_UP_PART_NUM_CHANGED := true
 
 BOARD_AML_VENDOR_PATH := vendor/amlogic/common/
 
@@ -174,16 +174,16 @@ endif
 #PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY := true
 #PRODUCT_AML_SECURE_BOOT_VERSION3 := true
 ifeq ($(PRODUCT_AML_SECURE_BOOT_VERSION3),true)
-PRODUCT_AML_SECUREBOOT_RSAKEY_DIR := ./bootloader/uboot-repo/bl33/board/amlogic/gxl_p212_v1/aml-key
-PRODUCT_AML_SECUREBOOT_AESKEY_DIR := ./bootloader/uboot-repo/bl33/board/amlogic/gxl_p212_v1/aml-key
-PRODUCT_SBV3_SIGBL_TOOL  := ./bootloader/uboot-repo/fip/stool/amlogic-sign-gxl.sh -s gxl
-PRODUCT_SBV3_SIGIMG_TOOL := ./bootloader/uboot-repo/fip/stool/signing-tool-gxl/sign-boot-gxl.sh --sign-kernel
+PRODUCT_AML_SECUREBOOT_RSAKEY_DIR := ./bootloader/uboot-repo/bl33/board/amlogic/txlx_t962e_r321_v1/aml-key
+PRODUCT_AML_SECUREBOOT_AESKEY_DIR := ./bootloader/uboot-repo/bl33/board/amlogic/txlx_t962e_r321_v1/aml-key
+PRODUCT_SBV3_SIGBL_TOOL  := ./bootloader/uboot-repo/fip/stool/amlogic-sign-gxl.sh -s txlx
+PRODUCT_SBV3_SIGIMG_TOOL := ./bootloader/uboot-repo/fip/stool/signing-tool-gxl-dev/kernel.encrypt.signed.bash
 else
-PRODUCT_AML_SECUREBOOT_USERKEY := ./bootloader/uboot-repo/bl33/board/amlogic/gxl_p212_v1/aml-user-key.sig
-PRODUCT_AML_SECUREBOOT_SIGNTOOL := ./bootloader/uboot-repo/fip/gxl/aml_encrypt_gxl
+PRODUCT_AML_SECUREBOOT_USERKEY := ./bootloader/uboot-repo/bl33/board/amlogic/txlx_t962e_r321_v1/aml-user-key.sig
+PRODUCT_AML_SECUREBOOT_SIGNTOOL := ./bootloader/uboot-repo/fip/txlx/aml_encrypt_txlx
 PRODUCT_AML_SECUREBOOT_SIGNBOOTLOADER := $(PRODUCT_AML_SECUREBOOT_SIGNTOOL) --bootsig \
 						--amluserkey $(PRODUCT_AML_SECUREBOOT_USERKEY) \
-						--aeskey enable
+						--aeskey enable --level v3
 PRODUCT_AML_SECUREBOOT_SIGNIMAGE := $(PRODUCT_AML_SECUREBOOT_SIGNTOOL) --imgsig \
 					--amluserkey $(PRODUCT_AML_SECUREBOOT_USERKEY)
 PRODUCT_AML_SECUREBOOT_SIGBIN	:= $(PRODUCT_AML_SECUREBOOT_SIGNTOOL) --binsig \
@@ -215,6 +215,14 @@ endif
 
 ########################################################################
 #
+#                           Tuner
+#
+########################################################################
+TUNER_MODULE := si2151
+include device/amlogic/common/tuner/tuner.mk
+
+########################################################################
+#
 #                           CTS
 #
 ########################################################################
@@ -226,6 +234,13 @@ TARGET_BUILD_NETFLIX:= true
 TARGET_BUILD_NETFLIX_MGKID := true
 endif
 ########################################################################
+
+########################################################################
+#
+#                           Live TV
+#
+########################################################################
+TARGET_BUILD_LIVETV := true
 
 #########################################################################
 #
