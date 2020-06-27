@@ -17,7 +17,7 @@
 # build for Meson reference board.
 #
 
-PRODUCT_DIR := kvim
+PRODUCT_DIR := ampere
 
 # Dynamic enable start/stop zygote_secondary in 64bits
 # and 32bit system, default closed
@@ -71,7 +71,7 @@ endif
 endif
 
 
-# kvim:
+# ampere:
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.hdmi.device_type=4 \
         ro.hdmi.set_menu_language=true \
@@ -83,11 +83,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
         persist.vendor.sys.cec.set_menu_language=false
 
-PRODUCT_NAME := kvim
-PRODUCT_DEVICE := kvim
-PRODUCT_BRAND := khadas
-PRODUCT_MODEL := VIM1
-PRODUCT_MANUFACTURER := khadas
+PRODUCT_NAME := ampere
+PRODUCT_DEVICE := ampere
+PRODUCT_BRAND := Droidlogic
+PRODUCT_MODEL := ampere
+PRODUCT_MANUFACTURER := Droidlogic
 
 TARGET_KERNEL_BUILT_FROM_SOURCE := true
 

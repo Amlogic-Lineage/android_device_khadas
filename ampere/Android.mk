@@ -20,7 +20,7 @@
 # to only building on ARM if they include assembly. Individual makefiles
 # are responsible for having their own logic, for fine-grained control.
 
-ifeq ($(TARGET_PRODUCT),kvim)
+ifeq ($(TARGET_PRODUCT),ampere)
 LOCAL_PATH := $(call my-dir)
 # if some modules are built directly from this directory (not subdirectories),
 # their rules should be written here.

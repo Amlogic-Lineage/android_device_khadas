@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-PRODUCT_DIR := kvim
+PRODUCT_DIR := ampere
 
 ifneq ($(ANDROID_BUILD_TYPE), 64)
 TARGET_CPU_ABI := armeabi-v7a
@@ -47,7 +47,7 @@ TARGET_NO_KERNEL := false
 TARGET_NO_RADIOIMAGE := true
 
 TARGET_BOARD_PLATFORM := gxl
-TARGET_BOOTLOADER_BOARD_NAME := kvim
+TARGET_BOOTLOADER_BOARD_NAME := ampere
 
 # Allow passing `--second` to mkbootimg via 2ndbootloader.
 TARGET_BOOTLOADER_IS_2ND := true
@@ -57,7 +57,7 @@ USE_OPENGL_RENDERER := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 MAX_VIRTUAL_DISPLAY_DIMENSION := 1920
 TARGET_APP_LAYER_USE_CONTINUOUS_BUFFER := false
-TARGET_USE_DEFAULT_HDR_PROPERTY := true
+
 
 #MESONHWC CONFIG
 USE_HWC2 := true
