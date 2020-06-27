@@ -476,7 +476,7 @@ on property:vendor.sys.mtkbtdriver=true
 on property:vendor.sys.mtkbtdriver=false
 	rmmod btmtksdio
 
-service remotecfg /vendor/bin/remotecfg /vendor/etc/remote.conf
+service remotecfg /vendor/bin/remotecfg -t /vendor/etc/remote.tab1
     class main
     oneshot
     seclabel u:r:remotecfg:s0
