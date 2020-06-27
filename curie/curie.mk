@@ -17,7 +17,7 @@
 # build for Meson reference board.
 #
 
-PRODUCT_DIR := kvim
+PRODUCT_DIR := curie
 
 # Dynamic enable start/stop zygote_secondary in 64bits
 # and 32bit system, default closed
@@ -70,11 +70,13 @@ endif
 endif
 endif
 
+# curie:
 
-# kvim:
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+
 PRODUCT_PROPERTY_OVERRIDES += \
+        sys.fb.bits=32 \
         ro.hdmi.device_type=4 \
-        ro.hdmi.set_menu_language=true \
         persist.sys.hdmi.keep_awake=false
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -83,11 +85,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
         persist.vendor.sys.cec.set_menu_language=false
 
-PRODUCT_NAME := kvim
-PRODUCT_DEVICE := kvim
-PRODUCT_BRAND := khadas
-PRODUCT_MODEL := VIM1
-PRODUCT_MANUFACTURER := khadas
+PRODUCT_NAME := curie
+PRODUCT_DEVICE := curie
+PRODUCT_BRAND := Droidlogic
+PRODUCT_MODEL := curie
+PRODUCT_MANUFACTURER := Droidlogic
 
 TARGET_KERNEL_BUILT_FROM_SOURCE := true
 
@@ -95,7 +97,7 @@ PRODUCT_TYPE := mbox
 
 WITH_LIBPLAYER_MODULE := false
 
-OTA_UP_PART_NUM_CHANGED := false
+OTA_UP_PART_NUM_CHANGED := true
 
 BOARD_AML_VENDOR_PATH := vendor/amlogic/common/
 
@@ -144,7 +146,7 @@ TARGET_NO_RECOVERY := false
 ifeq ($(ANDROID_BUILD_TYPE), 64)
 TARGET_PARTITION_DTSI := partition_mbox_normal_P_64.dtsi
 else
-TARGET_PARTITION_DTSI := partition_mbox_normal_P_32.dtsi
+TARGET_PARTITION_DTSI := partition_mbox_p241_P.dtsi
 endif
 
 ifneq ($(BUILD_WITH_AVB),true)
@@ -174,12 +176,12 @@ endif
 #PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY := true
 #PRODUCT_AML_SECURE_BOOT_VERSION3 := true
 ifeq ($(PRODUCT_AML_SECURE_BOOT_VERSION3),true)
-PRODUCT_AML_SECUREBOOT_RSAKEY_DIR := ./bootloader/uboot-repo/bl33/board/amlogic/gxl_p212_v1/aml-key
-PRODUCT_AML_SECUREBOOT_AESKEY_DIR := ./bootloader/uboot-repo/bl33/board/amlogic/gxl_p212_v1/aml-key
+PRODUCT_AML_SECUREBOOT_RSAKEY_DIR := ./bootloader/uboot-repo/bl33/board/amlogic/gxl_p241_v1/aml-key
+PRODUCT_AML_SECUREBOOT_AESKEY_DIR := ./bootloader/uboot-repo/bl33/board/amlogic/gxl_p241_v1/aml-key
 PRODUCT_SBV3_SIGBL_TOOL  := ./bootloader/uboot-repo/fip/stool/amlogic-sign-gxl.sh -s gxl
-PRODUCT_SBV3_SIGIMG_TOOL := ./bootloader/uboot-repo/fip/stool/signing-tool-gxl/sign-boot-gxl.sh --sign-kernel
+PRODUCT_SBV3_SIGIMG_TOOL := ./bootloader/uboot-repo/fip/stool/signing-tool-gxl-dev/kernel.encrypt.signed.bash
 else
-PRODUCT_AML_SECUREBOOT_USERKEY := ./bootloader/uboot-repo/bl33/board/amlogic/gxl_p212_v1/aml-user-key.sig
+PRODUCT_AML_SECUREBOOT_USERKEY := ./bootloader/uboot-repo/bl33/board/amlogic/gxl_p241_v1/aml-user-key.sig
 PRODUCT_AML_SECUREBOOT_SIGNTOOL := ./bootloader/uboot-repo/fip/gxl/aml_encrypt_gxl
 PRODUCT_AML_SECUREBOOT_SIGNBOOTLOADER := $(PRODUCT_AML_SECUREBOOT_SIGNTOOL) --bootsig \
 						--amluserkey $(PRODUCT_AML_SECUREBOOT_USERKEY) \
