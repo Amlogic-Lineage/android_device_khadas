@@ -1,3 +1,3 @@
-add_lunch_combo kvim-eng
-add_lunch_combo kvim-user
-add_lunch_combo kvim-userdebug
+add_lunch_combo einstein-eng
+add_lunch_combo einstein-user
+add_lunch_combo einstein-userdebug
