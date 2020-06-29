@@ -123,6 +123,7 @@ endif
 BOARD_PREBUILT_DTBOIMAGE := out/target/product/$(PRODUCT_DIR)/$(PRODUCT_DIR)-kernel/dtbo.img
 BOARD_DTBOIMG_PARTITION_SIZE := 8388608
 
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE += androidboot.dtbo_idx=0
 
 ifeq ($(BOARD_BUILD_DISABLED_VBMETAIMAGE), true)
