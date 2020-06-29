@@ -258,9 +258,9 @@ endif
 #
 #########################################################################
 
-WIFI_MODULE := multiwifi
+WIFI_MODULE := qca9377
 #WIFI_MODULE := BCMWIFI
-#WIFI_BUILD_IN := true
+WIFI_BUILD_IN := true
 
 include hardware/amlogic/wifi/configs/wifi.mk
 
@@ -271,7 +271,8 @@ include hardware/amlogic/wifi/configs/wifi.mk
 #########################################################################
 
 BOARD_HAVE_BLUETOOTH := true
-BLUETOOTH_MODULE := BCMBT
+BLUETOOTH_MODULE := QCABT
+BCM_BLUETOOTH_LPM_ENABLE := true
 include hardware/amlogic/bluetooth/configs/bluetooth.mk
 
 
