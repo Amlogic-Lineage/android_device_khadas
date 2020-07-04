@@ -197,8 +197,10 @@ endif # ifeq ($(PRODUCT_AML_SECURE_BOOT_VERSION3),true)
 #
 ########################################################################
 #KERNEL_A32_SUPPORT := false
+ifneq ($(ANDROID_BUILD_TYPE), 64)
 ifndef KERNEL_A32_SUPPORT
 KERNEL_A32_SUPPORT := true
+endif
 endif
 
 ########################################################################
