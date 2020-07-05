@@ -102,7 +102,7 @@ BOARD_AML_VENDOR_PATH := vendor/amlogic/common/
 BOARD_WIDEVINE_TA_PATH := vendor/amlogic/
 
 BOARD_AML_TDK_KEY_PATH := device/khadas/common/tdk_keys/
-#AB_OTA_UPDATER :=true
+AB_OTA_UPDATER := false
 BUILD_WITH_AVB := true
 
 ifeq ($(BUILD_WITH_AVB),true)
