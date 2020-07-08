@@ -135,6 +135,10 @@ endif
 
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
+ifneq ($(USE_USB_AS_HOST),true)
+BOARD_KERNEL_CMDLINE += "otg_device=1"
+endif
+
 TARGET_SUPPORT_USB_BURNING_V2 := true
 TARGET_AMLOGIC_RES_PACKAGE := device/khadas/$(PRODUCT_DIR)/logo_img_files
 
