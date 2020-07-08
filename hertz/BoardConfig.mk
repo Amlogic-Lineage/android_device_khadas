@@ -133,6 +133,8 @@ endif
 endif
 endif
 
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+
 TARGET_SUPPORT_USB_BURNING_V2 := true
 TARGET_AMLOGIC_RES_PACKAGE := device/khadas/$(PRODUCT_DIR)/logo_img_files
 
