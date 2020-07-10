@@ -13,8 +13,8 @@ ifeq ($(PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY),true)
 endif# ifeq ($(PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY),true)
 
 ifneq ($(TARGET_KERNEL_BUILT_FROM_SOURCE), true)
-TARGET_PREBUILT_KERNEL := device/khadas/hertz-kernel/Image.gz
-LOCAL_DTB := device/khadas/hertz-kernel/hertz.dtb
+TARGET_PREBUILT_KERNEL := device/khadas/franklin-kernel/Image.gz
+LOCAL_DTB := device/khadas/franklin-kernel/franklin.dtb
 
 $(TARGET_PREBUILT_KERNEL): $(INSTALLED_BOARDDTB_TARGET)
 	@echo "cp kernel modules"
@@ -24,16 +24,16 @@ $(TARGET_PREBUILT_KERNEL): $(INSTALLED_BOARDDTB_TARGET)
 	mkdir -p $(PRODUCT_OUT)/obj/KERNEL_OBJ/
 	mkdir -p $(PRODUCT_OUT)/recovery/root/boot
 	mkdir -p $(KERNEL_KO_OUT)
-	cp device/khadas/hertz-kernel/lib/mali.ko $(PRODUCT_OUT)/vendor/lib/
-	cp device/khadas/hertz-kernel/lib/modules/* $(KERNEL_KO_OUT)/
-	cp device/khadas/hertz-kernel/lib/optee_armtz.ko $(PRODUCT_OUT)/vendor/lib/
-	cp device/khadas/hertz-kernel/lib/optee.ko $(PRODUCT_OUT)/vendor/lib/
-	cp device/khadas/hertz-kernel/lib/firmware/video/* $(PRODUCT_OUT)/vendor/lib/firmware/video/
-	-cp device/khadas/hertz-kernel/obj/KERNEL_OBJ/vmlinux $(PRODUCT_OUT)/obj/KERNEL_OBJ/
+	cp device/khadas/franklin-kernel/lib/mali.ko $(PRODUCT_OUT)/vendor/lib/
+	cp device/khadas/franklin-kernel/lib/modules/* $(KERNEL_KO_OUT)/
+	cp device/khadas/franklin-kernel/lib/optee_armtz.ko $(PRODUCT_OUT)/vendor/lib/
+	cp device/khadas/franklin-kernel/lib/optee.ko $(PRODUCT_OUT)/vendor/lib/
+	cp device/khadas/franklin-kernel/lib/firmware/video/* $(PRODUCT_OUT)/vendor/lib/firmware/video/
+	-cp device/khadas/franklin-kernel/obj/KERNEL_OBJ/vmlinux $(PRODUCT_OUT)/obj/KERNEL_OBJ/
 	mkdir -p $(PRODUCT_OUT)/$(TARGET_COPY_OUT_VENDOR)/lib/modules/
 	cp $(KERNEL_KO_OUT)/* $(PRODUCT_OUT)/$(TARGET_COPY_OUT_VENDOR)/lib/modules/
 	mkdir -p $(PRODUCT_OUT)/vendor/lib/egl
-	cp device/khadas/hertz-kernel/lib/egl/* $(PRODUCT_OUT)/vendor/lib/egl/
+	cp device/khadas/franklin-kernel/lib/egl/* $(PRODUCT_OUT)/vendor/lib/egl/
 
 $(INSTALLED_KERNEL_TARGET): $(TARGET_PREBUILT_KERNEL) | $(ACP)
 	@echo "Kernel installed"
@@ -49,7 +49,7 @@ $(INSTALLED_2NDBOOTLOADER_TARGET): $(INSTALLED_BOARDDTB_TARGET) $(BOARD_PREBUILT
 
 else
 
-KERNEL_DEVICETREE := gxm_q201_2g
+KERNEL_DEVICETREE := sm1_s905x3_ac213
 KERNEL_DEFCONFIG := meson64_defconfig
 -include device/khadas/common/media_modules.mk
 -include device/khadas/common/tb_modules.mk
@@ -161,7 +161,7 @@ $(INSTALLED_KERNEL_TARGET): $(INTERMEDIATES_KERNEL) | $(ACP)
 	@echo "Kernel installed"
 	$(transform-prebuilt-to-target)
 
--include device/khadas/common/gpu/t82x-kernel.mk
+-include device/khadas/common/gpu/dvalin-kernel.mk
 
 $(BOARD_VENDOR_KERNEL_MODULES): $(INSTALLED_KERNEL_TARGET)
 	@echo "BOARD_VENDOR_KERNEL_MODULES: $(BOARD_VENDOR_KERNEL_MODULES)"

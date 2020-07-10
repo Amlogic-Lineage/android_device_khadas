@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-PRODUCT_DIR := hertz
+PRODUCT_DIR := franklin
 
 ifneq ($(ANDROID_BUILD_TYPE), 64)
 TARGET_CPU_ABI := armeabi-v7a
@@ -46,8 +46,8 @@ TARGET_NO_BOOTLOADER := false
 TARGET_NO_KERNEL := false
 TARGET_NO_RADIOIMAGE := true
 
-TARGET_BOARD_PLATFORM := gxm
-TARGET_BOOTLOADER_BOARD_NAME := hertz
+TARGET_BOARD_PLATFORM := g12a
+TARGET_BOOTLOADER_BOARD_NAME := franklin
 
 # Allow passing `--second` to mkbootimg via 2ndbootloader.
 TARGET_BOOTLOADER_IS_2ND := true

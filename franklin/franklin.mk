@@ -17,7 +17,7 @@
 # build for Meson reference board.
 #
 
-PRODUCT_DIR := hertz
+PRODUCT_DIR := franklin
 
 # Dynamic enable start/stop zygote_secondary in 64bits
 # and 32bit system, default closed
@@ -71,7 +71,7 @@ endif
 endif
 
 
-# hertz
+# franklin
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.hdmi.device_type=4 \
         ro.hdmi.set_menu_language=true \
@@ -83,10 +83,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
         persist.vendor.sys.cec.set_menu_language=false
 
-PRODUCT_NAME := hertz
-PRODUCT_DEVICE := hertz
+PRODUCT_NAME := franklin
+PRODUCT_DEVICE := franklin
 PRODUCT_BRAND := Droidlogic
-PRODUCT_MODEL := hertz
+PRODUCT_MODEL := franklin
 PRODUCT_MANUFACTURER := Droidlogic
 
 TARGET_KERNEL_BUILT_FROM_SOURCE := true
@@ -174,13 +174,13 @@ endif
 #PRODUCT_BUILD_SECURE_BOOT_IMAGE_DIRECTLY := true
 #PRODUCT_AML_SECURE_BOOT_VERSION3 := true
 ifeq ($(PRODUCT_AML_SECURE_BOOT_VERSION3),true)
-PRODUCT_AML_SECUREBOOT_RSAKEY_DIR := ./bootloader/uboot-repo/bl33/board/amlogic/gxm_q201_v1/aml-key
-PRODUCT_AML_SECUREBOOT_AESKEY_DIR := ./bootloader/uboot-repo/bl33/board/amlogic/gxm_q201_v1/aml-key
+PRODUCT_AML_SECUREBOOT_RSAKEY_DIR := ./bootloader/uboot-repo/bl33/board/amlogic/g12a_u212_v1/aml-key
+PRODUCT_AML_SECUREBOOT_AESKEY_DIR := ./bootloader/uboot-repo/bl33/board/amlogic/g12a_u212_v1/aml-key
 PRODUCT_SBV3_SIGBL_TOOL  := ./bootloader/uboot-repo/fip/stool/amlogic-sign-gxl.sh -s gxl
 PRODUCT_SBV3_SIGIMG_TOOL := ./bootloader/uboot-repo/fip/stool/signing-tool-gxl-dev/kernel.encrypt.signed.bash
 else
-PRODUCT_AML_SECUREBOOT_USERKEY := ./bootloader/uboot-repo/bl33/board/amlogic/gxm_q201_v1/aml-user-key.sig
-PRODUCT_AML_SECUREBOOT_SIGNTOOL := ./bootloader/uboot-repo/fip/gxm/aml_encrypt_gxm
+PRODUCT_AML_SECUREBOOT_USERKEY := ./bootloader/uboot-repo/bl33/board/amlogic/g12a_u212_v1/aml-user-key.sig
+PRODUCT_AML_SECUREBOOT_SIGNTOOL := ./bootloader/uboot-repo/fip/g12a/aml_encrypt_g12a
 PRODUCT_AML_SECUREBOOT_SIGNBOOTLOADER := $(PRODUCT_AML_SECUREBOOT_SIGNTOOL) --bootsig \
 						--amluserkey $(PRODUCT_AML_SECUREBOOT_USERKEY) \
 						--aeskey enable
@@ -502,7 +502,7 @@ endif
 #########################################################################
 $(call inherit-product, device/khadas/common/tb_detect.mk)
 
-include device/khadas/common/gpu/t82x-user-arm64.mk
+include device/khadas/common/gpu/dvalin-user-arm64.mk
 
 ifneq ($(TARGET_BUILD_LIVETV),true)
 TARGET_BUILD_LIVETV := false

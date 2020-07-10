@@ -1,3 +1,3 @@
-add_lunch_combo hertz-eng
-add_lunch_combo hertz-user
-add_lunch_combo hertz-userdebug
+add_lunch_combo franklin-eng
+add_lunch_combo franklin-user
+add_lunch_combo franklin-userdebug

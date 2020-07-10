@@ -14,4 +14,4 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/hertz.mk
+PRODUCT_MAKEFILES := $(LOCAL_DIR)/franklin.mk
