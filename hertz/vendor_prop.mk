@@ -50,6 +50,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.disable.audiorawout=false
 
+PRODUCT_PROPERTY_OVERRIDES += \
+   ro.vendor.platform.support.dolbyvision=true
 #Dolby DD+ decoder option
 #this prop to for videoplayer display the DD+/DD icon when playback
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -63,6 +65,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     #ro.vendor.platform.support.dtstrans=true \
     #ro.vendor.platform.support.dtsmulasset=true
 #DTS-HD prop end
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.support.dolbyvision = true
 
 #add for video boot, 1 means use video boot, others not .
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -85,19 +90,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     service.adb.tcp.port=5555
 
 # low memory for 1G
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    ro.config.low_ram=true
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.low_ram=true
 
 # crypto volume
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.volume.filenames_mode=aes-256-cts
-
-# low memory dalvik
-PRODUCT_PROPERTY_OVERRIDES += \
-  dalvik.vm.heapgrowthlimit=160m \
-  dalvik.vm.heapmaxfree=4m \
-  dalvik.vm.heapsize=224m \
-  dalvik.vm.heapstartsize=4m
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.is.tv=0
@@ -119,9 +117,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.media.bootvideo=0050
 endif
 
+# default disable sdr to hdr
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.sdr2hdr.disable=true
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.hdmi.device_type=4
-
-#default media vol ,max 15
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.media_vol_default=8
