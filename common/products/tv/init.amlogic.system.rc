@@ -462,14 +462,6 @@ service hdcp_rp22 /vendor/bin/hdcp_rp22 \
 #    group root
 #    oneshot
 
-service factoryreset /vendor/bin/factoryreset.sh
-    class main
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:install_recovery:s0
-
 on property:sys.boot_completed=1
     # Enable ZRAM on boot_complete
     swapon_all /vendor/etc/fstab.amlogic
