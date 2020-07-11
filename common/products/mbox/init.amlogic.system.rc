@@ -500,14 +500,6 @@ service hdcp_rx22 /vendor/bin/hdcp_rx22 \
 #    group root
 #    oneshot
 
-service factoryreset /vendor/bin/factoryreset.sh
-    class main
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:install_recovery:s0
-
 service bugreport /system/bin/dumpstate -d -p -B -P -z \
     -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
     class main
