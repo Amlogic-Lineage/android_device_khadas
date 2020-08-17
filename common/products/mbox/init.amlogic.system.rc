@@ -452,6 +452,15 @@ service preinstall /system/bin/preinstall.sh
     oneshot
     seclabel u:r:preinstall:s0
 
+service rsdb /vendor/bin/rsdb.sh
+       user root
+       group root
+       oneshot
+       seclabel u:r:rsdb:s0
+
+on property:sys.wifi.rsdb.change=1
+       start rsdb
+
 service ril-daemon /vendor/bin/hw/rild -l /vendor/lib/libquectel-ril.so
     class main
     socket rild stream 777 root radio

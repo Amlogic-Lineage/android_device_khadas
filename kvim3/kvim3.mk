@@ -74,6 +74,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
         ro.build.display.id=VIM3_Pie_V$(shell date +%y%m%d)
 PRODUCT_PROPERTY_OVERRIDES += \
         persist.vendor.sys.cec.set_menu_language=false
+#wifi hotpot
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.sys.softap.band=0
+PRODUCT_COPY_FILES += \
+	device/khadas/$(PRODUCT_DIR)/rsdb.sh:$(TARGET_COPY_OUT_VENDOR)/bin/rsdb.sh
+# add softap sh
+PRODUCT_COPY_FILES += \
+        device/khadas/$(PRODUCT_DIR)/start_softap.sh:$(TARGET_COPY_OUT_VENDOR)/bin/start_softap.sh
+
 
 PRODUCT_NAME := kvim3
 PRODUCT_DEVICE := kvim3
