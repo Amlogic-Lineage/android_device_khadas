@@ -103,6 +103,8 @@ BOARD_AML_VENDOR_PATH := vendor/amlogic/common/
 
 BOARD_WIDEVINE_TA_PATH := vendor/amlogic/
 
+NEED_ISP := true
+
 #AB_OTA_UPDATER :=true
 BUILD_WITH_AVB := true
 
