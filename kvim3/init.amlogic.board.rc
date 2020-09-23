@@ -17,7 +17,6 @@ on post-fs-data
     insmod /vendor/lib/modules/cfg80211.ko
     insmod /vendor/lib/modules/dovi.ko
     insmod /vendor/lib/sl_hdr.ko
-    insmod /vendor/lib/modules/galcore.ko
     insmod /vendor/lib/modules/iv009_isp_iq.ko
     insmod /vendor/lib/modules/iv009_isp_lens.ko
     insmod /vendor/lib/modules/iv009_isp_sensor.ko
@@ -28,7 +27,6 @@ on boot
     write /sys/class/freq_limit/limit 0
 
     chmod 777 /dev/ge2d
-    chmod 666 /dev/galcore
 #HDMI IN
     chmod 666 /sys/class/sii9233a/port
     chmod 666 /sys/class/sii9233a/enable
@@ -36,6 +34,10 @@ on boot
 
     # chmod 0666 /dev/ge2d
     chmod 666 /dev/cec
+
+on property:sys.boot_completed=1
+    insmod /vendor/lib/modules/galcore.ko
+    chmod 666 /dev/galcore
 
 #uboot env
     chmod 666 /dev/block/env
