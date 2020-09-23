@@ -27,6 +27,7 @@ on boot
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
     write /sys/class/freq_limit/limit 0
 
+    chmod 777 /dev/ge2d
     chmod 666 /dev/galcore
 #HDMI IN
     chmod 666 /sys/class/sii9233a/port
