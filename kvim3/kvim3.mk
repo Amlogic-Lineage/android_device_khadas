@@ -504,7 +504,8 @@ PRODUCT_PACKAGES += \
         libnnrt \
         libNNGPUBinary \
         libNNVXCBinary \
-        libOvx12VXCBinary
+        libOvx12VXCBinary \
+        libnnsdk
 endif
 
 ifneq ($(TARGET_BUILD_LIVETV),true)
