@@ -35,6 +35,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.media.camera_preview.usemjpeg=1 \
     ro.vendor.platform.board_camera=true \
     ro.vendor.platform.omx=true \
+    ro.vendor.platform.usehwh264=true \
     ro.vendor.platform.usehwmjpeg=true
 
 #for bt auto connect
