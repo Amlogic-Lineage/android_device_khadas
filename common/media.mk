@@ -31,6 +31,7 @@
 BUILD_WITH_BOOT_PLAYER :=true
 BUILD_WITH_ES_PLAYER := true
 BUILD_WITH_CTC_MEDIAPROCESSOR := false
+BUILD_WITH_DEC_INFO_TEST := true
 
 #########################################################################
 #
@@ -282,6 +283,10 @@ endif
 
 ifeq ($(BUILD_WITH_ES_PLAYER),true)
 PRODUCT_PACKAGES += esplayer
+endif
+
+ifeq ($(BUILD_WITH_DEC_INFO_TEST),true)
+PRODUCT_PACKAGES += DecInfo_test
 endif
 
 ifeq ($(BUILD_WITH_TEEVIDEOFIRM_LOAD),true)
