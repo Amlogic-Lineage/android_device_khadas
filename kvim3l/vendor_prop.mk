@@ -31,7 +31,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.media.camera_preview.maxsize=1920x1080 \
     ro.media.camera_preview.limitedrate=1920x1080x30,1280x720x30,640x480x30,320x240x28 \
-    ro.media.camera_preview.usemjpeg=1
+    ro.media.camera_preview.usemjpeg=1 \
+    ro.vendor.platform.board_camera=true \
+    ro.vendor.platform.omx=true \
+    ro.vendor.platform.usehwmjpeg=true
 
 #if wifi Only
 PRODUCT_PROPERTY_OVERRIDES +=  \
