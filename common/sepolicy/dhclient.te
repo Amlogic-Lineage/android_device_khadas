@@ -1,0 +1,2 @@
+type dhclient, domain;
+type dhclient_exec, exec_type, file_type;

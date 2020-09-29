@@ -358,3 +358,6 @@
 /sys/class/tsync/vpause_flag    u:object_r:ctsplayer_file:s0
 /sys/module/amvdec_h264/parameters/error_recovery_mode    u:object_r:ctsplayer_file:s0
 /sys/class/amaudio/audio_channels_mask    u:object_r:ctsplayer_file:s0
+
+# dhclient
+/system/bin/dhclient             u:object_r:dhclient_exec:s0

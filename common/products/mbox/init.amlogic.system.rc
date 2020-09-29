@@ -411,7 +411,7 @@ on boot
     write /sys/class/vfm/map "add default decoder ppmgr deinterlace amvideo"
 
     write /proc/sys/kernel/dmesg_restrict 0
-
+	
 # virtual sdcard daemon running as media_rw (1023)
 #service sdcard /system/bin/sdcard -u 1023 -g 1023 /data/media /mnt/shell/emulated
 #   class late_start
@@ -533,3 +533,27 @@ on property:sys.boot_completed=1
     # Enable ZRAM on boot_complete
     swapon_all /vendor/etc/fstab.amlogic
     start factoryreset
+
+service dhclient_eth0 /system/bin/dhclient -6 -nw -d eth0
+    class main
+    disabled
+    oneshot
+	seclabel u:object_r:dhclient_exec:s0
+
+service release6_eth0 /system/bin/dhclient -6 -r eth0
+    class main
+    disabled
+    oneshot
+	seclabel u:object_r:dhclient_exec:s0
+
+service dhclient_wlan0 /system/bin/dhclient -6 -nw -d wlan0
+    class main
+    disabled
+    oneshot
+	seclabel u:object_r:dhclient_exec:s0
+
+service release6_wlan0 /system/bin/dhclient -6 -r wlan0
+    class main
+    disabled
+    oneshot
+	seclabel u:object_r:dhclient_exec:s0

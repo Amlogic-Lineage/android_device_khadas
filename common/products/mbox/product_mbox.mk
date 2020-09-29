@@ -207,3 +207,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
         media.omx.display_mode=1
 
 BOARD_HAVE_CEC_HIDL_SERVICE := true
+
+PRODUCT_COPY_FILES += device/amlogic/common/products/mbox/dhclient/dhclient:system/bin/dhclient \
+			device/amlogic/common/products/mbox/dhclient/dhclient-script:system/etc/dhcpcd/dhclient-script
