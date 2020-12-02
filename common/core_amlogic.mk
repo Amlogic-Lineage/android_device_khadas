@@ -530,8 +530,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m
 
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.boot.fake_battery=42
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.boot.fake_battery=42
 
 #set audioflinger heapsize,for lowramdevice
 #the default af heap size is 1M,it is not enough
