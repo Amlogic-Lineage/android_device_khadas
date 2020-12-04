@@ -82,6 +82,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
         persist.vendor.sys.cec.set_menu_language=false
 
+# add cmdclient & cmdserver
+PRODUCT_COPY_FILES += \
+        device/khadas/common/cmdclient:$(TARGET_COPY_OUT_SYSTEM)/bin/cmdclient \
+        device/khadas/common/cmdserver:$(TARGET_COPY_OUT_SYSTEM)/bin/cmdserver
+
 PRODUCT_NAME := kvim3l
 PRODUCT_DEVICE := kvim3l
 PRODUCT_BRAND := Khadas
