@@ -302,7 +302,12 @@ PRODUCT_COPY_FILES += \
 # Audio
 #
 BOARD_ALSA_AUDIO=tiny
+BOARD_HAVE_HARDWARE_EQDRC_AUGE := true
 include device/khadas/common/audio.mk
+
+PRODUCT_PACKAGES += \
+    libvirtualbass
+
 
 #########################################################################
 #

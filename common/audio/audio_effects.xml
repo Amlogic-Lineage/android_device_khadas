@@ -15,6 +15,7 @@
         <library name="srs" path="libsrswrapper.so"/>
         <library name="treblebass" path="libtreblebasswrapper.so"/>
         <library name="virtualsurround" path="libvirtualsurround.so"/>
+        <library name="virtualbass" path="libvirtualbass.so"/>
         <library name="ms12dapwrapper" path="libms12dapwrapper.so"/>
         <library name="geq" path="libgeq.so"/>
         <library name="virtualx" path="libvirtualx.so"/>
@@ -41,6 +42,7 @@
         <effect name="srs" library="srs" uuid="8a857720-0209-11e2-a9d8-0002a5d5c51b"/>
         <effect name="treblebass" library="treblebass" uuid="76733af0-2889-11e2-81c1-0800200c9a66"/>
         <effect name="virtualsurround" library="virtualsurround" uuid="c8459cd3-4400-4859-b76b-e12cc2aa67ce"/>
+        <effect name="virtualbass" library="virtualbass" uuid="a7eb1f3d-2c99-4664-8593-19405951e302"/>
         <effect name="ms12dapwrapper" library="ms12dapwrapper" uuid="86cafba6-3ff3-485d-b8df-0de96b34b272"/>
         <effect name="geq" library="geq" uuid="2e2a5fa6-cae8-45f5-bb70-a29c1f3074b2"/>
         <effect name="virtualx" library="virtualx" uuid="61821587-ce3c-4aac-9122-86d874ea1fb1"/>
