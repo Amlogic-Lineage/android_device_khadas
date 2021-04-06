@@ -208,5 +208,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 BOARD_HAVE_CEC_HIDL_SERVICE := true
 
-PRODUCT_COPY_FILES += device/amlogic/common/products/mbox/dhclient/dhclient:system/bin/dhclient \
-			device/amlogic/common/products/mbox/dhclient/dhclient-script:system/etc/dhcpcd/dhclient-script
+PRODUCT_COPY_FILES += device/khadas/common/products/mbox/dhclient/dhclient:system/bin/dhclient \
+			device/khadas/common/products/mbox/dhclient/dhclient-script:system/etc/dhcpcd/dhclient-script
