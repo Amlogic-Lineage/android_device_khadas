@@ -433,7 +433,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #                                    Khadas Build Config
 #
 #########################################################################
-BUILD_WITH_GAPPS_CONFIG := false
+BUILD_WITH_GAPPS_CONFIG := true
 
 
 #Khadas OTA
