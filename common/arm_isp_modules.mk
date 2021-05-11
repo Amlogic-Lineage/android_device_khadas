@@ -27,5 +27,5 @@ define arm_isp-modules
 	$(MAKE) -C $(KDIR) M=$(ARM_ISP_MODULES)/subdev/sensor \
         ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(PREFIX_CROSS_COMPILE) modules
 
-	find $(ARM_ISP_MODULES) -name *.ko | xargs -i cp {} ${MODS_OUT}
+	find $(ARM_ISP_MODULES) -name '*.ko' | xargs -i cp {} ${MODS_OUT}
 endef
