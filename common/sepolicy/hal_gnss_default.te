@@ -1,1 +1,10 @@
-allow hal_gnss_default vndbinder_device:chr_file { read write open ioctl };
+allow hal_gnss_default vndbinder_device:chr_file { open read write getattr ioctl };
+#allow hal_gnss_default default_prop:file { open read };
+dontaudit hal_gnss_default default_prop:file { open read };
+allow hal_gnss_default gnss_device:chr_file { open read write getattr ioctl };
+allow hal_gnss_default sysfs:dir search;
+allow hal_gnss_default sysfs:file { open read write getattr ioctl };;
+allow hal_gnss_default_exec sysfs:file { open read write };
+allow hal_gnss_default gnss_prop:file { getattr open read  };
+allow hal_gnss_default_exec sysfs_acm:file {open read write getattr ioctl };
+

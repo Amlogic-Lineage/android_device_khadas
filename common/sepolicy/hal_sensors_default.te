@@ -1,0 +1,5 @@
+#allow hal_sensors_default device:file {read write create open ioctl};
+allow hal_sensors_default gsensor_device:chr_file {open read write getattr ioctl };
+#allow hal_sensors_default device:chr_file {read write create open ioctl};
+allow hal_sensors_default input_device:dir { open search read };
+allow hal_sensors_default input_device:chr_file { open write read getattr ioctl };

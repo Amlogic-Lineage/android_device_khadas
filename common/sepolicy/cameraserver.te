@@ -1,0 +1,1 @@
+allow cameraserver media_prop:file read;

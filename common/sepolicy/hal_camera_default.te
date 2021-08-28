@@ -8,4 +8,14 @@ allow hal_camera_default video_device:chr_file { read write open };
 allow hal_camera_default vendor_video_device:chr_file { read write open };
 allow hal_camera_default sysfs:file { read open };
 
+
+allow hal_camera_default codec_device:chr_file { open read write getattr ioctl };
+allow hal_camera_default sysfs_am_vecm:dir search;
+allow hal_camera_default sysfs_amhdmitx:dir search;
+allow hal_camera_default sysfs_video:dir search;
+allow hal_camera_default sysfs_video:file { open read write getattr ioctl };
+allow hal_camera_default vendor_video_device:chr_file { open read write getattr ioctl };
+allow hal_camera_default ge2d_device:chr_file { open read write ioctl };
+allow hal_camera_default media_prop:file read;
+
 set_prop(hal_camera_default, vendor_platform_prop)

@@ -2,4 +2,6 @@
 allow untrusted_app sysfs_zram:file { read open getattr };
 allow untrusted_app sysfs_zram:dir { search };
 allow appdomain galcore_device:chr_file { open getattr read write ioctl };
+allow appdomain gsensor_device:chr_file { open getattr read write ioctl };
 allow untrusted_app_all graphics_device:dir { search };
+allow untrusted_app_all gsensor_device:chr_file { open getattr read write ioctl };

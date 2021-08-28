@@ -1,0 +1,18 @@
+#type rild, domain;
+#type rild_exec, exec_type, vendor_file_type, file_type;
+
+#init_daemon_domain(rild)
+
+allow rild net_radio_prop:property_service set;
+#dontaudit rild net_radio_prop:property_service set;
+allow rild net_radio_prop:file { open read };
+#dontaudit rild net_radio_prop:file { open read };
+allow rild self:capability dac_override;
+#dontaudit rild self:capability dac_override;
+allow rild system_file:file execute_no_trans;
+allow rild ppp_exec:file { execute read open execute_no_trans getattr };
+#dontaudit rild ppp_exec:file { execute read open execute_no_trans getattr };
+allow rild ppp_device:chr_file { open write read ioctl };
+allow rild rootfs:dir { open getattr read ioctl lock };
+allow rild shell_exec:file { execute read open execute_no_trans getattr };
+#dontaudit rild shell_exec:file { execute read open execute_no_trans getattr };

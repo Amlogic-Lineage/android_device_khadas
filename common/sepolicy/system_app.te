@@ -87,3 +87,20 @@ allow system_app param_tv_file:file { create open read write setattr getattr loc
 allow system_app vendor_video_device:chr_file {open ioctl read write};
 allow system_app debugfs_mali:dir search;
 
+
+
+allow system_app sysfs_led:file { open read write getattr ioctl };
+allow system_app sysfs_fan:file { open read write getattr ioctl };
+allow system_app sysfs_wol:file { open read write getattr ioctl };
+allow system_app sysfs_mcu:file { open read write getattr ioctl };
+allow system_app sysfs_camera:file { open read write getattr ioctl };
+#allow system_app sysfs:file { open read write getattr ioctl };
+allow system_app sysfs:dir { search open getattr read ioctl lock };
+allow system_app sysfs_leds:dir search;
+allow system_app sysfs_net:dir search;
+allow system_app sysfs_net:file { read write open getattr };
+allow system_app sysfs_rtc:dir search;
+allow system_app sysfs_rtc:file { read write open getattr };
+allow system_app proc_cmdline:file { getattr read write open ioctl };
+allow system_app logpersistd_logging_prop:file read; 
+allow system_app logpersistd_logging_prop:property_service set;

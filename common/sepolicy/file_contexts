@@ -113,6 +113,8 @@
 /dev/wifi_power     			u:object_r:radio_device:s0
 /dev/hidraw[0-3]			u:object_r:hidraw_device:s0
 /dev/galcore                    u:object_r:galcore_device:s0
+/dev/gsensor                            u:object_r:gsensor_device:s0
+/dev/ttyACM0                            u:object_r:gnss_device:s0
 
 /sys/devices/platform/bt-dev/rfkill/rfkill0/state	        u:object_r:sysfs_bluetooth_writable:s0
 /sys/devices/platform/bt-dev/rfkill/rfkill0/type	        u:object_r:sysfs_bluetooth_writable:s0
@@ -178,6 +180,19 @@
 /sys/devices/platform/meson-fb/graphics/fb[0-3](/.*)            u:object_r:sysfs_display:s0
 /sys/devices/platform/fb/graphics/fb[0-3](/.*)                  u:object_r:sysfs_display:s0
 /sys/class/lcd/enable                                           u:object_r:sysfs_lcd:s0
+/sys/class/camera/cam_state                                     u:object_r:sysfs_camera:s0
+/sys/class/tty/ttyACM0/device/uevent                            u:object_r:sysfs_acm:s0
+/sys/class/leds/sys_led/trigger                                 u:object_r:sysfs_led:s0
+/sys/devices/platform/gpioleds/leds/sys_led/trigger             u:object_r:sysfs_led:s0
+/sys/class/redled/mode                                          u:object_r:sysfs_led:s0
+/sys/class/fan/enable                                           u:object_r:sysfs_fan:s0
+/sys/class/fan/mode                                             u:object_r:sysfs_fan:s0
+/sys/class/fan/level                                            u:object_r:sysfs_fan:s0
+/sys/class/fan/temp                                             u:object_r:sysfs_fan:s0
+/sys/class/fan/type                                             u:object_r:sysfs_fan:s0
+/sys/class/wol/enable                                           u:object_r:sysfs_wol:s0
+/sys/class/mcu/portmode                                         u:object_r:sysfs_mcu:s0
+/sys/class/mcu/ethernet_mode                                    u:object_r:sysfs_mcu:s0
 /sys/class/video/video_scaler_path_sel                          u:object_r:sysfs_video:s0
 /sys/module/amdolby_vision/parameters(/.*)?                     u:object_r:sysfs_video:s0
 
@@ -295,6 +310,7 @@
 /vendor/bin/hw/android\.hardware\.dumpstate@1\.0-service.droidlogic      u:object_r:hal_dumpstate_default_exec:s0
 /vendor/bin/hw/android\.hardware\.drm@1\.1-service.widevine              u:object_r:hal_drm_default_exec:s0
 /vendor/bin/hw/android\.hardware\.drm@1\.1-service\.clearkey             u:object_r:hal_drm_clearkey_exec:s0
+/vendor/bin/hw/android\.hardware\.gnss@1\.0-service                      u:object_r:hal_gnss_default_exec:s0
 
 /data/vendor/mediadrm(/.*)?         u:object_r:hal_drm_data:s0
 
