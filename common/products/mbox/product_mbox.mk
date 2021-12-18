@@ -116,7 +116,8 @@ endif
 PRODUCT_PACKAGES += \
     TvSettings \
     DroidTvSettings \
-    SchPwrOnOff
+    SchPwrOnOff \
+    LogoLedControl
 
 #Browser
 PRODUCT_PACKAGES += \

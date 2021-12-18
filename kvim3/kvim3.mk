@@ -74,6 +74,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
         ro.build.display.id=VIM3_Pie_V$(shell date +%y%m%d)
 PRODUCT_PROPERTY_OVERRIDES += \
         persist.vendor.sys.cec.set_menu_language=false
+#ext board logo led default brightness value,mode value
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.sys.logoled.brightness=1
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.sys.logo.led.trigger=1
+
 #wifi hotpot
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.softap.band=0

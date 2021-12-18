@@ -76,6 +76,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
         ro.hdmi.set_menu_language=true \
         persist.sys.hdmi.keep_awake=false
 
+#ext board logo led default brightness value,mode value
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.sys.logoled.brightness=1
+PRODUCT_PROPERTY_OVERRIDES += \
+        persist.sys.logo.led.trigger=1
+
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.build.display.id=VIM3L_Pie_V$(shell date +%y%m%d)
 
