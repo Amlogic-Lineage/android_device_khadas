@@ -115,9 +115,12 @@ endif
 #Tvsettings
 PRODUCT_PACKAGES += \
     TvSettings \
-    DroidTvSettings \
+    DroidTvSettings
+ifneq ($(filter khadas Khadas,$(PRODUCT_BRAND)),)
+PRODUCT_PACKAGES += \
     SchPwrOnOff \
     LogoLedControl
+endif
 
 #Browser
 PRODUCT_PACKAGES += \
