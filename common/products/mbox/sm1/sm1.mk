@@ -24,9 +24,9 @@
 ########################################################################
 ifeq ($(TARGET_BUILD_NETFLIX), true)
 TARGET_WITH_VP9_NETFLIX:= true
-$(call inherit-product-if-exists, device/amlogic/common/netflix/nts.mk)
+$(call inherit-product-if-exists, device/khadas/common/netflix/nts.mk)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/droidlogic.software.netflix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/droidlogic.software.netflix.xml
+    device/khadas/common/droidlogic.software.netflix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/droidlogic.software.netflix.xml
 endif
 
 ########################################################################
@@ -40,7 +40,7 @@ endif
 ########################################################################
 ifeq ($(ANDROID_BUILD_TYPE), 64)
 ifeq ($(TARGET_DYNAMIC_ZYGOTE_SECONDARY_ENABLE), true)
-$(call inherit-product, device/amlogic/common/dynamic_zygote_seondary/dynamic_zygote_64_bit.mk)
+$(call inherit-product, device/khadas/common/dynamic_zygote_seondary/dynamic_zygote_64_bit.mk)
 else
 $(call inherit-product, build/target/product/core_64_bit.mk)
 endif
@@ -85,11 +85,11 @@ ifeq ($(BUILD_WITH_AVB),true)
 BOARD_AVB_ENABLE := true
 #BOARD_BUILD_DISABLED_VBMETAIMAGE := true
 BOARD_AVB_ALGORITHM := SHA256_RSA2048
-BOARD_AVB_KEY_PATH := device/amlogic/common/security/testkey_rsa2048.pem
+BOARD_AVB_KEY_PATH := device/khadas/common/security/testkey_rsa2048.pem
 BOARD_AVB_ROLLBACK_INDEX := 0
 
 ifneq ($(AB_OTA_UPDATER),true)
-BOARD_AVB_RECOVERY_KEY_PATH := device/amlogic/common/security/testkey_rsa2048.pem
+BOARD_AVB_RECOVERY_KEY_PATH := device/khadas/common/security/testkey_rsa2048.pem
 BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 2
@@ -211,8 +211,8 @@ endif
 #########################################################################
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/initscripts/dvb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dvb.rc \
-    device/amlogic/common/initscripts/irblaster1.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/irblaster1.rc
+    device/khadas/common/initscripts/dvb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dvb.rc \
+    device/khadas/common/initscripts/irblaster1.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/irblaster1.rc
 
 #########################################################################
 #
@@ -220,6 +220,6 @@ PRODUCT_COPY_FILES += \
 #
 #########################################################################
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,device/amlogic/common/products/mbox/sm1/files/hbg_ble/ble/b01_8.0/system/etc,vendor/etc) \
-    device/amlogic/common/products/mbox/sm1/files/hbg_ble/sei/init.hbg.remote.rc:/vendor/etc/init/init.hbg.remote.rc
+    $(call find-copy-subdir-files,*,device/khadas/common/products/mbox/sm1/files/hbg_ble/ble/b01_8.0/system/etc,vendor/etc) \
+    device/khadas/common/products/mbox/sm1/files/hbg_ble/sei/init.hbg.remote.rc:/vendor/etc/init/init.hbg.remote.rc
 

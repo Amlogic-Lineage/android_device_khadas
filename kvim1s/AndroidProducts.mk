@@ -14,16 +14,8 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/oppen.mk
-PRODUCT_MAKEFILES += $(LOCAL_DIR)/oppen_gtv.mk
-PRODUCT_MAKEFILES += $(LOCAL_DIR)/oppen_mxl258c.mk
+PRODUCT_MAKEFILES := $(LOCAL_DIR)/kvim1s.mk
 COMMON_LUNCH_CHOICES := \
-    oppen-eng \
-    oppen-user \
-    oppen-userdebug \
-    oppen_gtv-eng \
-    oppen_gtv-user \
-    oppen_gtv-userdebug \
-    oppen_mxl258c-eng \
-    oppen_mxl258c-user \
-    oppen_mxl258c-userdebug
+    kvim1s-eng \
+    kvim1s-user \
+    kvim1s-userdebug

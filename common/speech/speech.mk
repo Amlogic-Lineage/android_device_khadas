@@ -23,22 +23,22 @@ ifeq ($(strip $(SPEECH_MODULE)),true)
     ifeq ($(TARGET_BUILD_KERNEL_4_9),true)
         ifeq ($(KERNEL_A32_SUPPORT),true)
             PRODUCT_COPY_FILES += \
-                device/amlogic/common/speech/32_4_9/speech_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/speech.ko \
-                device/amlogic/common/initscripts/speech.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/speech.rc
+                device/khadas/common/speech/32_4_9/speech_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/speech.ko \
+                device/khadas/common/initscripts/speech.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/speech.rc
         else
             PRODUCT_COPY_FILES += \
-                device/amlogic/common/speech/64_4_9/speech_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/speech.ko \
-                device/amlogic/common/initscripts/speech.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/speech.rc
+                device/khadas/common/speech/64_4_9/speech_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/speech.ko \
+                device/khadas/common/initscripts/speech.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/speech.rc
         endif
     else
         ifeq ($(KERNEL_A32_SUPPORT),true)
             PRODUCT_COPY_FILES += \
-                device/amlogic/common/speech/32/speech_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/speech.ko \
-                device/amlogic/common/initscripts/speech.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/speech.rc
+                device/khadas/common/speech/32/speech_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/speech.ko \
+                device/khadas/common/initscripts/speech.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/speech.rc
         else
             PRODUCT_COPY_FILES += \
-                device/amlogic/common/speech/64/speech_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/speech.ko \
-                device/amlogic/common/initscripts/speech.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/speech.rc
+                device/khadas/common/speech/64/speech_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/speech.ko \
+                device/khadas/common/initscripts/speech.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/speech.rc
         endif
     endif
 endif

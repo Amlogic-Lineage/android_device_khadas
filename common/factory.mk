@@ -1,9 +1,9 @@
-include device/amlogic/common/odm_ext.mk
+include device/khadas/common/odm_ext.mk
 
 
 IMGPACK := $(BUILD_OUT_EXECUTABLES)/logo_img_packer$(BUILD_EXECUTABLE_SUFFIX)
 PRODUCT_UPGRADE_OUT := $(PRODUCT_OUT)/upgrade
-PRODUCT_COMMON_DIR := device/amlogic/common/products/$(PRODUCT_TYPE)
+PRODUCT_COMMON_DIR := device/khadas/common/products/$(PRODUCT_TYPE)
 AML_UPGRADE_TOOL_DIR := $(BOARD_AML_VENDOR_PATH)/tools/aml_upgrade
 AML_PKG_ADD_USB_BIN := $(AML_UPGRADE_TOOL_DIR)/aml_pkg_add_usb_bin.app
 AML_IMG_PKG_TOOL	:= $(AML_UPGRADE_TOOL_DIR)/aml_image_v2_packer
@@ -127,7 +127,7 @@ INSTALLED_RADIOIMAGE_TARGET += $(PRODUCT_OUT)/super_empty_all.img
 BOARD_PACK_RADIOIMAGES += super_empty_all.img
 
 ifeq ($(TARGET_UPDATE_IDATTESTATION),true)
-INSTALLED_RADIOIMAGE_TARGET += device/amlogic/common/id_attestation.xml
+INSTALLED_RADIOIMAGE_TARGET += device/khadas/common/id_attestation.xml
 BOARD_PACK_RADIOIMAGES += id_attestation.xml
 endif
 
@@ -269,11 +269,11 @@ endif
 endif # ifeq ($(BOOTLOADER_INPUT),)
 
 ANDROID_HOME_DIR = $(shell pwd)
-ifneq ($(wildcard bootloader/uboot-repo/*),)
-BOOTLOADER_DIR := $(ANDROID_HOME_DIR)/bootloader/uboot-repo
+ifneq ($(wildcard bootloader/uboot/*),)
+BOOTLOADER_DIR := $(ANDROID_HOME_DIR)/bootloader/uboot
 else
 ifneq ($(wildcard ~/bootloader/.*),)
-BOOTLOADER_DIR := ~/bootloader/uboot-repo
+BOOTLOADER_DIR := ~/bootloader/uboot
 endif
 endif
 
@@ -475,15 +475,15 @@ $(INSTALLED_AML_FASTBOOT_ZIP): $(addprefix $(PRODUCT_OUT)/,$(FASTBOOT_IMAGES)) \
 	cp $(PRODUCT_OUT)/dt.img $(PRODUCT_OUT)/fastboot_auto/
 #endif
 	cp $(PRODUCT_OUT)/upgrade/logo.img $(PRODUCT_OUT)/fastboot_auto/
-	cp device/amlogic/common/scripts/fastboot_scripts/flash-all.sh $(PRODUCT_OUT)/fastboot_auto/
-	cp device/amlogic/common/scripts/fastboot_scripts/flash-all.bat $(PRODUCT_OUT)/fastboot_auto/
+	cp device/khadas/common/scripts/fastboot_scripts/flash-all.sh $(PRODUCT_OUT)/fastboot_auto/
+	cp device/khadas/common/scripts/fastboot_scripts/flash-all.bat $(PRODUCT_OUT)/fastboot_auto/
 ifeq ($(AB_OTA_UPDATER),true)
 ifeq ($(BUILDING_VENDOR_BOOT_IMAGE),true)
-	cp device/amlogic/common/scripts/fastboot_scripts/flash-all-ab.sh $(PRODUCT_OUT)/fastboot_auto/flash-all.sh
-	cp device/amlogic/common/scripts/fastboot_scripts/flash-all-ab.bat $(PRODUCT_OUT)/fastboot_auto/flash-all.bat
+	cp device/khadas/common/scripts/fastboot_scripts/flash-all-ab.sh $(PRODUCT_OUT)/fastboot_auto/flash-all.sh
+	cp device/khadas/common/scripts/fastboot_scripts/flash-all-ab.bat $(PRODUCT_OUT)/fastboot_auto/flash-all.bat
 else
-	cp device/amlogic/common/scripts/fastboot_scripts/flash-all-ab-4.9.sh $(PRODUCT_OUT)/fastboot_auto/flash-all.sh
-	cp device/amlogic/common/scripts/fastboot_scripts/flash-all-ab-4.9.bat $(PRODUCT_OUT)/fastboot_auto/flash-all.bat
+	cp device/khadas/common/scripts/fastboot_scripts/flash-all-ab-4.9.sh $(PRODUCT_OUT)/fastboot_auto/flash-all.sh
+	cp device/khadas/common/scripts/fastboot_scripts/flash-all-ab-4.9.bat $(PRODUCT_OUT)/fastboot_auto/flash-all.bat
 endif
 endif
 	cp $(PRODUCT_OUT)/super_empty.img $(PRODUCT_OUT)/fastboot_auto/
@@ -513,14 +513,14 @@ else
 $(AMLOGIC_OTA_PACKAGE_TARGET): $(BRO)
 endif
 
-EXTRA_SCRIPT := $(TARGET_DEVICE_DIR)/../../../device/amlogic/common/recovery/updater-script
+EXTRA_SCRIPT := $(TARGET_DEVICE_DIR)/../../../device/khadas/common/recovery/updater-script
 
 $(AMLOGIC_OTA_PACKAGE_TARGET): $(AML_TARGET).zip $(BUILT_ODMIMAGE_TARGET)
 	@echo "Package OTA2: $@"
 	mkdir -p $(AML_TARGET)/IMAGES/
 	cp $(PRODUCT_OUT)/super_empty_all.img $(AML_TARGET)/IMAGES/
 	$(hide) PATH=$(foreach p,$(INTERNAL_USERIMAGES_BINARY_PATHS),$(p):)$$PATH MKBOOTIMG=$(MKBOOTIMG) \
-	   ./device/amlogic/common/scripts/ota_amlogic.py -v \
+	   ./device/khadas/common/scripts/ota_amlogic.py -v \
 	   --block \
 	   --extracted_input_target_files $(patsubst %.zip,%,$(BUILT_TARGET_FILES_PACKAGE)) \
 	   -p $(HOST_OUT) \

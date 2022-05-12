@@ -15,7 +15,7 @@
 #
 
 ifeq ($(wildcard hardware/amlogic/tb_detect/tb_detect.mk),)
-DETECT_IN=device/amlogic/common/tb_detect
+DETECT_IN=device/khadas/common/tb_detect
 define tb-modules
 $(TB_DETECT_KO):
 	mkdir -p $(PRODUCT_OUT)/obj/lib_vendor

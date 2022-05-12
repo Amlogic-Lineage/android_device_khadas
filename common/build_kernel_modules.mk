@@ -115,21 +115,21 @@ VENDOR_KERNEL_MODULES += \
 
 ifeq ($(TARGET_BUILD_KERNEL_4_9),true)
 VENDOR_KERNEL_MODULES += \
-    device/amlogic/common/soft_afbc/4.9/amlogic_fbc_lib.ko
+    device/khadas/common/soft_afbc/4.9/amlogic_fbc_lib.ko
 else
 ifeq ($(KERNEL_A32_SUPPORT),true)
 VENDOR_KERNEL_MODULES += \
-    device/amlogic/common/soft_afbc/32/amlogic_fbc_lib.ko
+    device/khadas/common/soft_afbc/32/amlogic_fbc_lib.ko
 else
 VENDOR_KERNEL_MODULES += \
-    device/amlogic/common/soft_afbc/64/amlogic_fbc_lib.ko
+    device/khadas/common/soft_afbc/64/amlogic_fbc_lib.ko
 endif
 endif
 
-include device/amlogic/common/tuner/tuner_modules.mk
-include device/amlogic/common/video_algorithm/dnlp/dnlp_modules.mk
-include device/amlogic/common/video_algorithm/hdr10_tmo/hdr10_tmo_modules.mk
-include device/amlogic/common/speech/speech_modules.mk
+include device/khadas/common/tuner/tuner_modules.mk
+include device/khadas/common/video_algorithm/dnlp/dnlp_modules.mk
+include device/khadas/common/video_algorithm/hdr10_tmo/hdr10_tmo_modules.mk
+include device/khadas/common/speech/speech_modules.mk
 
 BOARD_VENDOR_KERNEL_MODULES ?= $(VENDOR_KERNEL_MODULES)
 

@@ -1,1 +1,1 @@
-$(call inherit-product, device/amlogic/common/core_amlogic.mk)
+$(call inherit-product, device/khadas/common/core_amlogic.mk)

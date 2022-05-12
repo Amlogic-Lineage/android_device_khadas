@@ -23,7 +23,7 @@
 # !!! This line of code needs to be on the last line.
 # vendor_prop.mk defines the default prop values.
 # if change the default values, need define prop above.
-$(call inherit-product, device/amlogic/common/products/mbox/s4/vendor_prop.mk)
+$(call inherit-product, device/khadas/common/products/mbox/s4/vendor_prop.mk)
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hdmi.device_type=4 \

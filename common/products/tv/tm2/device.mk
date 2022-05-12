@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-CHIP_DIR := device/amlogic/common/products/tv/tm2
+CHIP_DIR := device/khadas/common/products/tv/tm2
 
 #########################################################################
 #
@@ -28,12 +28,12 @@ PRODUCT_COPY_FILES += \
     $(CHIP_DIR)/files/remote.tab3:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab3
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/tv/Vendor_0001_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl \
-    device/amlogic/common/products/tv/Vendor_1915_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_1915_Product_0001.kl
+    device/khadas/common/products/tv/Vendor_0001_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl \
+    device/khadas/common/products/tv/Vendor_1915_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_1915_Product_0001.kl
 
 # recovery
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/recovery/busybox:recovery/root/sbin/busybox \
+    device/khadas/common/recovery/busybox:recovery/root/sbin/busybox \
     $(CHIP_DIR)/recovery/recovery.kl:recovery/root/sbin/recovery.kl \
     $(CHIP_DIR)/recovery/remotecfg:recovery/root/sbin/remotecfg \
     $(CHIP_DIR)/files/remote.cfg:recovery/root/sbin/remote.cfg \
@@ -48,16 +48,16 @@ PRODUCT_COPY_FILES += \
 #
 #########################################################################
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/tv/init.amlogic.system.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.rc
+    device/khadas/common/products/tv/init.amlogic.system.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.rc
 
-PRODUCT_COPY_FILES += device/amlogic/common/products/tv/ueventd.amlogic.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc
+PRODUCT_COPY_FILES += device/khadas/common/products/tv/ueventd.amlogic.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc
 
 ifneq ($(AB_OTA_UPDATER),true)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/recovery/init.recovery.amlogic.rc:root/init.recovery.amlogic.rc
+    device/khadas/common/recovery/init.recovery.amlogic.rc:root/init.recovery.amlogic.rc
 else
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/recovery/init.recovery.amlogic_ab.rc:root/init.recovery.amlogic.rc
+    device/khadas/common/recovery/init.recovery.amlogic_ab.rc:root/init.recovery.amlogic.rc
 endif
 
 #########################################################################
@@ -73,7 +73,7 @@ PRODUCT_COPY_FILES += \
 
 # tv config file
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/tv/tm2/files/tv/dec:$(TARGET_COPY_OUT_ODM)/bin/dec
+    device/khadas/common/products/tv/tm2/files/tv/dec:$(TARGET_COPY_OUT_ODM)/bin/dec
 
 # tv config file
 TVCONFIG_FILES := \
@@ -94,7 +94,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 #
 ##########################################################################
 PRODUCT_COPY_FILES += \
-	device/amlogic/common/amazon/prime.xml:system/etc/permissions/prime.xml
+	device/khadas/common/amazon/prime.xml:system/etc/permissions/prime.xml
 
 
 #########################################################################
@@ -108,32 +108,32 @@ ifeq ($(USE_XML_AUDIO_POLICY_CONF), 1)
 ifeq ($(TARGET_BUILD_DOLBY_MS12_V2),true)
 ifeq ($(TARGET_BUILD_DTSHD),true)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration_ms12_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
+    device/khadas/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration_ms12_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
 $(warning 'This platform support dolby ms12 & dtshd decoder')
 else
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration_ms12.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
+    device/khadas/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration_ms12.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
 $(warning 'This platform support dolby ms12 decoder')
 endif
 else
 ifeq ($(TARGET_BUILD_DOLBY_DDP),true)
 ifeq ($(TARGET_BUILD_DTSHD),true)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration_ddp_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
+    device/khadas/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration_ddp_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
 $(warning 'This platform support dolby ddp & dtshd decoder')
 else
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration_ddp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
+    device/khadas/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration_ddp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
 $(warning 'This platform support dolby ddp decoder')
 endif
 else
 ifeq ($(TARGET_BUILD_DTSHD),true)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
+    device/khadas/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration_dtshd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
 $(warning 'This platform support dtshd decoder')
 else
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
+    device/khadas/common/audio/$(PRODUCT_TYPE)/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
 $(warning 'This platform nonsupport dolby ms12 & dtshd decoder')
 endif
 endif

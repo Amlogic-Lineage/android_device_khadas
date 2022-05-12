@@ -16,12 +16,12 @@ ifeq ($(TARGET_BUILD_DOLBY_MS12_V2), true)
 $(warning 'Dolby MS12 2.4 will be installed')
 
 BOARD_SEPOLICY_DIRS += \
-   device/amlogic/common/dolby_ms12/install/sepolicy
+   device/khadas/common/dolby_ms12/install/sepolicy
 
 PRODUCT_PACKAGES += \
     dolby_fw_dolbyms12 \
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/dolby_ms12/install/encrypted_lib/libdolbyms12.so:odm/etc/ms12/libdolbyms12.so
+    device/khadas/common/dolby_ms12/install/encrypted_lib/libdolbyms12.so:odm/etc/ms12/libdolbyms12.so
 
 endif

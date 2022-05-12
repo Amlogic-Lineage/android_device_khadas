@@ -15,7 +15,7 @@
 
 # "Beast" to be removed later after s/Beast/beast/ gets done.
 
-ifneq ($(filter adt2 adt3 ampere braun curie darwin atom beast Beast galilei franklin faraday deadpool sabrina fermi newton elektra marconi ohm redi oppen oppencas planck einstein t7_an400 ohm_mxl258c ohm_vmx dalton oppen_mxl258c,$(TARGET_DEVICE)),)
+ifneq ($(filter adt2 adt3 ampere braun curie darwin atom beast Beast galilei franklin faraday deadpool sabrina fermi newton elektra marconi ohm redi kvim1s oppencas planck einstein t7_an400 ohm_mxl258c ohm_vmx dalton oppen_mxl258c,$(TARGET_DEVICE)),)
 
 include $(all-subdir-makefiles)
 endif

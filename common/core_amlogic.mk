@@ -21,7 +21,7 @@ endif
 endif
 
 ifeq ($(BOARD_COMPILE_ATV), false)
-include device/amlogic/common/mainline_modules_aosp.mk
+include device/khadas/common/mainline_modules_aosp.mk
 endif
 # Inherit from those products. Most specific first.
 # Get the TTS language packs
@@ -67,19 +67,19 @@ endif
 
 ifneq ($(TARGET_BUILD_KERNEL_4_9), true)
 ifneq ($(AB_OTA_UPDATER),true)
-TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery_5.4.fstab
+TARGET_RECOVERY_FSTAB := device/khadas/common/recovery/recovery_5.4.fstab
 else
-TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery_5.4_ab.fstab
+TARGET_RECOVERY_FSTAB := device/khadas/common/recovery/recovery_5.4_ab.fstab
 endif
 else
 ifneq ($(AB_OTA_UPDATER),true)
-TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery.fstab
+TARGET_RECOVERY_FSTAB := device/khadas/common/recovery/recovery.fstab
 else
-TARGET_RECOVERY_FSTAB := device/amlogic/common/recovery/recovery_4.9_ab.fstab
+TARGET_RECOVERY_FSTAB := device/khadas/common/recovery/recovery_4.9_ab.fstab
 endif
 endif
 
-TARGET_RELEASETOOLS_EXTENSIONS := device/amlogic/common/scripts
+TARGET_RELEASETOOLS_EXTENSIONS := device/khadas/common/scripts
 TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
 TARGET_RECOVERY_UI_LIB += libamlogic_ui librecovery_amlogic
 TARGET_RECOVERY_UI_LIB += \
@@ -135,7 +135,7 @@ PRODUCT_PACKAGES += \
     android.hardware.weaver@1.0
 
 #Get some property
-$(call inherit-product, device/amlogic/common/product_property.mk)
+$(call inherit-product, device/khadas/common/product_property.mk)
 
 PRODUCT_PACKAGES += \
     libfdt \
@@ -325,7 +325,7 @@ ifeq ($(BUILD_WITH_DM_VERITY), true)
     # The dev key is used to sign boot and recovery images, and the verity
     # metadata table. Actual product deliverables will be re-signed by hand.
     # We expect this file to exist with the suffixes ".x509.pem" and ".pk8".
-    PRODUCT_VERITY_SIGNING_KEY := device/amlogic/common/security/verity
+    PRODUCT_VERITY_SIGNING_KEY := device/khadas/common/security/verity
 
     ifneq ($(TARGET_USE_SECURITY_DM_VERITY_MODE_WITH_TOOL),true)
         PRODUCT_PACKAGES += \
@@ -335,10 +335,10 @@ endif
 
 #Bluetooth idc config file
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/keyboards/Vendor_1d5a_Product_c082.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_1d5a_Product_c082.idc \
-    device/amlogic/common/keyboards/Vendor_7545_Product_0180.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_7545_Product_0180.idc \
-    device/amlogic/common/keyboards/Vendor_0508_Product_0110.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_0508_Product_0110.idc \
-    device/amlogic/common/keyboards/Vendor_18d1_Product_0100.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_18d1_Product_0100.idc
+    device/khadas/common/keyboards/Vendor_1d5a_Product_c082.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_1d5a_Product_c082.idc \
+    device/khadas/common/keyboards/Vendor_7545_Product_0180.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_7545_Product_0180.idc \
+    device/khadas/common/keyboards/Vendor_0508_Product_0110.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_0508_Product_0110.idc \
+    device/khadas/common/keyboards/Vendor_18d1_Product_0100.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_18d1_Product_0100.idc
 #########################################################################
 #
 #                                                App optimization
@@ -347,15 +347,15 @@ PRODUCT_COPY_FILES += \
 ifeq ($(BUILD_WITH_APP_OPTIMIZATION),true)
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/optimization/liboptimization_32.so:$(TARGET_COPY_OUT_VENDOR)/lib/liboptimization.so \
-    device/amlogic/common/optimization/config:$(TARGET_COPY_OUT_VENDOR)/package_config/config
+    device/khadas/common/optimization/liboptimization_32.so:$(TARGET_COPY_OUT_VENDOR)/lib/liboptimization.so \
+    device/khadas/common/optimization/config:$(TARGET_COPY_OUT_VENDOR)/package_config/config
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.app.optimization=true
 
 ifeq ($(ANDROID_BUILD_TYPE), 64)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/optimization/liboptimization_64.so:$(TARGET_COPY_OUT_VENDOR)/lib64/liboptimization.so
+    device/khadas/common/optimization/liboptimization_64.so:$(TARGET_COPY_OUT_VENDOR)/lib64/liboptimization.so
 endif
 endif
 
@@ -521,7 +521,7 @@ PRODUCT_PACKAGES += \
 
 #normally, every device need a config file, currently all chips are the same
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
+    device/khadas/common/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
 
 #PRODUCT_PACKAGES += \
 #    android.hardware.cas@1.2-service
@@ -562,38 +562,38 @@ PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-amlogic
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml
+    device/khadas/common/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml
 
 ifeq ($(USE_XML_AUDIO_POLICY_CONF), 1)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml
+    device/khadas/common/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml
 endif
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/permissions/droidlogic-hiddenapi-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/droidlogic-hiddenapi-package-whitelist.xml
+    device/khadas/common/permissions/droidlogic-hiddenapi-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/droidlogic-hiddenapi-package-whitelist.xml
 
 ifneq ($(TARGET_BUILD_KERNEL_4_9),true)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/initscripts/fs_5.4.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/fs.rc \
-    device/amlogic/common/initscripts/power_5.4.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/power.rc \
-    device/amlogic/common/powerhint5.4.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+    device/khadas/common/initscripts/fs_5.4.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/fs.rc \
+    device/khadas/common/initscripts/power_5.4.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/power.rc \
+    device/khadas/common/powerhint5.4.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
 else
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/initscripts/fs.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/fs.rc \
-    device/amlogic/common/initscripts/power.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/power.rc \
-    device/amlogic/common/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+    device/khadas/common/initscripts/fs.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/fs.rc \
+    device/khadas/common/initscripts/power.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/power.rc \
+    device/khadas/common/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 endif
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/initscripts/ueventd.amlogic.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
-    device/amlogic/common/initscripts/fs.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/fs.rc \
-    device/amlogic/common/initscripts/bluetooth.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/bluetooth.rc \
-    device/amlogic/common/initscripts/sysfs_permissions.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/sysfs_permissions.rc \
-    device/amlogic/common/initscripts/init.amlogic.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.usb.rc
+    device/khadas/common/initscripts/ueventd.amlogic.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
+    device/khadas/common/initscripts/fs.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/fs.rc \
+    device/khadas/common/initscripts/bluetooth.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/bluetooth.rc \
+    device/khadas/common/initscripts/sysfs_permissions.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/sysfs_permissions.rc \
+    device/khadas/common/initscripts/init.amlogic.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.usb.rc
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/android.software.cant_save_state.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.cant_save_state.xml
+    device/khadas/common/android.software.cant_save_state.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.cant_save_state.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.gamepad.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.gamepad.xml \
@@ -602,7 +602,7 @@ PRODUCT_COPY_FILES += \
 
 ifeq ($(TARGET_BUILD_NETFLIX), true)
 PRODUCT_COPY_FILES += \
-	device/amlogic/common/droidlogic.software.netflix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/droidlogic.software.netflix.xml
+	device/khadas/common/droidlogic.software.netflix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/droidlogic.software.netflix.xml
 endif
 
 ifeq ($(BOARD_AVB_ENABLE), true)
@@ -658,7 +658,7 @@ ifeq ($(UPDATE_INC),false)
 AB_OTA_PARTITIONS += \
     dt
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/initscripts/ab_link_dt.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/ab_link_dt.rc
+    device/khadas/common/initscripts/ab_link_dt.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/ab_link_dt.rc
 endif
 
 TARGET_BOOTLOADER_CONTROL_BLOCK := true

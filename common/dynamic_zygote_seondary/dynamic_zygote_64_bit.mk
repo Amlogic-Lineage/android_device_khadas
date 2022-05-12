@@ -20,10 +20,10 @@
 # Copy dynamic the 64-bit primary, 32-bit secondary zygote startup script
 ifneq ($(BOARD_USES_RECOVERY_AS_BOOT), true)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/dynamic_zygote_seondary/init.zygote64_32.rc:root/init.zygote64_32.rc
+    device/khadas/common/dynamic_zygote_seondary/init.zygote64_32.rc:root/init.zygote64_32.rc
 else
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/dynamic_zygote_seondary/init.zygote64_32.rc:recovery/root/init.zygote64_32.rc
+    device/khadas/common/dynamic_zygote_seondary/init.zygote64_32.rc:recovery/root/init.zygote64_32.rc
 endif
 
 # Set the zygote property to select the 64-bit primary, 32-bit secondary script

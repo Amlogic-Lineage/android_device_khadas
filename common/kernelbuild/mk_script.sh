@@ -30,7 +30,7 @@ function build_deadpool() {
 	fi
 
 	cd ${MAIN_FOLDER}
-	./device/amlogic/common/kernelbuild/build_kernel_4.9.sh
+	./device/khadas/common/kernelbuild/build_kernel_4.9.sh
 }
 
 function build_boreal() {
@@ -55,14 +55,14 @@ function build_boreal() {
 	echo "================================="
 
 	cd ${MAIN_FOLDER}
-	./device/amlogic/common/kernelbuild/build.sh
+	./device/khadas/common/kernelbuild/build.sh
 }
 
 function build_common_4.9() {
 
-    echo "------device/amlogic/$1/build.config.meson.${ARCH}.trunk_4.9-----"
+    echo "------device/khadas/$1/build.config.meson.${ARCH}.trunk_4.9-----"
 	cd ${MAIN_FOLDER}
-	export BUILD_CONFIG=device/amlogic/$1/build.config.meson.${ARCH}.trunk_4.9
+	export BUILD_CONFIG=device/khadas/$1/build.config.meson.${ARCH}.trunk_4.9
 	export TARGET_BUILD_KERNEL_4_9=true
 
 	. ${MAIN_FOLDER}/${BUILD_CONFIG}
@@ -82,14 +82,14 @@ function build_common_4.9() {
 	echo "================================="
 
 	cd ${MAIN_FOLDER}
-	./device/amlogic/common/kernelbuild/build_kernel_4.9.sh
+	./device/khadas/common/kernelbuild/build_kernel_4.9.sh
 }
 
 function build_common_5.4() {
 
-	echo "------device/amlogic/$1/build.config.meson.${ARCH}.trunk-----"
+	echo "------device/khadas/$1/build.config.meson.${ARCH}.trunk-----"
 	cd ${MAIN_FOLDER}
-	export BUILD_CONFIG=device/amlogic/$1/build.config.meson.${ARCH}.trunk
+	export BUILD_CONFIG=device/khadas/$1/build.config.meson.${ARCH}.trunk
 	export TARGET_BUILD_KERNEL_4_9=false
 	. ${MAIN_FOLDER}/${BUILD_CONFIG}
 	export $(sed -n -e 's/\([^=]\)=.*/\1/p' ${MAIN_FOLDER}/${BUILD_CONFIG})
@@ -119,7 +119,7 @@ function build_common_5.4() {
 	echo "================================="
 
 	cd ${MAIN_FOLDER}
-	./device/amlogic/common/kernelbuild/build.sh
+	./device/khadas/common/kernelbuild/build.sh
 }
 
 function build_common() {

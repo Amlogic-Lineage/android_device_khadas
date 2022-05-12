@@ -64,7 +64,7 @@ else
     exit_badparam "Unsupported target name $TARGET_NAME"
 fi
 
-readonly AMLOGIC_COMMON_DIR=device/amlogic/common
+readonly AMLOGIC_COMMON_DIR=device/khadas/common
 readonly AMLOGIC_IMAGE_PACKER=vendor/amlogic/common/tools/aml_upgrade/aml_image_v2_packer
 readonly TEMP_DIR="$(mktemp -d --tmpdir "$(basename $0)"_XXXXXXXX)"
 

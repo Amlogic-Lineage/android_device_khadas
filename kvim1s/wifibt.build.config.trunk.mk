@@ -52,7 +52,7 @@ ANDROID_ROOT_DIR := $(shell bash -c "\
  fi\
 ")
 ifneq ($(ANDROID_ROOT_DIR),)
--include $(ANDROID_ROOT_DIR)/device/amlogic/$(PRODUCT_DIR)/wifibt.build.config.customer.mk
+-include $(ANDROID_ROOT_DIR)/device/khadas/$(PRODUCT_DIR)/wifibt.build.config.customer.mk
 else
 $(error Couldn't locate the android root directory!)
 endif

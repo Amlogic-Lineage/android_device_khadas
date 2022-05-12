@@ -295,14 +295,14 @@ else
         if [ -n "${CUSTOMER_DEFCONFIG}" ]; then
             cat ${KERNEL_DIR}/customer/arch/arm64/configs/${CUSTOMER_DEFCONFIG} $GKI_EXT_MODULE_CFG_TMP > ${KERNEL_DIR}/arch/arm64/configs/meson64_a64_gki_defconfig
         else
-            cat ${KERNEL_DIR}/arch/arm64/configs/meson64_a64_R_defconfig $GKI_EXT_MODULE_CFG_TMP > ${KERNEL_DIR}/arch/arm64/configs/meson64_a64_gki_defconfig
+            cat ${KERNEL_DIR}/arch/arm64/configs/kvim1s_a64_R_defconfig $GKI_EXT_MODULE_CFG_TMP > ${KERNEL_DIR}/arch/arm64/configs/meson64_a64_gki_defconfig
         fi
         sed -i 's/=m/=y/g' ${KERNEL_DIR}/arch/arm64/configs/meson64_a64_gki_defconfig
     else
         if [ -n "${CUSTOMER_DEFCONFIG}" ]; then
             cp ${KERNEL_DIR}/customer/arch/arm64/configs/${CUSTOMER_DEFCONFIG} ${KERNEL_DIR}/arch/arm64/configs/meson64_a64_gki_defconfig
         else
-            cp ${KERNEL_DIR}/arch/arm64/configs/meson64_a64_R_defconfig ${KERNEL_DIR}/arch/arm64/configs/meson64_a64_gki_defconfig
+            cp ${KERNEL_DIR}/arch/arm64/configs/kvim1s_a64_R_defconfig ${KERNEL_DIR}/arch/arm64/configs/meson64_a64_gki_defconfig
         fi
 
     fi
@@ -761,9 +761,9 @@ fi
 
 echo "========================================================"
 echo " Files copied to device dir"
-DTBTOOL=${ROOT_DIR}/device/amlogic/common/kernelbuild/dtbTool
-DTCTOOL=${ROOT_DIR}/device/amlogic/common/kernelbuild/dtc
-DTIMGTOOL=${ROOT_DIR}/device/amlogic/common/kernelbuild/mkdtimg
+DTBTOOL=${ROOT_DIR}/device/khadas/common/kernelbuild/dtbTool
+DTCTOOL=${ROOT_DIR}/device/khadas/common/kernelbuild/dtc
+DTIMGTOOL=${ROOT_DIR}/device/khadas/common/kernelbuild/mkdtimg
 
 rm -rf ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/5.4/lib/*
 mkdir -p ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/5.4/lib/firmware/video/

@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-CHIP_DIR := device/amlogic/common/products/mbox/gxl
+CHIP_DIR := device/khadas/common/products/mbox/gxl
 
 #########################################################################
 #
@@ -22,33 +22,33 @@ CHIP_DIR := device/amlogic/common/products/mbox/gxl
 #
 #########################################################################
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/mbox/gxl/files/remote.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/remote.cfg \
-    device/amlogic/common/products/mbox/gxl/files/remote.tab1:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab1 \
-    device/amlogic/common/products/mbox/gxl/files/remote.tab2:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab2 \
-    device/amlogic/common/products/mbox/gxl/files/remote.tab3:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab3
+    device/khadas/common/products/mbox/gxl/files/remote.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/remote.cfg \
+    device/khadas/common/products/mbox/gxl/files/remote.tab1:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab1 \
+    device/khadas/common/products/mbox/gxl/files/remote.tab2:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab2 \
+    device/khadas/common/products/mbox/gxl/files/remote.tab3:$(TARGET_COPY_OUT_VENDOR)/etc/remote.tab3
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/mbox/Vendor_1915_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_1915_Product_0001.kl
+    device/khadas/common/products/mbox/Vendor_1915_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_1915_Product_0001.kl
 
 #use tv remote layout for mbox if livetv is built
 ifeq ($(TARGET_BUILD_LIVETV), true)
     PRODUCT_COPY_FILES += \
-       device/amlogic/common/products/mbox/Vendor_0001_Product_0002.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl
+       device/khadas/common/products/mbox/Vendor_0001_Product_0002.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl
 else
     PRODUCT_COPY_FILES += \
-       device/amlogic/common/products/mbox/Vendor_0001_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl
+       device/khadas/common/products/mbox/Vendor_0001_Product_0001.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_0001_Product_0001.kl
 endif
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/recovery/busybox:recovery/root/sbin/busybox \
-    device/amlogic/common/products/mbox/gxl/recovery/init.recovery.amlogic.rc:root/init.recovery.amlogic.rc \
-    device/amlogic/common/products/mbox/gxl/recovery/remotecfg:recovery/root/sbin/remotecfg \
-    device/amlogic/common/products/mbox/gxl/recovery/recovery.kl:recovery/root/sbin/recovery.kl \
-    device/amlogic/common/products/mbox/gxl/files/remote.cfg:recovery/root/sbin/remote.cfg \
-    device/amlogic/common/products/mbox/gxl/files/remote.tab1:recovery/root/sbin/remote.tab1 \
-    device/amlogic/common/products/mbox/gxl/files/remote.tab2:recovery/root/sbin/remote.tab2 \
-    device/amlogic/common/products/mbox/gxl/files/remote.tab3:recovery/root/sbin/remote.tab3 \
-    device/amlogic/common/products/mbox/gxl/recovery/sh:recovery/root/sbin/sh
+    device/khadas/common/recovery/busybox:recovery/root/sbin/busybox \
+    device/khadas/common/products/mbox/gxl/recovery/init.recovery.amlogic.rc:root/init.recovery.amlogic.rc \
+    device/khadas/common/products/mbox/gxl/recovery/remotecfg:recovery/root/sbin/remotecfg \
+    device/khadas/common/products/mbox/gxl/recovery/recovery.kl:recovery/root/sbin/recovery.kl \
+    device/khadas/common/products/mbox/gxl/files/remote.cfg:recovery/root/sbin/remote.cfg \
+    device/khadas/common/products/mbox/gxl/files/remote.tab1:recovery/root/sbin/remote.tab1 \
+    device/khadas/common/products/mbox/gxl/files/remote.tab2:recovery/root/sbin/remote.tab2 \
+    device/khadas/common/products/mbox/gxl/files/remote.tab3:recovery/root/sbin/remote.tab3 \
+    device/khadas/common/products/mbox/gxl/recovery/sh:recovery/root/sbin/sh
 
 #########################################################################
 #
@@ -56,14 +56,14 @@ PRODUCT_COPY_FILES += \
 #
 #########################################################################
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/mbox/init.amlogic.system.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.rc
+    device/khadas/common/products/mbox/init.amlogic.system.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.rc
 
 ifneq ($(AB_OTA_UPDATER),true)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/recovery/init.recovery.amlogic.rc:root/init.recovery.amlogic.rc
+    device/khadas/common/recovery/init.recovery.amlogic.rc:root/init.recovery.amlogic.rc
 else
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/recovery/init.recovery.amlogic_ab.rc:root/init.recovery.amlogic.rc
+    device/khadas/common/recovery/init.recovery.amlogic_ab.rc:root/init.recovery.amlogic.rc
 endif
 
 #########################################################################
@@ -72,8 +72,8 @@ endif
 #
 #########################################################################
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/products/mbox/gxl/files/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
-    device/amlogic/common/products/mbox/gxl/files/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
+    device/khadas/common/products/mbox/gxl/files/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
+    device/khadas/common/products/mbox/gxl/files/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
 #########################################################################
 #
@@ -101,5 +101,5 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 #
 #########################################################################
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/amazon/prime.xml:system/etc/permissions/prime.xml
+    device/khadas/common/amazon/prime.xml:system/etc/permissions/prime.xml
 

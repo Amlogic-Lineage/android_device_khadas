@@ -16,20 +16,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/netflix/etc/netflix.xml:system/etc/sysconfig/netflix.xml \
-    device/amlogic/common/netflix/etc/nrdp.xml:vendor/etc/permissions/nrdp.xml \
-    device/amlogic/common/netflix/etc/nrdp_audio_platform_capabilities_ms12.json:vendor/etc/nrdp_audio_platform_capabilities_ms12.json \
-    device/amlogic/common/netflix/etc/nrdp_audio_platform_capabilities.json:vendor/etc/nrdp_audio_platform_capabilities.json
+    device/khadas/common/netflix/etc/netflix.xml:system/etc/sysconfig/netflix.xml \
+    device/khadas/common/netflix/etc/nrdp.xml:vendor/etc/permissions/nrdp.xml \
+    device/khadas/common/netflix/etc/nrdp_audio_platform_capabilities_ms12.json:vendor/etc/nrdp_audio_platform_capabilities_ms12.json \
+    device/khadas/common/netflix/etc/nrdp_audio_platform_capabilities.json:vendor/etc/nrdp_audio_platform_capabilities.json
 
 
 ifeq ($(TARGET_WITH_VP9_NETFLIX), true)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/netflix/etc/nrdp_platform_capabilities_vp9.json:vendor/etc/nrdp_platform_capabilities.json
+    device/khadas/common/netflix/etc/nrdp_platform_capabilities_vp9.json:vendor/etc/nrdp_platform_capabilities.json
 else ifeq ($(TARGET_WITH_HDR_PLAYBACK), true)
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/netflix/etc/nrdp_platform_capabilities_hdr_playback.json:vendor/etc/nrdp_platform_capabilities.json
+    device/khadas/common/netflix/etc/nrdp_platform_capabilities_hdr_playback.json:vendor/etc/nrdp_platform_capabilities.json
 else
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/netflix/etc/nrdp_platform_capabilities.json:vendor/etc/nrdp_platform_capabilities.json
+    device/khadas/common/netflix/etc/nrdp_platform_capabilities.json:vendor/etc/nrdp_platform_capabilities.json
 endif
 

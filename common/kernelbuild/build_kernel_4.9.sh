@@ -342,9 +342,9 @@ echo " Files copied to ${DIST_DIR}"
 
 echo "========================================================"
 echo " Files copied to device dir: ${OUT_DIR}/../vendor_lib to ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/4.9"
-DTBTOOL=${ROOT_DIR}/device/amlogic/common/kernelbuild/dtbTool
-DTCTOOL=${ROOT_DIR}/device/amlogic/common/kernelbuild/dtc
-DTIMGTOOL=${ROOT_DIR}/device/amlogic/common/kernelbuild/mkdtimg
+DTBTOOL=${ROOT_DIR}/device/khadas/common/kernelbuild/dtbTool
+DTCTOOL=${ROOT_DIR}/device/khadas/common/kernelbuild/dtc
+DTIMGTOOL=${ROOT_DIR}/device/khadas/common/kernelbuild/mkdtimg
 
 rm -rf ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/4.9/*
 mkdir -p ${ROOT_DIR}/${PRODUCT_DIRNAME}-kernel/4.9/lib/firmware/video/

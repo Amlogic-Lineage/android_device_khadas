@@ -15,4 +15,4 @@
 #
 
 DEFAULT_SOFTAFBC_KERNEL_MODULES := \
-	device/amlogic/common/soft_afbc/amlogic_fbc_lib.ko
+	device/khadas/common/soft_afbc/amlogic_fbc_lib.ko

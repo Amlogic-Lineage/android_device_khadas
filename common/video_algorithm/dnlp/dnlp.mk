@@ -23,22 +23,22 @@ ifeq ($(strip $(DNLP_MODULE)),true)
     ifeq ($(TARGET_BUILD_KERNEL_4_9),true)
         ifeq ($(KERNEL_A32_SUPPORT),true)
            PRODUCT_COPY_FILES += \
-               device/amlogic/common/video_algorithm/dnlp/32_4_9/dnlp_alg_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
-               device/amlogic/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
+               device/khadas/common/video_algorithm/dnlp/32_4_9/dnlp_alg_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
+               device/khadas/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
         else
            PRODUCT_COPY_FILES += \
-                device/amlogic/common/video_algorithm/dnlp/64_4_9/dnlp_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
-                device/amlogic/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
+                device/khadas/common/video_algorithm/dnlp/64_4_9/dnlp_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
+                device/khadas/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
         endif
     else
         ifeq ($(KERNEL_A32_SUPPORT),true)
             PRODUCT_COPY_FILES += \
-                device/amlogic/common/video_algorithm/dnlp/32/dnlp_alg_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
-                device/amlogic/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
+                device/khadas/common/video_algorithm/dnlp/32/dnlp_alg_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
+                device/khadas/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
         else
             PRODUCT_COPY_FILES += \
-                device/amlogic/common/video_algorithm/dnlp/64/dnlp_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
-                device/amlogic/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
+                device/khadas/common/video_algorithm/dnlp/64/dnlp_alg_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/dnlp_alg.ko \
+                device/khadas/common/initscripts/dnlp.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dnlp.rc
         endif
     endif
 endif

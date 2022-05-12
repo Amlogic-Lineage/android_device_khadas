@@ -26,14 +26,14 @@ $(warning TUNER_MODULE is $(TUNER_MODULE))
 ifeq ($(TARGET_BUILD_KERNEL_4_9),true)
 PRODUCT_COPY_FILES += $(foreach tuner, $(TUNER_MODULE),\
     $(if $(findstring true, $(KERNEL_A32_SUPPORT)),\
-        device/amlogic/common/tuner/32_4_9/$(tuner)_fe_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/$(tuner)_fe.ko,\
-        device/amlogic/common/tuner/64_4_9/$(tuner)_fe_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/$(tuner)_fe.ko)\
-        device/amlogic/common/initscripts/tuner/$(tuner)_fe.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/$(tuner)_fe.rc)
+        device/khadas/common/tuner/32_4_9/$(tuner)_fe_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/$(tuner)_fe.ko,\
+        device/khadas/common/tuner/64_4_9/$(tuner)_fe_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/$(tuner)_fe.ko)\
+        device/khadas/common/initscripts/tuner/$(tuner)_fe.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/$(tuner)_fe.rc)
 else
 PRODUCT_COPY_FILES += $(foreach tuner, $(TUNER_MODULE),\
     $(if $(findstring true, $(KERNEL_A32_SUPPORT)),\
-        device/amlogic/common/tuner/32/$(tuner)_fe_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/$(tuner)_fe.ko,\
-        device/amlogic/common/tuner/64/$(tuner)_fe_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/$(tuner)_fe.ko)\
-        device/amlogic/common/initscripts/tuner/$(tuner)_fe.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/$(tuner)_fe.rc)
+        device/khadas/common/tuner/32/$(tuner)_fe_32.ko:$(PRODUCT_OUT)/obj/lib_vendor/$(tuner)_fe.ko,\
+        device/khadas/common/tuner/64/$(tuner)_fe_64.ko:$(PRODUCT_OUT)/obj/lib_vendor/$(tuner)_fe.ko)\
+        device/khadas/common/initscripts/tuner/$(tuner)_fe.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/$(tuner)_fe.rc)
 endif
 endif

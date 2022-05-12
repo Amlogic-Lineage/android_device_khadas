@@ -15,7 +15,7 @@
 ########################################################################################################################################################################
 # the scripts only receive one option or none.
 usage() {
-    printf "Usage: ./device/amlogic/common/quick_compile.sh [OPTION]\n"
+    printf "Usage: ./device/khadas/common/quick_compile.sh [OPTION]\n"
     printf "If no OPTION, build otapackage\n"
     printf "[OPTION]\n"
     printf "    uboot         : build someone uboot\n"
@@ -157,7 +157,7 @@ read_android_type() {
 compile_uboot() {
     uboot_name=${uboot[platform_type]}
     tdk_name=${tdk[platform_type]}
-    cd bootloader/uboot-repo
+    cd bootloader/uboot
 
     if [ $uboot_drm_type -gt 1 ]; then
         compile_bl32="--bl32 ../../vendor/amlogic/common/tdk/secureos/$tdk_name"
@@ -179,14 +179,14 @@ compile_uboot() {
 
 
     if [ -f "build/u-boot.bin.signed" ];then
-        cp build/u-boot.bin.signed ../../device/amlogic/$project_path/bootloader.img
-        cp build/u-boot.bin.usb.signed ../../device/amlogic/$project_path/upgrade/
-        cp build/u-boot.bin.sd.bin.signed ../../device/amlogic/$project_path/upgrade/
+        cp build/u-boot.bin.signed ../../device/khadas/$project_path/bootloader.img
+        cp build/u-boot.bin.usb.signed ../../device/khadas/$project_path/upgrade/
+        cp build/u-boot.bin.sd.bin.signed ../../device/khadas/$project_path/upgrade/
     else
-        cp build/u-boot.bin ../../device/amlogic/$project_path/bootloader.img;
-        cp build/u-boot.bin.usb.bl2 ../../device/amlogic/$project_path/upgrade/u-boot.bin.usb.bl2;
-        cp build/u-boot.bin.usb.tpl ../../device/amlogic/$project_path/upgrade/u-boot.bin.usb.tpl;
-        cp build/u-boot.bin.sd.bin ../../device/amlogic/$project_path/upgrade/u-boot.bin.sd.bin;
+        cp build/u-boot.bin ../../device/khadas/$project_path/bootloader.img;
+        cp build/u-boot.bin.usb.bl2 ../../device/khadas/$project_path/upgrade/u-boot.bin.usb.bl2;
+        cp build/u-boot.bin.usb.tpl ../../device/khadas/$project_path/upgrade/u-boot.bin.usb.tpl;
+        cp build/u-boot.bin.sd.bin ../../device/khadas/$project_path/upgrade/u-boot.bin.sd.bin;
     fi
     cd ../../
 }

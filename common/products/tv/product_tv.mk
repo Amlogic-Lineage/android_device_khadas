@@ -1,4 +1,4 @@
-$(call inherit-product, device/amlogic/common/core_amlogic.mk)
+$(call inherit-product, device/khadas/common/core_amlogic.mk)
 
 ifeq ($(TARGET_BUILD_LIVETV),true)
 #TV input HAL
@@ -107,16 +107,16 @@ endif
 #copy lowmemorykiller.txt
 ifeq ($(BUILD_WITH_LOWMEM_COMMON_CONFIG),true)
 PRODUCT_COPY_FILES += \
-	device/amlogic/common/config/lowmemorykiller_2G.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller_2G.txt \
-	device/amlogic/common/config/lowmemorykiller.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller.txt \
-	device/amlogic/common/config/lowmemorykiller_512M.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller_512M.txt
+	device/khadas/common/config/lowmemorykiller_2G.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller_2G.txt \
+	device/khadas/common/config/lowmemorykiller.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller.txt \
+	device/khadas/common/config/lowmemorykiller_512M.txt:$(TARGET_COPY_OUT_VENDOR)/etc/lowmemorykiller_512M.txt
 endif
 
 # USB
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml
 
-custom_keylayouts := $(wildcard device/amlogic/common/keyboards/*.kl)
+custom_keylayouts := $(wildcard device/khadas/common/keyboards/*.kl)
 PRODUCT_COPY_FILES += $(foreach file,$(custom_keylayouts),\
     $(file):$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/$(notdir $(file)))
 

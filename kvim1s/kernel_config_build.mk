@@ -1,6 +1,6 @@
 
 
-DEVICE_PRODUCT_PATH := device/amlogic/oppen
+DEVICE_PRODUCT_PATH := device/khadas/kvim1s
 
 
 KERNEL_ROOTDIR := common
@@ -10,4 +10,4 @@ INSTALLED_KERNEL_TARGET := $(PRODUCT_OUT)/kernel
 BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_OFFSET) --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 ## build kernel and modules here
-include device/amlogic/common/build_kernel_modules.mk
+include device/khadas/common/build_kernel_modules.mk
