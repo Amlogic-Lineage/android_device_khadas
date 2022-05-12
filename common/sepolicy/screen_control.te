@@ -1,0 +1,43 @@
+type screen_control, domain;
+
+type screen_control_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(screen_control)
+
+vndbinder_use(screen_control)
+hwbinder_use(screen_control)
+binder_use(screen_control)
+
+hal_client_domain(screen_control, hal_codec2);
+hal_client_domain(screen_control, hal_allocator)
+hal_client_domain(screen_control, hal_graphics_allocator)
+hal_client_domain(screen_control, hal_omx);
+
+get_prop(screen_control, vendor_default_prop)
+add_hwservice(screen_control, screencontrol_hwservice)
+
+allow screen_control hidl_memory_hwservice:hwservice_manager find;
+allow screen_control mediaserver:binder { call transfer };
+allow screen_control mediaserver_service:service_manager { find };
+allow screen_control video_device:chr_file rw_file_perms;
+allow screen_control servicemanager:dir { search };
+allow screen_control storage_file:dir rw_dir_perms;
+allow screen_control storage_file:file rw_file_perms;
+allow screen_control hal_omx_hwservice:hwservice_manager { find };
+allow screen_control mediametrics:binder { call };
+allow screen_control mediametrics_service:service_manager { find };
+
+allow screen_control sdcardfs:dir rw_dir_perms;
+allow screen_control sdcardfs:file create_file_perms;
+allow screen_control system_file:dir r_dir_perms;
+#allow screen_control media_rw_data_file:dir rw_dir_perms;
+#allow screen_control media_rw_data_file:file create_file_perms;
+allow screen_control hal_graphics_allocator_default_tmpfs:file rw_file_perms;
+
+allow screen_control fuse:dir w_dir_perms;
+allow screen_control fuse:file create_file_perms;
+
+allow screen_control mnt_vendor_file:file create_file_perms;
+allow screen_control mnt_vendor_file:dir create_dir_perms;
+allow screen_control mnt_user_file:dir rw_dir_perms;
+allow screen_control mnt_user_file:file rw_file_perms;

@@ -1,0 +1,3 @@
+on boot
+    chmod 664 /sys/power/early_suspend_trigger
+    chown root system /sys/power/early_suspend_trigger

@@ -1,0 +1,18 @@
+#allow fastbootd self:capability { dac_override dac_read_search };
+allow fastbootd sysfs:dir { open read };
+allow fastbootd fastboot_aml_file:dir  { search read write open add_name remove_name rmdir create };
+allow fastbootd fastboot_aml_file:file { create open read write setattr getattr lock unlink execute_no_trans };
+#allow fastbootd sysfs:file read;
+
+allow fastbootd block_device:blk_file { ioctl };
+allow fastbootd vbmeta_block_device:blk_file { ioctl open write };
+allow fastbootd dtbo_block_device:blk_file { ioctl open write };
+allow fastbootd recovery_block_device:blk_file { ioctl open write };
+
+allow fastbootd env_device:blk_file rw_file_perms;
+
+allow fastbootd bootloader_device:blk_file rw_file_perms;
+allow fastbootd super_block_device:blk_file rw_file_perms;
+allowxperm fastbootd super_block_device:blk_file ioctl { BLKSECDISCARD BLKDISCARD BLKGETSIZE64 };
+
+allow fastbootd sysfs_power:file { read write open getattr setattr create lock unlink };

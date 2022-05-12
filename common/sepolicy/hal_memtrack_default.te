@@ -1,0 +1,17 @@
+typeattribute hal_memtrack_default mlstrustedsubject;
+
+allow hal_memtrack_default debugfs:dir { read open };
+allow hal_memtrack_default sysfs:file { r_file_perms };
+
+allow hal_memtrack_default debugfs_mali:dir { search r_dir_perms};
+allow hal_memtrack_default debugfs_ion:dir { search read open };
+allow hal_memtrack_default sysfs_mali:dir { search r_dir_perms};
+
+allow hal_memtrack_default debugfs_mali:file r_file_perms;
+allow hal_memtrack_default debugfs_ion:file { r_file_perms };
+allow hal_memtrack_default sysfs_mali:file { r_file_perms };
+
+allow hal_memtrack_default { screen_control }:dir { search };
+allow hal_memtrack_default { screen_control }:file r_file_perms;
+
+r_dir_file(hal_memtrack_default, domain)

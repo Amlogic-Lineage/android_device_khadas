@@ -1,0 +1,47 @@
+type subtitleserver, domain;
+type subtitleserver_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(subtitleserver)
+
+vndbinder_use(subtitleserver)
+
+hwbinder_use(subtitleserver)
+add_hwservice(subtitleserver, subtitleserver_hwservice)
+
+hal_client_domain(subtitleserver, hal_allocator)
+hal_client_domain(subtitleserver, hal_graphics_allocator)
+
+get_prop(subtitleserver, hwservicemanager_prop)
+get_prop(subtitleserver, vendor_platform_prop)
+
+allow subtitleserver subtitle_device:chr_file rw_file_perms;
+allow subtitleserver dvb_device:chr_file rw_file_perms;
+allow subtitleserver codec_device:chr_file r_file_perms;
+allow subtitleserver sysfs_xbmc:file rw_file_perms;
+allow subtitleserver sysfs_video:file rw_file_perms;
+allow subtitleserver sysfs_video:dir search;
+allow subtitleserver vbi_device:chr_file rw_file_perms;
+
+allow subtitleserver system_app:binder { call };
+allow subtitleserver mediaserver:binder { call };
+allow subtitleserver platform_app:binder { call };
+
+allow subtitleserver hidl_memory_hwservice:hwservice_manager find;
+
+r_dir_file(subtitleserver, sdcard_type)
+allow subtitleserver platform_app:fd { use };
+
+#fd may send by app, with opened path /data/media/0/xxx
+allow subtitleserver media_rw_data_file:file read;
+
+allow subtitleserver self:tcp_socket { create_socket_perms listen accept };
+allow subtitleserver fwmarkd_socket:sock_file { read write ioctl };
+allow subtitleserver port:tcp_socket { name_connect name_bind node_bind listen accept };
+allow subtitleserver node:tcp_socket { node_bind };
+allow subtitleserver self:capability { net_raw };
+
+allow netd subtitleserver:fd use;
+allow subtitleserver codec_device:chr_file rw_file_perms;
+allow subtitleserver mediasync_device:chr_file rw_file_perms;
+allow subtitleserver system_app_data_file:file { read };
+allow subtitleserver app_data_file:file { read };

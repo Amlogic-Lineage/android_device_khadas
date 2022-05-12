@@ -1,0 +1,8 @@
+
+# dolby_fw
+allow hal_audio_default dolby_fw_device:chr_file { ioctl open read write };
+
+# for dlopen
+allow hal_audio_default dolbyms12_tmpfs:file { read open getattr };
+allow hal_audio_default dolby_lib_file:file { read open getattr execute };
+

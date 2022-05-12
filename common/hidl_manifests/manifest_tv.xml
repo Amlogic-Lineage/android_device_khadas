@@ -1,0 +1,20 @@
+<manifest version="1.0" type="device" target-level="4">
+    <hal>
+        <name>android.hardware.tv.input</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ITvInput</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal>
+        <name>vendor.amlogic.hardware.tvserver</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ITvServer</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+</manifest>

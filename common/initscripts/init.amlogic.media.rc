@@ -1,0 +1,51 @@
+on boot
+    chmod 666 /sys/class/vdec/poweron_clock_level
+    chmod 666 /sys/class/codec_mm/tvp_enable
+    chmod 666 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    chmod 666 /sys/class/thermal/thermal_zone0/mode
+    chmod 666 /sys/class/thermal/thermal_zone1/mode
+    chown mediacodec mediadrm /sys/class/codec_mm/tvp_enable
+    chown mediacodec system /sys/class/codec_mm/config
+    chown mediacodec system /sys/class/codec_mm/fastplay_enable
+    chown media system /sys/module/amvdec_mpeg12/parameters/dec_control
+    chown media system /sys/module/amvideo/parameters/smooth_sync_enable
+    chown system camera /dev/ge2d
+
+    write /sys/module/stream_input/parameters/def_vstreambuf_sizeM 10
+    write /sys/module/stream_input/parameters/def_4k_vstreambuf_sizeM 15
+    write /sys/devices/platform/ffe40000.bifrost/dvfs_period 50
+
+on fs
+    insmod /vendor/lib/modules/media_clock.ko
+    write /sys/module/firmware_class/parameters/path "/vendor/lib/firmware/"
+    insmod /vendor/lib/modules/firmware.ko
+    insmod /vendor/lib/modules/video_framerate_adapter.ko
+    insmod /vendor/lib/modules/decoder_common.ko
+    insmod /vendor/lib/modules/stream_input.ko
+
+on early-boot
+    insmod /vendor/lib/modules/amvdec_mh264.ko
+    insmod /vendor/lib/modules/amvdec_mh264_v4l.ko
+    insmod /vendor/lib/modules/amvdec_h264mvc.ko
+    insmod /vendor/lib/modules/amvdec_h265.ko
+    insmod /vendor/lib/modules/amvdec_h265_v4l.ko
+    insmod /vendor/lib/modules/amvdec_mmjpeg.ko
+    insmod /vendor/lib/modules/amvdec_mmjpeg_v4l.ko
+    insmod /vendor/lib/modules/amvdec_mmpeg12.ko
+    insmod /vendor/lib/modules/amvdec_mmpeg12_v4l.ko
+    insmod /vendor/lib/modules/amvdec_mmpeg4.ko
+    insmod /vendor/lib/modules/amvdec_mmpeg4_v4l.ko
+    insmod /vendor/lib/modules/amvdec_vc1.ko
+    insmod /vendor/lib/modules/amvdec_vp9.ko
+    insmod /vendor/lib/modules/amvdec_vp9_v4l.ko
+    insmod /vendor/lib/modules/amvdec_avs2.ko
+    insmod /vendor/lib/modules/encoder.ko
+    insmod /vendor/lib/modules/vpu.ko
+    insmod /vendor/lib/modules/amvdec_ports.ko
+    insmod /vendor/lib/modules/amlogic_fbc_lib.ko
+    insmod /vendor/lib/modules/amvdec_mavs.ko
+    insmod /vendor/lib/modules/amvdec_av1.ko
+    insmod /vendor/lib/modules/amvdec_av1_v4l.ko
+    insmod /vendor/lib/modules/media_sync.ko
+    insmod /vendor/lib/modules/amvenc_multi.ko
+    insmod /vendor/lib/modules/jpegenc.ko

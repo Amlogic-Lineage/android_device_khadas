@@ -1,0 +1,54 @@
+{
+  "Nodes": [
+    {
+      "Name": "INTERACTIVE_ACTION",
+      "Path": "/sys/power/early_suspend_trigger",
+      "Values": [
+        "0",
+        "1"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CPUScalingGovernor",
+      "Path": "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor",
+      "Values": [
+        "interactive",
+        "performance"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CPUCmd",
+      "Path": "/sys/class/mpgpu/mpgpucmd",
+      "Values": [
+        " ",
+        "preheat"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    }
+  ],
+  "Actions": [
+    {
+      "PowerHint": "INTERACTIVE",
+      "Node": "INTERACTIVE_ACTION",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "FIXED_PERFORMANCE",
+      "Node": "CPUScalingGovernor",
+      "Duration": 0,
+      "Value": "performance"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "CPUCmd",
+      "Duration": 0,
+      "Value": "preheat"
+    }
+  ]
+}

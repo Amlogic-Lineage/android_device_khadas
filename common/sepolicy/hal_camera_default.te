@@ -1,0 +1,11 @@
+allow hal_camera_default hal_camera_default:netlink_kobject_uevent_socket { create setopt bind read shutdown };
+
+allow hal_camera_default vndbinder_device:chr_file { read write open ioctl };
+
+allow hal_camera_default hal_graphics_mapper_hwservice:hwservice_manager find;
+
+get_prop(hal_camera_default, vendor_platform_prop)
+
+allow hal_camera_default hal_graphics_composer_default:fd use;
+
+allow hal_camera_default hal_graphics_allocator_default_tmpfs:file rw_file_perms;

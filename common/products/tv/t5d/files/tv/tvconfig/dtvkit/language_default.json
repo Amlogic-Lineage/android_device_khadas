@@ -1,0 +1,260 @@
+{
+    "languagelist": [
+        {
+            "languagecode": "eng",
+            "description": "English"
+        },
+        {
+            "languagecode": "wel",
+            "description": "Welsh1"
+        },
+        {
+            "languagecode": "cym",
+            "description": "Welsh2"
+        },
+        {
+            "languagecode": "gla",
+            "description": "Gaelic"
+        },
+        {
+            "languagecode": "iri",
+            "description": "Irish1"
+        },
+        {
+            "languagecode": "gle",
+            "description": "Irish2"
+        },
+        {
+            "languagecode": "nld",
+            "description": "Dutch1"
+        },
+        {
+            "languagecode": "dut",
+            "description": "Dutch2"
+        },
+        {
+            "languagecode": "ger",
+            "description": "German1"
+        },
+        {
+            "languagecode": "deu",
+            "description": "German2"
+        },
+        {
+            "languagecode": "fre",
+            "description": "French1"
+        },
+        {
+            "languagecode": "fra",
+            "description": "French2"
+        },
+        {
+            "languagecode": "rus",
+            "description": "Russian"
+        },
+        {
+            "languagecode": "chi",
+            "description": "Simplified Chinese"
+        },
+        {
+            "languagecode": "chi",
+            "description": "Traditional Chinese"
+        },
+        {
+            "languagecode": "fin",
+            "description": "Finnish"
+        },
+        {
+            "languagecode": "swe",
+            "description": "Swedish"
+        },
+        {
+            "languagecode": "nor",
+            "description": "Norwegian"
+        },
+        {
+            "languagecode": "dan",
+            "description": "Danish"
+        },
+        {
+            "languagecode": "cmn",
+            "description": "Mandarin"
+        },
+        {
+            "languagecode": "yue",
+            "description": "Cantonese"
+        },
+        {
+            "languagecode": "mao",
+            "description": "Maori1"
+        },
+        {
+            "languagecode": "mri",
+            "description": "Maori2"
+        },
+        {
+            "languagecode": "jpn",
+            "description": "Japanese"
+        },
+        {
+            "languagecode": "ita",
+            "description": "Italian"
+        },
+        {
+            "languagecode": "spa",
+            "description": "Spanish1"
+        },
+        {
+            "languagecode": "esl",
+            "description": "Spanish2"
+        },
+        {
+            "languagecode": "kor",
+            "description": "Korean"
+        },
+        {
+            "languagecode": "hin",
+            "description": "Hindi"
+        },
+        {
+            "languagecode": "cze",
+            "description": "Czech1"
+        },
+        {
+            "languagecode": "ces",
+            "description": "Czech2"
+        },
+        {
+            "languagecode": "slk",
+            "description": "Slovak1"
+        },
+        {
+            "languagecode": "slo",
+            "description": "Slovak2"
+        },
+        {
+            "languagecode": "afr",
+            "description": "Afrikaans"
+        },
+        {
+            "languagecode": "nbl",
+            "description": "Ndebele"
+        },
+        {
+            "languagecode": "nso",
+            "description": "Northern Sotho"
+        },
+        {
+            "languagecode": "sot",
+            "description": "Southern Sotho"
+        },
+        {
+            "languagecode": "ssw",
+            "description": "Swati"
+        },
+        {
+            "languagecode": "tso",
+            "description": "Tsonga"
+        },
+        {
+            "languagecode": "tsn",
+            "description": "Tswana"
+        },
+        {
+            "languagecode": "ven",
+            "description": "Venda"
+        },
+        {
+            "languagecode": "xho",
+            "description": "Xhosa"
+        },
+        {
+            "languagecode": "zul",
+            "description": "Zulu"
+        },
+        {
+            "languagecode": "hrv",
+            "description": "Croatian"
+        },
+        {
+            "languagecode": "hun",
+            "description": "Hungarian"
+        },
+        {
+            "languagecode": "lav",
+            "description": "Latvian"
+        },
+        {
+            "languagecode": "ltz",
+            "description": "Luxembourgish"
+        },
+        {
+            "languagecode": "pol",
+            "description": "Polish"
+        },
+        {
+            "languagecode": "por",
+            "description": "Portuguese"
+        },
+        {
+            "languagecode": "srp",
+            "description": "Serbian"
+        },
+        {
+            "languagecode": "ron",
+            "description": "Romanian1"
+        },
+        {
+            "languagecode": "rum",
+            "description": "Romanian2"
+        },
+        {
+            "languagecode": "sqi",
+            "description": "Albanian1"
+        },
+        {
+            "languagecode": "alb",
+            "description": "Albanian2"
+        },
+        {
+            "languagecode": "slv",
+            "description": "Slovene"
+        },
+        {
+            "languagecode": "cat",
+            "description": "Catalan"
+        },
+        {
+            "languagecode": "glg",
+            "description": "Galician"
+        },
+        {
+            "languagecode": "eus",
+            "description": "Basque1"
+        },
+        {
+            "languagecode": "baq",
+            "description": "Basque2"
+        },
+        {
+            "languagecode": "ukr",
+            "description": "Ukrainian"
+        },
+        {
+            "languagecode": "mya",
+            "description": "Myanmar"
+        },
+        {
+            "languagecode": "ice",
+            "description": "Iceland"
+        },
+        {
+            "languagecode": "vnm",
+            "description": "Vietnam"
+        },
+        {
+            "languagecode": "und",
+            "description": "Undefined"
+        }
+    ]
+}

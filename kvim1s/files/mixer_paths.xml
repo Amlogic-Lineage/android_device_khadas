@@ -1,0 +1,28 @@
+<mixer>
+  <!-- dummy xml conf, do nothing here -->
+  <path name="speaker">
+    <ctl name="SPK mute" value="0" />
+  </path>
+
+  <path name="speaker_off">
+    <ctl name="SPK mute" value="1" />
+  </path>
+
+  <path name="spdif_off">
+      <ctl name="Audio spdif mute" value="1" />
+  </path>
+
+  <path name="spdif_on">
+      <ctl name="Audio spdif mute" value="0" />
+  </path>
+
+  <path name="headphone">
+  </path>
+
+  <path name="main_mic">
+  </path>
+
+  <path name="headset-mic">
+  </path>
+
+</mixer>

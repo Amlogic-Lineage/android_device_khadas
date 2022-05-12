@@ -1,0 +1,159 @@
+import /vendor/etc/init/hw/init.amlogic.usb.rc
+import /vendor/etc/init/hw/init.amlogic.board.rc
+import /vendor/etc/init/hw/init.amlogic.wifi.rc
+import /vendor/etc/init/hw/init.amlogic.media.rc
+import /vendor/etc/init/hw/init.amlogic.wifi_buildin.rc
+import /vendor/etc/init/hw/init.amlogic.bluetooth.rc
+
+on early-init
+    mount debugfs /sys/kernel/debug /sys/kernel/debug mode=755
+    mount proc proc /proc remount hidepid=2,gid=3009
+
+on init
+    # Support legacy paths
+    symlink /sdcard /mnt/sdcard
+
+    #30 means reserve 3% memory using for high water mark, 1GB DDR x 3% = 30MB
+    write /proc/sys/vm/watermark_scale_factor 30
+    write /proc/sys/vm/watermark_boost_factor 0
+    #12288KB
+    write /proc/sys/vm/min_free_kbytes 12288
+
+    #init the unifykeys
+    write /sys/class/unifykeys/attach 1
+
+    #for tv only
+    chmod 0666 /sys/class/gpio/export
+    chmod 0666 /sys/class/gpio/unexport
+    chmod 666 /dev/video_composer.0
+    chmod 666 /dev/video_composer.1
+on boot
+    # osd logo legacy path
+    chown system graphics /sys/module/fb/parameters/osd_logo_index
+    chmod 0660 /sys/module/fb/parameters/osd_logo_index
+    # osd logo new path
+    chown system graphics /sys/module/aml_media/parameters/osd_logo_index
+    chmod 0660 /sys/module/aml_media/parameters/osd_logo_index
+
+    chmod 0666 /sys/class/tsync_pcr/tsync_vpts_adjust
+    chmod 0666 /sys/class/amstream/reset_audio_port
+    # HDMI/LCD switch
+    chown media system /sys/class/switch/hdmi/state
+    chmod 0660 /sys/class/switch/hdmi/state
+    chown media system /sys/devices/virtual/switch/hdmi/state
+    chmod 0660 /sys/devices/virtual/switch/hdmi/state
+    chmod 666 /dev/v4lvideo
+    chmod 666 /dev/video30
+    chmod 666 /dev/video31
+    chmod 666 /dev/video32
+    chmod 666 /dev/video33
+    chmod 666 /dev/video34
+    chmod 666 /dev/video35
+    chmod 666 /dev/video36
+    chmod 666 /dev/video37
+    chmod 666 /dev/video38
+    # thermal
+    chown system system /sys/class/thermal/thermal_zone0/mode
+    chown system system /sys/class/thermal/thermal_zone1/mode
+    chmod 664 /sys/class/thermal/thermal_zone0/mode
+    chmod 664 /sys/class/thermal/thermal_zone1/mode
+    chmod 666 /sys/class/video/show_first_frame_nosync
+    chown media system /sys/class/video/show_first_frame_nosync
+
+    #vfm map
+    chown media  system /sys/class/vfm/map
+    chmod 666 /sys/class/vfm/map
+    write /sys/class/vfm/map "rm default"
+    write /sys/class/vfm/map "add default decoder ppmgr deinterlace amvideo"
+
+    #TV default set dolby mode to RF
+    write /sys/class/audiodsp/ac3_drc_control "drchighcutscale 0"
+    write /sys/class/audiodsp/ac3_drc_control "drclowboostscale 0"
+    write /sys/class/audiodsp/ac3_drc_control "drcmode 3"
+
+    #0: normal user and root user can read
+    #1: only root user can read
+    write /proc/sys/kernel/dmesg_restrict 0
+
+	 chmod 0644 /dev/amvenc_multi
+	 chmod 0644 /dev/jpegenc
+
+
+service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 /mnt/media_rw/sdcard1 /storage/sdcard1
+    class late_start
+    disabled
+
+service fuse_udisk0 /system/bin/sdcard -u 1023 -g 1023 /mnt/media_rw/udisk0 /storage/udisk0
+    class late_start
+    disabled
+
+service fuse_udisk1 /system/bin/sdcard -u 1023 -g 1023 /mnt/media_rw/udisk1 /storage/udisk1
+    class late_start
+    disabled
+
+service fuse_sr0 /system/bin/sdcard -u 1023 -g 1023 /mnt/media_rw/sr0 /storage/sr0
+    class late_start
+    disabled
+
+service fuse_loop /system/bin/sdcard -u 1023 -g 1023 /mnt/media_rw/loop /storage/loop
+    class late_start
+    disabled
+
+# Set watchdog timer to 30 seconds and pet it every 10 seconds to get a 20 second margin
+#service watchdogd /sbin/watchdogd 10 20
+#    class core
+#    disabled
+#    seclabel u:r:watchdogd:s0
+
+service remotecfg /vendor/bin/remotecfg /vendor/etc/remote.conf
+    class main
+    oneshot
+    seclabel u:r:remotecfg:s0
+
+service hdcp_tx22 /vendor/bin/hdcp_tx22 \
+    -f /odm/etc/firmware/firmware.le
+    class main
+    disabled
+    oneshot
+
+service hdcp_rx22 /vendor/bin/hdcp_rx22 \
+    -f /mnt/vendor/param/firmware.le
+    class main
+    disabled
+    oneshot
+    seclabel u:r:hdcp_rx22:s0
+
+service hdcp_rp22 /vendor/bin/hdcp_rp22 \
+    /vendor/etc/firmware/hdcp_rp22/firmware_rprx.le \
+    /vendor/etc/firmware/hdcp_rp22/firmware_rptx.le
+    class main
+    disabled
+    oneshot
+    seclabel u:r:hdcp_rp22:s0
+
+service factoryreset /mnt/vendor/tee/factoryreset.sh
+    class main
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
+
+service bugreport /system/bin/dumpstate -d -p -B -z \
+    -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
+    class main
+    disabled
+    oneshot
+
+on property:sys.boot_completed=1
+    start factoryreset
+
+on property:persist.vendor.bt_module=rtk_btusb
+    insmod /vendor/lib/modules/rtk_btusb.ko
+
+service pppoe_wrapper /system/bin/pppoe_wrapper
+    class main
+    group system inet
+    disabled
+    oneshot
+    seclabel u:r:pppoe_wrapper:s0

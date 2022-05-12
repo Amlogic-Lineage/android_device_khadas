@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<compatibility-matrix version="1.0" type="framework">
+    <hal>
+        <name>vendor.amlogic.hardware.miracast_hdcp2</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IHDCPService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+</compatibility-matrix>

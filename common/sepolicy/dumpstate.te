@@ -1,0 +1,11 @@
+allow dumpstate debugfs:dir r_file_perms;
+allow dumpstate incidentd:binder call;
+allow dumpstate param_tv_file:dir { getattr search };
+allow dumpstate tee_vendor_file:dir { getattr search };
+allow dumpstate sysfs_module:file { read open getattr };
+allow dumpstate hal_light_default:binder call;
+allow dumpstate hal_power_default:binder call;
+allow dumpstate hal_graphics_allocator_default_tmpfs:file rw_file_perms;
+
+allow dumpstate app_data_file:file append;
+allow dumpstate system_app_data_file:file append;

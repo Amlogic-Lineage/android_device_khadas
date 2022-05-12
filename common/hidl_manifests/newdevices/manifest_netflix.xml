@@ -1,0 +1,8 @@
+<manifest version="1.0" type="device" target-level="5">
+    <hal format="hidl">
+        <name>android.hardware.drm</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.3::ICryptoFactory/netflix</fqname>
+        <fqname>@1.3::IDrmFactory/netflix</fqname>
+    </hal>
+</manifest>

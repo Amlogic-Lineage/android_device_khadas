@@ -1,0 +1,6 @@
+# for collect GL mem track. not easy to remove the search from sourcecode
+allow untrusted_app_27 debugfs_mali:dir search;
+allow untrusted_app_27 storage_stub_file:dir { getattr };
+allow untrusted_app_27 hal_graphics_allocator_default_tmpfs:file rw_file_perms;
+get_prop(untrusted_app_27, vendor_netflix_prop)
+get_prop(untrusted_app_27, vendor_media_prop)

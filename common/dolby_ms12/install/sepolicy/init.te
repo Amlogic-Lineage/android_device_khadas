@@ -1,0 +1,6 @@
+
+# for mounting tmpfs in rc files
+allow init dolby_mnt_point:dir mounton;
+
+
+

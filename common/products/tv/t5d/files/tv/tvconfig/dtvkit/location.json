@@ -1,0 +1,228 @@
+{
+    "locationlist": [
+        {
+            "name": "manual",
+            "east": true,
+            "longitude": 0,
+            "north": true,
+            "latitude": 0
+        },
+        {
+            "name": "off",
+            "east": true,
+            "longitude": 0,
+            "north": true,
+            "latitude": 0
+        },
+        {
+            "name": "Abuzaby",
+            "east": true,
+            "longitude": 542,
+            "north": true,
+            "latitude": 242
+        },
+        {
+            "name": "Alger",
+            "east": true,
+            "longitude": 29,
+            "north": true,
+            "latitude": 365
+        },
+        {
+            "name": "Beirut",
+            "east": true,
+            "longitude": 356,
+            "north": true,
+            "latitude": 337
+        },
+        {
+            "name": "Berlin",
+            "east": true,
+            "longitude": 133,
+            "north": true,
+            "latitude": 525
+        },
+        {
+            "name": "Budapest",
+            "east": true,
+            "longitude": 190,
+            "north": true,
+            "latitude": 475
+        },
+        {
+            "name": "Cairo",
+            "east": true,
+            "longitude": 312,
+            "north": true,
+            "latitude": 300
+        },
+        {
+            "name": "Casablanka",
+            "east": true,
+            "longitude": 75,
+            "north": true,
+            "latitude": 335
+        },
+        {
+            "name": "Doha",
+            "east": true,
+            "longitude": 514,
+            "north": true,
+            "latitude": 252
+        },
+        {
+            "name": "Frankfurt",
+            "east": true,
+            "longitude": 86,
+            "north": true,
+            "latitude": 501
+        },
+        {
+            "name": "Hochiminh City",
+            "east": true,
+            "longitude": 1066,
+            "north": true,
+            "latitude": 107
+        },
+        {
+            "name": "Hong Kong",
+            "east": true,
+            "longitude": 1141,
+            "north": true,
+            "latitude": 224
+        },
+        {
+            "name": "Istanbul",
+            "east": true,
+            "longitude": 290,
+            "north": true,
+            "latitude": 410
+        },
+        {
+            "name": "Jakarta",
+            "east": true,
+            "longitude": 1067,
+            "north": true,
+            "latitude": 62
+        },
+        {
+            "name": "Karachi",
+            "east": true,
+            "longitude": 670,
+            "north": true,
+            "latitude": 248
+        },
+        {
+            "name": "Kualalumpur",
+            "east": true,
+            "longitude": 1017,
+            "north": true,
+            "latitude": 31
+        },
+        {
+            "name": "Kuwait",
+            "east": true,
+            "longitude": 480,
+            "north": true,
+            "latitude": 291
+        },
+        {
+            "name": "London",
+            "east": true,
+            "longitude": true,
+            "north": true,
+            "latitude": 514
+        },
+        {
+            "name": "Madrid",
+            "east": true,
+            "longitude": 36,
+            "north": true,
+            "latitude": 404
+        },
+        {
+            "name": "Melbourne",
+            "east": true,
+            "longitude": 1450,
+            "north": true,
+            "latitude": 378
+        },
+        {
+            "name": "Moscow",
+            "east": true,
+            "longitude": 377,
+            "north": true,
+            "latitude": 557
+        },
+        {
+            "name": "Muenchen",
+            "east": true,
+            "longitude": 115,
+            "north": true,
+            "latitude": 481
+        },
+        {
+            "name": "Muscat",
+            "east": true,
+            "longitude": 586,
+            "north": true,
+            "latitude": 235
+        },
+        {
+            "name": "New Delhi",
+            "east": true,
+            "longitude": 772,
+            "north": true,
+            "latitude": 285
+        },
+        {
+            "name": "Riyadh",
+            "east": true,
+            "longitude": 467,
+            "north": true,
+            "latitude": 246
+        },
+        {
+            "name": "Seoul",
+            "east": true,
+            "longitude": 1269,
+            "north": true,
+            "latitude": 375
+        },
+        {
+            "name": "Sydeny",
+            "east": true,
+            "longitude": 1510,
+            "north": true,
+            "latitude": 338
+        },
+        {
+            "name": "Teheran",
+            "east": true,
+            "longitude": 514,
+            "north": true,
+            "latitude": 357
+        },
+        {
+            "name": "Telaviv",
+            "east": true,
+            "longitude": 348,
+            "north": true,
+            "latitude": 319
+        },
+        {
+            "name": "Tripoli",
+            "east": true,
+            "longitude": 132,
+            "north": true,
+            "latitude": 327
+        },
+        {
+            "name": "Paris",
+            "east": true,
+            "longitude": 24,
+            "north": true,
+            "latitude": 484
+        }
+    ]
+}

@@ -1,0 +1,108 @@
+soong_config_module_type {
+    name: "amlogic_vendorconfig_cc_defaults",
+    module_type: "cc_defaults",
+    config_namespace: "amlogic_vendorconfig",
+    variables: [
+        "board_platform",
+        "hwc_dynamic_switch_viu",
+        "build_livetv",
+        "build_alsa_audio",
+        "support_hdmiin",
+        "custom_mediaserver_extensions",
+        "ddlib_from_customer",
+        "build_livetv_from_source",
+        "netflix_mgkid",
+        "tdk_version",
+        "enable_ta_sign",
+        "enable_ta_encrypt",
+        "omx_with_optee_tvp",
+        "widevine_oemcrypto_level",
+        "with_playready_drm",
+        "playready_tvp",
+        "enable_swcodec",
+    ],
+    properties: [
+        "cflags", "srcs"
+    ],
+}
+
+soong_config_string_variable {
+    name: "board_platform",
+    values: [
+        "meson8",
+        "gxbaby",
+        "gxtvbb",
+        "gxl",
+        "g12a",
+        "g12b"
+    ],
+}
+
+soong_config_string_variable {
+    name: "build_alsa_audio",
+    values: [
+        "tiny",
+        "legacy",
+    ],
+}
+
+soong_config_string_variable {
+    name: "tdk_version",
+    values: [
+        "TDK24",
+        "TDK38",
+    ],
+}
+
+soong_config_bool_variable {
+    name: "hwc_dynamic_switch_viu",
+}
+
+soong_config_bool_variable {
+    name: "build_livetv",
+}
+
+soong_config_bool_variable {
+    name: "support_hdmiin",
+}
+soong_config_bool_variable {
+    name: "custom_mediaserver_extensions",
+}
+
+
+soong_config_bool_variable {
+    name: "ddlib_from_customer",
+}
+
+soong_config_bool_variable {
+    name: "build_livetv_from_source",
+}
+
+soong_config_bool_variable {
+    name: "netflix_mgkid",
+}
+
+
+soong_config_bool_variable {
+    name: "enable_ta_sign",
+}
+
+soong_config_bool_variable {
+    name: "enable_ta_encrypt",
+}
+
+soong_config_bool_variable {
+    name: "omx_with_optee_tvp",
+}
+soong_config_bool_variable {
+    name: "widevine_oemcrypto_level",
+}
+soong_config_bool_variable {
+    name: "with_playready_drm",
+}
+soong_config_bool_variable {
+    name: "playready_tvp",
+}
+soong_config_bool_variable {
+    name: "enable_swcodec",
+}

@@ -1,0 +1,49 @@
+<manifest version="1.0" type="device" target-level="4">
+    <hal format="hidl">
+        <name>vendor.irdeto.hal.hidlimw.common</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IMonitor</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.irdeto.hal.hidlimw.v30_0.base</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>Ihidlimw</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IimwAV</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IimwCRYPTO</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IimwDSC</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IimwSVCPIPE</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IimwTSPIPE</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.irdeto.hal.hidlimw.v30_0.pvr</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+           <name>IimwPVR</name>
+           <instance>default</instance>
+        </interface>
+    </hal>
+</manifest>

@@ -1,0 +1,5 @@
+get_prop(mediaprovider, vendor_media_prop);
+
+allow mediaprovider fuseblk:dir { open read search };
+allow mediaprovider fuseblk:file { getattr open read };
+allow mediaprovider debugfs_mali:dir { search };

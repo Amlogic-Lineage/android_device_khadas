@@ -1,0 +1,9 @@
+#allow untrusted_app_25 sysfs:file { open read };
+
+# for collect GL mem track. not easy to remove the search from sourcecode
+allow untrusted_app_25 debugfs_mali:dir search;
+
+allow untrusted_app_25 fuseblk:dir  { search };
+allow untrusted_app_25 fuseblk:file { read open getattr };
+allow untrusted_app_25 hal_graphics_allocator_default_tmpfs:file rw_file_perms;
+# allow untrusted_app_25 net_dns_prop:file { read };

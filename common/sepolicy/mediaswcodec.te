@@ -1,0 +1,1 @@
+allow mediaswcodec hal_graphics_allocator_default_tmpfs:file rw_file_perms;

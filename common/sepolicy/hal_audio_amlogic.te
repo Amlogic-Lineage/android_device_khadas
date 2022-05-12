@@ -1,0 +1,63 @@
+#########################################
+# sepolicy rules for hal_audio_amlogic
+#########################################
+type hal_audio_amlogic, domain;
+hal_server_domain(hal_audio_amlogic, hal_audio)
+
+type hal_audio_amlogic_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_audio_amlogic)
+
+hal_client_domain(hal_audio_amlogic, hal_allocator)
+
+# allow audioserver to call hal_audio dump with its own fd to retrieve status
+allow hal_audio_amlogic audioserver:fifo_file write;
+
+allow hal_audio_amlogic sysfs_audio_cap:file { read open };
+allow hal_audio_amlogic sysfs_digital_codec:file { write read open };
+allow hal_audio_amlogic sysfs_amhdmitx:dir search;
+allow hal_audio_amlogic kernel:system { module_request };
+allow hal_audio_amlogic  vendor_media_prop:file { read open getattr };
+allow hal_audio_amlogic  vendor_media_prop:property_service { set };
+allow hal_audio_amlogic shell_data_file:file { read write };
+allow hal_audio_amlogic sysfs_xbmc:file { read open write };
+allow hal_audio_amlogic hidraw_device:chr_file { create read write open ioctl};
+allow hal_audio_amlogic property_socket:sock_file { write };
+allow hal_audio_amlogic init:unix_stream_socket { connectto };
+allow hal_audio_amlogic sysfs_video:file { read open };
+allow hal_audio_amlogic sysfs_video:dir search;
+allow hal_audio_amlogic tmpfs:file {read open getattr};
+allow hal_audio_amlogic dolby_fw_device:chr_file {read open ioctl};
+
+#--------------------------------------------------------------------#
+#  product_shipping_api_level=28
+#--------------------------------------------------------------------#
+get_prop(hal_audio_amlogic, vendor_platform_prop)
+allow hal_audio_amlogic self:capability sys_nice;
+allow hal_audio_amlogic sysfs_aud_output_chs:file { open read write };
+allow hal_audio_amlogic sysfs_aud_output_chs:file { read write open };
+allow hal_audio_amlogic sysfs:file { open read write };
+allow hal_audio_amlogic sysfs_extcon:dir { search };
+allow hal_audio_amlogic uio_device:chr_file { open read write };
+allow hal_audio_amlogic system_app:binder call;
+allow hal_audio_amlogic vendor_tv_prop:file { read getattr open };
+allow hal_audio_amlogic hidraw_audio_device:chr_file { create read write open ioctl};
+allow hal_audio_amlogic device:dir {read open};
+allow hal_audio_amlogic btmic_data_file:dir {write read open add_name search};
+allow hal_audio_amlogic btmic_data_file:file {write open create};
+#[SEI-zhaopf-2018-12-18]add for hbg remote {
+allow hal_audio_amlogic sysfs:dir { open read };
+allow hal_audio_amlogic vendor_data_file:dir { add_name remove_name write };
+allow hal_audio_amlogic vendor_data_file:lnk_file { read };
+allow hal_audio_amlogic vendor_data_file:file { create read open setattr unlink};
+allow hal_audio_amlogic dvb_device:chr_file { open read write ioctl };
+allow hal_audio_amlogic frontend_device:chr_file { open read write ioctl };
+allow hal_audio_amlogic codec_device:chr_file { read write open ioctl };
+#allow hal_audio_amlogic hidraw_audio_device:chr_file { create read write open ioctl};
+#allow hal_audio_amlogic device:dir{ read };
+#allow hal_audio_amlogic default_prop:file{ read };
+#[SEI-zhaopf-2018-12-18]add for hbg remote }
+allow hal_audio_amlogic sysfs_astream:file { open read };
+allow hal_audio_amlogic sysfs_astream:dir { search };
+allow hal_audio_amlogic sysfs_audio:file { read write open };
+#allow hal_audio_amlogic bluetooth:unix_stream_socket connectto;
+allow hal_audio_amlogic self:netlink_kobject_uevent_socket { create bind setopt read };

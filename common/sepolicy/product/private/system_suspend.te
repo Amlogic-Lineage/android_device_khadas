@@ -1,0 +1,4 @@
+#allow untrusted_app_25 sysfs:file { open read };
+
+# for collect GL mem track. not easy to remove the search from sourcecode
+allow system_suspend sysfs_power:dir { open read };

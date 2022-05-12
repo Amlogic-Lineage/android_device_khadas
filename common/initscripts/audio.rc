@@ -1,0 +1,18 @@
+on boot
+    #audio
+    chmod 666 /sys/class/astream/format
+    chown media audio /sys/class/astream/format
+    chmod 666 /sys/class/astream/addr_offset
+    chown media audio /sys/class/astream/addr_offset
+    chmod 666 /sys/class/astream/astream-dev/uio0/maps/map0/addr
+    chown media audio
+    /sys/class/astream/astream-dev/uio0/maps/map0/addr
+    chmod 666
+    /sys/class/astream/astream-dev/uio0/maps/map0/size
+    chown media audio
+    /sys/class/astream/astream-dev/uio0/maps/map0/size
+    chmod 666
+    /sys/class/astream/astream-dev/uio0/maps/map0/offset
+    chown media audio
+    /sys/class/astream/astream-dev/uio0/maps/map0/offset
+

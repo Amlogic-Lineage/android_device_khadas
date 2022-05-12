@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+   <feature name="com.amazon.amazonvideo.livingroom.feature.AV_TARGET" />
+</permissions>

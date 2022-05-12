@@ -1,0 +1,100 @@
+ Currently AMLogic's secure boot version is v3.
+ If you need enable secure boot on AMLogic chip, you must follow below steps:
+
+ 1. Generate secure boot keys:
+
+	there is a tool named key.create.bash under device/askey/deadpool/tools
+
+	$ bash key.create.bash aml-key
+	* aml-key is the folder that stores the keys
+
+	bl2.pem
+	bl2aesiv
+	bl2aeskey
+	bl3xaesiv
+	bl3xaeskey
+	bl3xkey.pem
+	kernelaesiv
+	kernelaeskey
+	kernelkey.pem
+	root.pem
+	root0.pem
+	root1.pem
+	root2.pem
+	root3.pem
+
+	After that, copy these keys to device/askey/deadpool/recovery/releasetools/keys/
+
+ 2. Generate efuse pattern:
+	there is a tool named efuse.sh under device/askey/deadpool/tools
+	here is the Introduction for this tool
+	|--function usage
+	|   ./efuse.sh --generate-efuse-pattern \                    //
+	|               --soc [gxl | txlx | g12a | g12b ] \          //soc type, must afford
+	|               [--aml-key-path path-of-key]      \          //key path, will get RSA & AES key from it
+	|               [--rsa-key-path path-of-rsa-key]  \          //key path, will get RSA key from it
+	|               [--enable-sb false]               \          //secure boot enable flag, default is false
+	|               [--aes-key aes-key]               \          //aes key
+	|               [--enable-aes false]              \          //AES scramble enable flag, default is false
+	|               [--password-hash password.hash]   \          //password hash input, password hash generated with amlpwdefs,32 bytes binary file
+	|               [--enable-jtag-password false]    \          //JTAG password enable flag, default is false
+	|               [--enable-usb-password false]     \          //USB password enable flag, default is false
+	|               [--enable-anti-rollback false]    \          //ANTI-ROLLBACK password enable flag, default is false
+	|               -o pattern.efuse                             //output pattern file name
+	|
+	|--key prepare
+	|   |-1. RSA key  //root RSA key which will be stored in EFUSE and one of them will be used to sign the user RSA key
+	|   |             //PEM format only
+	|   |-2. AES key  //AES key which will be stored in EFUSE and it will be used for BL2 scramble
+	|   |             //32 bytes binary file
+	|
+	|--NOTE: above EFUSE pattern generate process can be used separately, this is no dependence for all of them
+
+	sample:
+	./efuse.sh --generate-efuse-pattern \
+	          --soc g12a \
+	          --aml-key-path aml-key/ \
+	          --rsa-key-path aml-key/ \
+	          --enable-anti-rollback false \
+	          -o pattern.efuse
+
+ 3. Generate the signed bootloader
+    1) Auto Generate by build system
+	There is a config PRODUCT_DEADPOOL_SECURE_BOOT in deadpool_base.mk.
+	Currently, the default value is false.
+
+	If you need generate the signed bootloader automatic please set it to true:
+	PRODUCT_DEADPOOL_SECURE_BOOT := true
+
+	2) Manual Generate
+	there is a tool named amlogic-sign-deadpool.sh under device/askey/deadpool/tools
+	We can use below command to generate signed bootloader
+
+	$./amlogic-sign-g12a.sh \
+		-s g12a \
+		-p "$BL_FILES_DIR"/  \
+		-r "$KEY_DIR"/ \
+		-a "$KEY_DIR"/  \
+		-b fw_arb.txt \
+		-o "$SIGNED_BOOTLOADER_DIR"
+
+    u-boot.bin.signed.encrypted will be used for secure boot enabled devices. We can flash it to device that had been flashed efuse pattern.
+    u-boot.bin.unsigned will be used for normail devices.
+
+ 4. Flash the efuse pattern
+	1) update command line used by engineers:
+	$ adb reboot update
+	$ update mwrite xxxxx.efuse mem 0x1080000 normal
+	$ update bulkcmd "efuse secure_boot_set 0x1080000"
+
+	2) USB_Burning_Tool used by factory
+	$ cp device/askey/deadpool/tools/keys.conf device/askey/deadpool/upgrade/
+
+	Add a new line into aml_upgrade_package_enc_avb.conf that is under device/askey/deadpool/upgrade in [LIST_NORMAL], content as follow
+
+	file="keys.conf"		main_type="conf"		sub_type="keys"
+
+	change the efuse pattern name to SECURE_BOOT_SET and put it to the license folder under tool category.
+
+ 5. Flash the fastboot zip
+    After you flash the efuse pattern, you can use the fastboot to flash the signed bootloader.img or whole fastboot zip.

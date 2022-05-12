@@ -1,0 +1,6 @@
+on boot
+    #IR blaster
+    chmod 666 /sys/devices/virtual/irblaster/irblaster0/carrier_freq
+    chmod 666 /sys/devices/virtual/irblaster/irblaster0/duty_cycle
+    chmod 666 /sys/devices/virtual/irblaster/irblaster0/send
+

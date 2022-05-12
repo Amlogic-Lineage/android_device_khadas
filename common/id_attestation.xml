@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ATTESTATION_ID>
+	<SERIAL>
+		<val>1234567890</val>
+	</SERIAL>
+	<BRAND>
+		<val>example</val>
+	</BRAND>
+	<DEVICE>
+		<val>example</val>
+	</DEVICE>
+	<PRODUCT>
+		<val>example</val>
+	</PRODUCT>
+	<MANUFACTURER>
+		<val>example</val>
+	</MANUFACTURER>
+	<MODEL>
+		<val>example</val>
+	</MODEL>
+</ATTESTATION_ID>

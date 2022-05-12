@@ -1,0 +1,48 @@
+parallel_restorecon_dir    /sys
+parallel_restorecon_dir    /sys/bus
+parallel_restorecon_dir    /sys/class
+parallel_restorecon_dir    /sys/devices
+parallel_restorecon_dir    /sys/devices/platform
+parallel_restorecon_dir    /sys/devices/platform/soc
+
+parallel_restorecon_dir    /sys/devices/platform/drm-subsystem
+parallel_restorecon_dir    /sys/devices/platform/aml_bt
+parallel_restorecon_dir    /sys/devices/platform/gpio_keypad
+parallel_restorecon_dir    /sys/devices/platform/fe084040.ir
+parallel_restorecon_dir    /sys/devices/platform/fe084040.ir/input
+
+parallel_restorecon_dir    /sys/devices/platform/auge_sound
+parallel_restorecon_dir    /sys/devices/platform/auge_sound/sound
+parallel_restorecon_dir    /sys/devices/platform/auge_sound/sound/card0
+
+parallel_restorecon_dir    /sys/devices/platform/soc/fdc00000.ethernet
+
+parallel_restorecon_dir    /sys/devices/platform/fe010288.rtc
+parallel_restorecon_dir    /sys/devices/platform/soc/fde00000.crg
+parallel_restorecon_dir    /sys/devices/platform/soc/fde00000.crg/xhci-hcd.0.auto
+parallel_restorecon_dir    /sys/devices/platform/soc/fde00000.crg/xhci-hcd.0.auto/usb1
+parallel_restorecon_dir    /sys/devices/platform/soc/fde00000.crg/xhci-hcd.0.auto/usb2
+
+parallel_restorecon_dir    /sys/devices/platform/soc/fe000000.apb4/fe068000.i2c
+
+parallel_restorecon_dir    /sys/devices/platform/soc/fe08c000.mmc
+parallel_restorecon_dir    /sys/devices/platform/soc/fe08c000.mmc/mmc_host
+parallel_restorecon_dir    /sys/devices/platform/soc/fe08c000.mmc/mmc_host/mmc0
+parallel_restorecon_dir    /sys/devices/platform/soc/fe08c000.mmc/mmc_host/mmc0/mmc0:0001
+parallel_restorecon_dir    /sys/devices/platform/soc/fe08c000.mmc/mmc_host/mmc0/mmc0:0001/block
+parallel_restorecon_dir    /sys/devices/platform/soc/fe08c000.mmc/mmc_host/mmc0/mmc0:0001/block/mmcblk0
+parallel_restorecon_dir    /sys/devices/platform/soc/fe08c000.mmc/mmc_host/mmc0/mmc0:0001/block/mmcblk0/mmcblk0boot0
+parallel_restorecon_dir    /sys/devices/platform/soc/fe08c000.mmc/mmc_host/mmc0/mmc0:0001/block/mmcblk0/mmcblk0boot1
+
+parallel_restorecon_dir    /sys/devices/platform/soc/fe000000.apb4
+
+parallel_restorecon_dir    /sys/devices/platform/soc/fe330000.audiobus
+parallel_restorecon_dir    /sys/devices/platform/soc/fe330000.audiobus/fe330000.audiobus:vad
+
+parallel_restorecon_dir    /sys/devices/virtual
+parallel_restorecon_dir    /sys/devices/virtual/net
+
+parallel_restorecon_dir    /sys/devices/platform/ionvideo
+parallel_restorecon_dir    /sys/devices/platform/ionvideo/video4linux
+
+parallel_restorecon_dir    /sys/module

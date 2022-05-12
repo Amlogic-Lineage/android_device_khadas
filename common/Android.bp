@@ -1,0 +1,16 @@
+soong_namespace {
+    imports: [
+        "vendor/amlogic/common",
+    ],
+}
+
+/*
+soong_config_module_type {
+    name: "amlogic_cc_defaults",
+    module_type: "cc_defaults",
+    config_namespace: "amlogic",
+    variables: ["TARGET_BOARD_PLATFORM"],
+    bool_variables: ["TARGET_BUILD_LIVETV"],
+    properties: ["cflags", "srcs"],
+}
+*/

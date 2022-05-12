@@ -1,0 +1,26 @@
+pq: update t5d pq ntsc cvd2 parameters [1/1]
+
+PD#SWPL-45737
+
+Problem:
+t5d jaggy issue
+
+Solution:
+modify t5 av ntsc cvd2 parameters to resolve this issue
+
+Verify:
+verify on t5d
+
+Signed-off-by: yufei.qian <yufei.qian@amlogic.com>
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch r-tv-dev
+# Your branch is up to date with 'trunk/r-tv-dev'.
+#
+# Changes to be committed:
+#	modified:   products/tv/t5d/files/PQ/pq.db
+#	modified:   products/tv/t5d/files/PQ/pq_xml/CVD2NEW/CVD2NEW_Settings_AV_NTSC_443.xml
+#	modified:   products/tv/t5d/files/PQ/pq_xml/CVD2NEW/CVD2NEW_Settings_AV_NTSC_M.xml
+#

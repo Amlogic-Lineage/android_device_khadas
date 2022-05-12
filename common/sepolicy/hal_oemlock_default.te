@@ -1,0 +1,8 @@
+type hal_oemlock_default, domain;
+type hal_oemlock_default_exec, exec_type, vendor_file_type, file_type;
+
+allow hal_oemlock_default system_control:binder { call transfer };
+allow hal_oemlock_default systemcontrol_hwservice:hwservice_manager { find };
+
+hal_server_domain(hal_oemlock_default, hal_oemlock)
+init_daemon_domain(hal_oemlock_default)

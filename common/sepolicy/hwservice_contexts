@@ -1,0 +1,21 @@
+vendor.amlogic.hardware.systemcontrol::ISystemControl              u:object_r:systemcontrol_hwservice:s0
+vendor.amlogic.hardware.hdmicec::IDroidHdmiCEC                     u:object_r:hdmicecd_hwservice:s0
+vendor.amlogic.hardware.droidvold::IDroidVold                      u:object_r:droidvold_hwservice:s0
+vendor.amlogic.hardware.tvserver::ITvServer                        u:object_r:tvserver_hwservice:s0
+vendor.amlogic.hardware.imageserver::IImageService                 u:object_r:imageserver_hwservice:s0
+vendor.amlogic.display.meson_display_ipc::IMesonDisplayIPC         u:object_r:meson_display_ipc_hwservice:s0
+vendor.amlogic.hardware.subtitleserver::ISubtitleServer            u:object_r:subtitleserver_hwservice:s0
+vendor.amlogic.hardware.dtvkitserver::IDTVKitServer                u:object_r:dtvkitserver_hwservice:s0
+vendor.amlogic.hardware.screencontrol::IScreenControl              u:object_r:screencontrol_hwservice:s0
+
+#Irdeto hidlimw
+vendor.irdeto.hal.hidlimw.common::IMonitor                         u:object_r:hal_hidlimw_hwservice:s0
+vendor.irdeto.hal.hidlimw.v30_0.base::Ihidlimw                     u:object_r:hal_hidlimw_hwservice:s0
+vendor.irdeto.hal.hidlimw.v30_0.base::IimwAV                       u:object_r:hal_hidlimw_hwservice:s0
+vendor.irdeto.hal.hidlimw.v30_0.base::IimwCRYPTO                   u:object_r:hal_hidlimw_hwservice:s0
+vendor.irdeto.hal.hidlimw.v30_0.base::IimwDSC                      u:object_r:hal_hidlimw_hwservice:s0
+vendor.irdeto.hal.hidlimw.v30_0.base.svcpipe::ISvcpipe             u:object_r:hal_hidlimw_hwservice:s0
+vendor.irdeto.hal.hidlimw.v30_0.base.tspipe::ITspipe               u:object_r:hal_hidlimw_hwservice:s0
+vendor.irdeto.hal.hidlimw.v30_0.pvr::IimwPVR                       u:object_r:hal_hidlimw_hwservice:s0
+
+vendor.amlogic.hardware.miracast_hdcp2::IHDCPService               u:object_r:miracast_hdcp2_hwservice:s0

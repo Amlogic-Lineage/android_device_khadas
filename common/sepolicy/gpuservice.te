@@ -1,0 +1,3 @@
+allow gpuservice console_device:chr_file { read write };
+allow gpuservice debugfs_mali:dir search;
+allow gpuservice devpts:chr_file ioctl;

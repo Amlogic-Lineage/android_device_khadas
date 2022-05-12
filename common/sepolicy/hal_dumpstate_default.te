@@ -1,0 +1,19 @@
+allow hal_dumpstate_default { aml_debugfs }:dir r_dir_perms;
+allow hal_dumpstate_default { aml_debugfs }:file r_file_perms;
+
+allow hal_dumpstate_default proc:file r_file_perms;
+
+allow hal_dumpstate_default { sysfs_video sysfs_display sysfs_amhdmitx sysfs_cec sysfs_am_vecm sysfs_di sysfs_dmc }:dir r_dir_perms;
+allow hal_dumpstate_default { sysfs_video sysfs_display sysfs_amhdmitx sysfs_cec sysfs_am_vecm sysfs_di sysfs_dmc }:file rw_file_perms;
+
+allow hal_dumpstate_default { mnt_vendor_file param_tv_file }:dir rw_dir_perms;
+
+allow hal_dumpstate_default shell_data_file:file getattr;
+allow hal_dumpstate_default vendor_shell_exec:file rx_file_perms;
+allow hal_dumpstate_default vendor_toolbox_exec:file rx_file_perms;
+allow hal_dumpstate_default graphics_device:dir search;
+allow hal_dumpstate_default sysfs_mali:dir search;
+
+allow hal_dumpstate_default sysfs_audio_cap:file r_file_perms;
+# Access to vendor logging property
+set_prop(hal_dumpstate_default, vendor_logging_prop)

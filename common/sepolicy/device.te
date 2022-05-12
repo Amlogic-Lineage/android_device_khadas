@@ -1,0 +1,63 @@
+type secmem_device, dev_type;
+type env_device, dev_type;
+type bootloader_device, dev_type;
+type defendkey_device, dev_type;
+type dtb_device, dev_type;
+type frontend_device, dev_type;
+type cec_device, dev_type;
+
+type unify_device, dev_type;
+type logo_device, dev_type;
+
+type picture_device, dev_type;
+type hdcptx_device, dev_type;
+type hdcprx_device, dev_type;
+type hdmitx_device, dev_type;
+type tasks_device, dev_type;
+
+type vendor_video_device, dev_type;
+type dvb_video_device, dev_type;
+type mediactl_video_device, dev_type;
+type avin_device, dev_type;
+type hdmirx0_device, dev_type;
+type amvideo_device, dev_type;
+type codec_device, dev_type;
+type mediasync_device, dev_type;
+
+type product_block_device, dev_type;
+type dtbo_block_device, dev_type;
+
+type param_block_device, dev_type;
+type cri_block_device, dev_type;
+type sda_block_device, dev_type;
+type vold_block_device, dev_type;
+type drm_block_device, dev_type;
+type tee_block_device, dev_type;
+type factory_block_device, dev_type;
+type odm_block_device, dev_type;
+type oem_block_device, dev_type;
+type vendor_block_device, dev_type;
+type vbmeta_block_device, dev_type;
+type vbmeta_system_block_device, dev_type;
+type system_block_fsck_device, dev_type;
+type subtitle_device, dev_type;
+type sw_sync_device, dev_type;
+type ge2d_device, dev_type;
+type display_device, dev_type;
+type amvecm_device, dev_type;
+type di0_device, dev_type;
+type hidraw_device, dev_type;
+type vbi_device, dev_type;
+type hidraw_audio_device, dev_type;
+type media_device, dev_type;
+type rpmb_device, dev_type;
+
+typeattribute product_block_device super_block_device_type;
+typeattribute odm_block_device super_block_device_type;
+typeattribute vendor_block_device super_block_device_type;
+typeattribute system_block_device super_block_device_type;
+typeattribute system_block_fsck_device super_block_device_type;
+
+type galcore_device, dev_type;
+type dolby_fw_device, dev_type;
+type key_device, dev_type;

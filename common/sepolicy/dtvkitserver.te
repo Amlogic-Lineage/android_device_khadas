@@ -1,0 +1,89 @@
+type dtvkitserver, domain;
+type dtvkitserver_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(dtvkitserver)
+
+vndbinder_use(dtvkitserver)
+
+hwbinder_use(dtvkitserver)
+add_hwservice(dtvkitserver, dtvkitserver_hwservice)
+hal_client_domain(dtvkitserver, hal_allocator)
+hal_client_domain(dtvkitserver, hal_graphics_allocator)
+hal_client_domain(dtvkitserver, hal_audio)
+allow dtvkitserver hwservicemanager_prop:file { open read getattr };
+allow dtvkitserver self:capability sys_nice;
+allow dtvkitserver hwservicemanager:binder { call transfer };
+allow dtvkitserver system_control:binder { call transfer };
+allow dtvkitserver sysfs_video:dir { search };
+allow dtvkitserver dtvkit_data_file:dir{ create write read add_name remove_name open search };
+allow dtvkitserver dtvkit_data_file:file { ioctl getattr read write open create lock setattr unlink append };
+allow dtvkitserver dtvkit_data_file:chr_file{ ioctl };
+allow dtvkitserver vndbinder_device:chr_file { read write open ioctl };
+allow dtvkitserver vndservicemanager:binder { call transfer };
+allow dtvkitserver dvb_device:chr_file { open read write ioctl getattr};
+allow dtvkitserver vendor_shell_exec:file execute_no_trans;
+allow dtvkitserver sysfs:file { write open read  getattr};
+allow dtvkitserver platform_app:binder { call };
+allow dtvkitserver { dtvkitserver_hwservice  hidl_base_hwservice }:hwservice_manager { add };
+allow dtvkitserver systemcontrol_hwservice:hwservice_manager {find};
+
+allow dtvkitserver system_data_root_file:dir r_dir_perms;
+allow dtvkitserver tee_vendor_file:dir r_dir_perms;
+
+allow dtvkitserver hal_tv_input_default:binder { call transfer };
+allow dtvkitserver cgroup_bpf:dir search;
+allow dtvkitserver oemfs:dir read;
+
+get_prop(dtvkitserver, vendor_tv_prop)
+set_prop(dtvkitserver, vendor_tv_prop)
+get_prop(dtvkitserver, vendor_media_prop)
+get_prop(dtvkitserver, vendor_default_prop)
+set_prop(dtvkitserver, vendor_platform_prop)
+get_prop(dtvkitserver, vendor_platform_prop)
+get_prop(dtvkitserver, mediasync_device)
+set_prop(dtvkitserver, mediasync_device)
+allow dtvkitserver vendor_tv_prop:file { read open getattr };
+allow dtvkitserver video_device:chr_file { read write open ioctl getattr };
+allow dtvkitserver codec_device:chr_file { read write open ioctl };
+allow dtvkitserver rootfs:dir { read open };
+allow dtvkitserver system_file:dir { read open };
+allow dtvkitserver system_app:binder { call transfer };
+allow dtvkitserver sysfs_video:file { read open getattr };
+allow dtvkitserver sysfs_stb:dir { search };
+allow dtvkitserver sysfs_stb:file { open read getattr write };
+allow dtvkitserver drm_device:chr_file { read write open ioctl };
+allow dtvkitserver mnt_vendor_file:dir { search };
+allow dtvkitserver metadata_file:dir r_dir_perms;
+allow dtvkitserver self:udp_socket { create };
+allow dtvkitserver vendor_toolbox_exec:file execute_no_trans;
+allow dtvkitserver vendor_video_device:chr_file { read write open ioctl getattr };
+allow dtvkitserver vendor_framework_file:file { execute };
+allow dtvkitserver self:capability { net_raw sys_time };
+allow dtvkitserver vfat:dir { add_name write create ioctl remove_name open read rmdir getattr search };
+allow dtvkitserver vfat:file { write create open unlink link read getattr append };
+allow dtvkitserver mnt_media_rw_file:dir r_dir_perms;
+allow dtvkitserver exfat:dir { r_dir_perms  create_dir_perms };
+allow dtvkitserver exfat:file { write create open unlink link read getattr append };
+allow dtvkitserver mnt_pass_through_file:dir {search};
+allow dtvkitserver mnt_user_file:dir {search};
+allow dtvkitserver param_tv_file:dir  { search read write open add_name remove_name rmdir getattr };
+allow dtvkitserver param_tv_file:file { create open read write setattr getattr lock unlink ioctl };
+allow dtvkitserver gpu_device:chr_file rw_file_perms;
+allow dtvkitserver mediasync_device:chr_file rw_file_perms;
+allow dtvkitserver hal_audio_hwservice:hwservice_manager find;
+allow dtvkitserver hal_graphics_composer_default:fd use;
+allow dtvkitserver self:capability2 {wake_alarm  block_suspend};
+allow dtvkitserver sysfs_rtc:dir {read open search};
+allow dtvkitserver sysfs_power:file {read open getattr};
+allow dtvkitserver system_suspend_hwservice:hwservice_manager {find };
+allow dtvkitserver sysfs_wake_lock:file rw_file_perms;
+allow dtvkitserver meson_display_ipc_hwservice:hwservice_manager find;
+allow dtvkitserver hal_graphics_composer_default:binder call;
+allow dtvkitserver vmx_indiv_exec:file execute_no_trans;
+allow dtvkitserver dnsproxyd_socket:sock_file write;
+allow dtvkitserver fwmarkd_socket:sock_file write;
+allow dtvkitserver netd:unix_stream_socket connectto;
+allow dtvkitserver oemfs:dir open;
+allow dtvkitserver self:tcp_socket { create getopt connect read write};
+allow dtvkitserver vendor_file:file execute_no_trans;
+allow dtvkitserver file_contexts_file:file { getattr open read };
+allow dtvkitserver port:tcp_socket name_connect;

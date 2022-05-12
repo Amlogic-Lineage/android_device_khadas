@@ -1,0 +1,43 @@
+allow tee self:capability { sys_rawio };
+allow tee sysfs_xbmc:file { read open };
+allow tee block_device:dir { open read search};
+allow tee sda_block_device:blk_file rw_file_perms;
+allow tee rpmb_device:chr_file rw_file_perms;
+
+allowxperm tee sda_block_device:blk_file ioctl { MMC_IOC_CMD MMC_IOC_MULTI_CMD };
+allowxperm tee rpmb_device:chr_file ioctl { MMC_IOC_CMD MMC_IOC_MULTI_CMD };
+
+allow tee drm_device:chr_file rw_file_perms;
+allow tee tee_vendor_file:dir { add_name write create ioctl remove_name open read rmdir getattr search };
+allow tee tee_vendor_file:file { write create open unlink link read rename };
+#allow tee system_data_file:dir { write search add_name create };
+allow tee system_data_file:file read;
+
+allow tee sda_block_device:blk_file ioctl;
+allow tee rpmb_device:chr_file ioctl;
+
+allow tee mnt_vendor_file:dir { add_name create remove_name write };
+allow tee mnt_vendor_file:file { create open read rename write unlink link getattr };
+allow tee mnt_vendor_file:dir { search ioctl open read rmdir getattr };
+
+allow tee unlabeled:dir { add_name write remove_name };
+allow tee unlabeled:file { open read rename write };
+
+allow tee hidraw_device:chr_file { create read open write ioctl };
+allow tee vendor_file:file { read open getattr execute };
+allow tee param_tv_file:dir { search };
+allow tee tee:tcp_socket { create bind listen accept };
+allow tee tee:capability { net_raw };
+allow tee port:tcp_socket { name_bind };
+allow tee node:tcp_socket { node_bind };
+
+allow tee factory_vendor_file:dir r_dir_perms;
+allow tee factory_vendor_file:file r_file_perms;
+
+allow tee vfat:dir rw_dir_perms;
+allow tee vfat:file rw_file_perms;
+
+allow tee vendor_platform_prop:file { open read getattr map };
+allow tee param_tv_file:file { create open read write getattr };
+allow tee param_tv_file:dir { create open read write getattr add_name };
+allow tee sysfs_tee:file { read open getattr write };

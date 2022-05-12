@@ -1,0 +1,9 @@
+
+# insmod kmod
+allow vendor_init self:capability sys_module;
+allow vendor_init vendor_file:system module_load;
+# chmod
+allow vendor_init dolby_fw_device:chr_file getattr;
+allow vendor_init device:chr_file getattr;
+
+

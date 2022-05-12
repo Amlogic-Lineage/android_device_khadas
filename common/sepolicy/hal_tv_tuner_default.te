@@ -1,0 +1,10 @@
+allow hal_tv_tuner_default platform_app:binder { transfer call };
+allow hal_tv_tuner_default mediasync_device:chr_file rw_file_perms;
+get_prop(hal_tv_tuner_default, vendor_media_prop)
+allow hal_tv_tuner_default sysfs:file rw_file_perms;
+allow hal_tv_tuner_default sysfs_stb:dir { search };
+allow hal_tv_tuner_default sysfs_stb:file rw_file_perms;
+allow hal_tv_tuner_default dvb_device:chr_file rw_file_perms;
+allow hal_tv_tuner_default video_device:chr_file rw_file_perms;
+allow hal_tv_tuner_default drm_device:chr_file rw_file_perms;
+allow hal_tv_tuner_default aml_dsm_device:chr_file rw_file_perms;

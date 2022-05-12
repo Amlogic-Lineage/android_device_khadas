@@ -1,0 +1,44 @@
+vendor.media.                  u:object_r:vendor_media_prop:s0
+ro.vendor.media.               u:object_r:vendor_media_prop:s0
+vendor.sys.media.              u:object_r:vendor_media_prop:s0
+vendor.sys.subtitle.           u:object_r:vendor_media_prop:s0
+persist.vendor.btmodule        u:object_r:vendor_platform_prop:s0
+persist.vendor.audio.          u:object_r:vendor_media_prop:s0
+persist.vendor.media.          u:object_r:vendor_media_prop:s0
+persist.vendor.bt_vendor       u:object_r:vendor_platform_prop:s0
+persist.vendor.libbt_vendor    u:object_r:vendor_platform_prop:s0
+persist.vendor.bt_module       u:object_r:vendor_platform_prop:s0
+persist.vendor.bt_name         u:object_r:vendor_platform_prop:s0
+persist.vendor.wifi_type       u:object_r:vendor_platform_prop:s0
+persist.vendor.wifi_remove     u:object_r:vendor_platform_prop:s0
+vendor.drm.                    u:object_r:vendor_media_prop:s0
+vendor.tv.                     u:object_r:vendor_tv_prop:s0
+vendor.dtv.                    u:object_r:vendor_tv_prop:s0
+persist.vendor.tv.             u:object_r:vendor_tv_prop:s0
+vendor.amtsplayer.pipeline     u:object_r:vendor_tv_prop:s0
+vendor.bcmdl_status            u:object_r:vendor_bcmdl_prop:s0
+vendor.wc_transport            u:object_r:vendor_bluetooth_prop:s0
+vendor.rc_hidraw_fd            u:object_r:vendor_bluetooth_prop:s0
+vendor.bcm_wifi                u:object_r:vendor_wifi_prop:s0
+vendor.w1_wifi_type                u:object_r:vendor_wifi_prop:s0
+ro.vendor.rfkilldisabled       u:object_r:vendor_bluetooth_prop:s0
+vendor.display-size            u:object_r:vendor_netflix_prop:s0
+vendor.netflix.state           u:object_r:vendor_netflix_prop:s0
+ro.vendor.nrdp.                u:object_r:vendor_netflix_prop:s0
+ro.vendor.platform             u:object_r:vendor_platform_prop:s0
+persist.vendor.sys             u:object_r:vendor_persist_prop:s0
+vendor.sys                     u:object_r:vendor_platform_prop:s0
+ro.vendor.app                  u:object_r:vendor_app_prop:s0
+vendor.wlan                    u:object_r:vendor_wifi_prop:s0
+ro.boot.oem.                   u:object_r:vendor_oem_prop:s0
+
+vendor.allm.support                 u:object_r:vendor_media_prop:s0
+vendor.contenttype_game.support     u:object_r:vendor_media_prop:s0
+persist.vendor.verbose_logging.     u:object_r:vendor_logging_prop:s0
+
+persist.vendor.miracast.hdcp2         u:object_r:vendor_miracast_prop:s0
+
+persist.vendor.sys.memc             u:object_r:vendor_memc_prop:s0
+
+persist.vendor.tvconfig.path             u:object_r:vendor_platform_prop:s0
+vendor.vmx.indiv.server.ip               u:object_r:vendor_platform_prop:s0

@@ -1,0 +1,2 @@
+allow hal_power_stats_default sysfs_iio:dir { open read search };
+allow hal_power_stats_default sysfs_iio:file { open read };

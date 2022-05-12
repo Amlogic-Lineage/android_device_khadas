@@ -1,0 +1,11 @@
+allow untrusted_app_29 system_control:binder { call };
+
+allow untrusted_app_29 fuseblk:dir  { search };
+allow untrusted_app_29 fuseblk:file { read open getattr };
+
+#allow untrusted_app_29 vendor_file:file { read open getattr };
+allow untrusted_app_29 debugfs_mali:dir search;
+allow untrusted_app_29 hal_graphics_allocator_default_tmpfs:file rw_file_perms;
+allow untrusted_app_29 linkerconfig_file:dir getattr;
+
+get_prop(untrusted_app_29, vendor_netflix_prop)

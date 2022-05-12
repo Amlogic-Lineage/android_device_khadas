@@ -1,0 +1,239 @@
+{
+    "countrylist": [
+        {
+            "countrycode": "arg",
+            "description": "Argentina",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "aus",
+            "description": "Australia",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "aut",
+            "description": "Austria",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "bel",
+            "description": "Belgium",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "bol",
+            "description": "Bolivia",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "bra",
+            "description": "Brazil",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "chl",
+            "description": "Chile",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "chi",
+            "description": "China",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "col",
+            "description": "Colombia",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "cri",
+            "description": "Costarica",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "hrv",
+            "description": "Croatia",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "cze",
+            "description": "Czech Rep",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "dnk",
+            "description": "Denmark",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "dma",
+            "description": "Dominican Rep",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "ecu",
+            "description": "Ecuador",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "slv",
+            "description": "Elsalvador",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "fin",
+            "description": "Finland",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "fra",
+            "description": "Franch",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "deu",
+            "description": "Germany",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "gtm",
+            "description": "Guatemala",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "hnd",
+            "description": "Honduras",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "hun",
+            "description": "Hungary",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "irl",
+            "description": "Ireland",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "ita",
+            "description": "Italy",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "lva",
+            "description": "Latvia",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "lux",
+            "description": "Luxemburg",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "mex",
+            "description": "Mexico",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "nld",
+            "description": "Netherlands",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "nic",
+            "description": "Nicaragua",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "nor",
+            "description": "Norway",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "pan",
+            "description": "Panama",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "per",
+            "description": "Peru",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "pol",
+            "description": "Poland",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "por",
+            "description": "Portugal",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "rus",
+            "description": "Russia",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "srb",
+            "description": "Serbia",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "svk",
+            "description": "Slovakia",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "svn",
+            "description": "Slovenia",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "zaf",
+            "description": "South Africa",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "esp",
+            "description": "Spain",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "swe",
+            "description": "Sweden",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "che",
+            "description": "Switzerland",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "gbr",
+            "description": "UK",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "ukr",
+            "description": "Ukraine",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "ven",
+            "description": "Venezuela",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "rou",
+            "description": "Romania",
+            "languagelist": "language_default.json"
+        },
+        {
+            "countrycode": "vnm",
+            "description": "Vietnam",
+            "languagelist": "language_default.json"
+        }
+    ]
+}

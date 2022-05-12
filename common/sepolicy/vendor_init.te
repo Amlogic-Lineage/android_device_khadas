@@ -1,0 +1,55 @@
+allow vendor_init rootfs:dir { create_dir_perms relabelfrom };
+#allow vendor_init { hdcp_file }:dir { setattr search };
+#allow vendor_init update_data_file:dir { read };
+
+#allow vendor_init sysfs_devices_system_cpu:dir { write add_name create };
+allow vendor_init sysfs_devices_system_cpu:file { create };
+
+allow vendor_init debugfs:dir { mounton };
+allow vendor_init debugfs:file { read write };
+
+allow vendor_init update_data_file:file { read };
+
+allow vendor_init self:capability sys_module;
+allow vendor_init vendor_file:system module_load;
+
+allow vendor_init rootfs:dir { read relabelfrom };
+allow vendor_init self:capability sys_module;
+
+allow vendor_init proc:file write;
+allow vendor_init unlabeled:dir search;
+
+allow vendor_init proc_vm_writable:file rw_file_perms;
+
+#allow vendor_init ffs_prop:property_service set;
+allow vendor_init kernel:process setsched;
+allow vendor_init proc_security:file write;
+allow vendor_init self:capability sys_nice;
+
+# optee
+allow vendor_init drm_device:chr_file setattr;
+
+# allow init mount a new filesystem and set its selinux contexts
+allow vendor_init unlabeled:dir { getattr read relabelfrom setattr };
+
+set_prop(vendor_init, vendor_platform_prop)
+# set_prop(vendor_init, shell_prop)
+set_prop(vendor_init, vendor_app_prop)
+set_prop(vendor_init, vendor_media_prop)
+set_prop(vendor_init, audio_prop)
+set_prop(vendor_init, vendor_tv_prop)
+set_prop(vendor_init, vendor_netflix_prop)
+# set_prop(vendor_init, vold_prop)
+# set_prop(vendor_init, config_prop)
+set_prop(vendor_init, vendor_oem_prop)
+set_prop(vendor_init, exported_default_prop)
+set_prop(vendor_init, system_prop)
+set_prop(vendor_init, vendor_persist_prop)
+
+allow vendor_init vendor_persist_prop:property_service {set};
+allow vendor_init tee_vendor_file:dir { create relabelto };
+
+set_prop(vendor_init, atv_prop)
+set_prop(vendor_init, vendor_miracast_prop)
+
+allow vendor_init aml_dsm_device:chr_file setattr;

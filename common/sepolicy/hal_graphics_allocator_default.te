@@ -1,0 +1,9 @@
+allow hal_graphics_allocator_default graphics_device:dir {search};
+allow hal_graphics_allocator_default graphics_device:chr_file {open read write ioctl};
+allow hal_graphics_allocator_default sysfs_display:lnk_file { read open write ioctl };
+allow hal_graphics_allocator_default sysfs_display:dir search;
+allow hal_graphics_allocator_default sysfs_fb0_afbcd:file rw_file_perms;
+allow hal_graphics_allocator_default vendor_media_prop:file { getattr open read  };
+allow hal_graphics_allocator_default vendor_platform_prop:file { getattr open read map};
+allow hal_graphics_allocator_default video_device:chr_file rw_file_perms;
+get_prop(hal_graphics_allocator_default, vendor_media_prop)

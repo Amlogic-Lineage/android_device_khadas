@@ -1,0 +1,7 @@
+allow hal_thermal_default sysfs:dir { open read };
+allow hal_thermal_default sysfs:file { open read };
+allow hal_thermal_default proc_stat:file { r_file_perms };
+
+allow hal_thermal_default sysfs_thermal:file r_file_perms;
+allow hal_thermal_default self:netlink_kobject_uevent_socket { create setopt getopt bind read };
+

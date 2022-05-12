@@ -1,0 +1,3 @@
+allow adbd ctl_mdnsd_prop:property_service set;
+allow adbd oemfs:dir search;
+allow adbd kernel:system module_request;

@@ -1,0 +1,2 @@
+require board=oppen
+require version-bootloader=01.01.210304.105627

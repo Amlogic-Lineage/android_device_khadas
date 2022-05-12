@@ -1,0 +1,24 @@
+on early-init
+    loglevel 3
+
+    chmod 666 /sys/class/misc/mali0/device/mem_pool_max_size
+    chmod 666 /sys/kernel/debug/mali0/ctx/defaults/mem_pool_max_size
+    write /sys/class/misc/mali0/device/mem_pool_max_size "4096 4096 4096 4096 4096 4096 4096 4096 4096 4096 4096 4096 4096 4096 4096 4096"
+    write /sys/kernel/debug/mali0/ctx/defaults/mem_pool_max_size "4096 4096 4096 4096 4096 4096 4096 4096 4096 4096 4096 4096 4096 4096 4096 4096"
+on init
+
+on post-fs-data
+    insmod /vendor/lib/modules/mali.ko
+    insmod /odm/lib/modules/dovi.ko
+    insmod /vendor/lib/sl_hdr.ko
+
+on boot
+    write /sys/module/amvdec_mh264/parameters/reorder_dpb_size_margin 9
+    write /sys/module/amvdec_h265/parameters/dynamic_buf_num_margin 9
+    write /sys/module/amvdec_vp9/parameters/max_buf_num 12
+
+on property:ro.boot.oem.key1=*
+    setprop ro.oem.key1 ${ro.boot.oem.key1}
+
+on property:sys.boot_completed=1
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor schedutil

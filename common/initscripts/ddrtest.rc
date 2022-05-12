@@ -1,0 +1,8 @@
+on boot
+    insmod  /vendor/lib/modules/ddr_window_64.ko
+
+service ddrtest /vendor/bin/ddrtest.sh
+    class main
+    user root
+    group root
+    oneshot

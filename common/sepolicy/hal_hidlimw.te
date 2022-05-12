@@ -1,0 +1,61 @@
+type hal_hidlimw, domain, hal_audio_client, halclientdomain;
+type hal_hidlimw_exec, exec_type, vendor_file_type, file_type;
+type hal_hidlimw_file, data_file_type, file_type;
+type hidlimw_1_0_service, service_manager_type;
+type irdeto_device, dev_type;
+
+#permissive hal_hidlimw;
+hwbinder_use(hal_hidlimw);
+init_daemon_domain(hal_hidlimw)
+add_hwservice(hal_hidlimw, hal_hidlimw_hwservice)
+allow hal_hidlimw system_app:binder { call };
+get_prop(hal_hidlimw, hwservicemanager_prop)
+allow hal_hidlimw systemcontrol_hwservice:hwservice_manager { find };
+allow hal_hidlimw system_control:binder { call transfer };
+allow hal_hidlimw hal_hidlimw_file:file create_file_perms;
+allow hal_hidlimw hal_hidlimw_file:dir create_dir_perms;
+allow hal_hidlimw { vendor_shell_exec vendor_toolbox_exec }:file execute_no_trans;
+allow hal_hidlimw vendor_tv_prop:file { read getattr open };
+allow hal_hidlimw { vendor_video_device codec_device }:file { read write open };
+allow hal_hidlimw { sysfs_stb sysfs_video }:dir { search };
+allow hal_hidlimw {
+    dvb_device
+    uio_device
+    video_device
+    vendor_video_device
+    codec_device
+    audio_device
+    media_device
+    key_device
+    mediasync_device
+    gpu_device
+}:chr_file { read write open ioctl getattr };
+allowxperm hal_hidlimw {
+    dvb_device
+    uio_device
+    video_device
+    vendor_video_device
+    codec_device
+    audio_device
+    media_device
+    key_device
+    mediasync_device
+    gpu_device
+}:chr_file ioctl ~{ 0 SIOCATMARK };
+allow hal_hidlimw sysfs_astream:file { open read };
+allow hal_hidlimw sysfs_astream:dir { search };
+allow hal_hidlimw vendor_media_prop:file { read open getattr map };
+allow hal_hidlimw sysfs_audio:file { read write open };
+allow hal_hidlimw sysfs_video:file { read write open getattr };
+allow hal_hidlimw vendor_file:file { execute_no_trans };
+allow hal_hidlimw drm_device:chr_file { read write open ioctl };
+allow hal_hidlimw hal_audio_hwservice:hwservice_manager { find };
+allow hal_hidlimw irdeto_device:chr_file rwx_file_perms;
+
+allow hal_hidlimw mnt_user_file:dir { search };
+allow hal_hidlimw fuse:dir { create_dir_perms rw_dir_perms };
+allow hal_hidlimw fuse:file { create_file_perms rw_file_perms };
+allow hal_hidlimw vendor_tv_prop:file { map };
+allow hal_hidlimw meson_display_ipc_hwservice:hwservice_manager find;
+allow hal_hidlimw hal_graphics_composer_default:binder call;
+allow hal_hidlimw property_socket:sock_file { write };

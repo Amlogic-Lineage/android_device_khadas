@@ -1,0 +1,16 @@
+allow vold tee_vendor_file:dir { open read ioctl };
+
+allow vold vold_block_device:blk_file { create write read open getattr ioctl unlink };
+
+allow vold param_tv_file:dir { ioctl open read };
+
+#for hw keymaster
+allow vold drm_device:chr_file  {open read write ioctl};
+allow vold fsck_exec:file { execute read open };
+allow vold kernel:system module_request;
+allowxperm vold vold_block_device:blk_file ioctl { HDIO_GETGEO BLKRRPART BLKGETSIZE BLKALIGNOFF BLKBSZGET BLKDISCARD BLKDISCARDZEROES BLKFLSBUF BLKFRAGET BLKFRASET BLKGETSIZE BLKGETSIZE64 BLKI2OGRSTRAT BLKI2OGWSTRAT BLKI2OSRSTRAT BLKI2OSWSTRAT BLKIOMIN BLKIOOPT BLKPBSZGET BLKPG BLKRAGET BLKRASET BLKROGET BLKROSET BLKROTATIONAL BLKRRPART BLKSECDISCARD BLKSECTGET BLKSECTSET BLKSSZGET BLKTRACESETUP BLKTRACESTART BLKTRACESTOP BLKTRACETEARDOWN BLKZEROOUT };
+allow vold rootfs:file {entrypoint execute};
+allow vold super_block_device:blk_file { getattr };
+allow vold super_block_device:blk_file rw_file_perms;
+allow vold device:dir {add_name remove_name};
+allow vold device:chr_file {create unlink};

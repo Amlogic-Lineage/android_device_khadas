@@ -1,0 +1,13 @@
+#allow surfaceflinger vendor_file:file { open read getattr execute };
+allow surfaceflinger system_control_service:service_manager find;
+allow surfaceflinger video_device:chr_file rw_file_perms;
+allow surfaceflinger hal_graphics_allocator_default_tmpfs:file rw_file_perms;
+allow surfaceflinger hal_graphics_composer_default:file rw_file_perms;
+allow surfaceflinger hal_graphics_composer_default:dir search;
+allow surfaceflinger debugfs_mali:dir search;
+get_prop(surfaceflinger, vendor_tv_prop)
+set_prop(surfaceflinger, ctl_default_prop)
+
+allow surfaceflinger vendor_media_prop:file { read };
+allow surfaceflinger vendor_platform_prop:file { read };
+get_prop(surfaceflinger, vendor_media_prop)

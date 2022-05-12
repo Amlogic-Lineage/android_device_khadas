@@ -1,0 +1,29 @@
+{
+    "Sensors":[
+        {
+            "Name":"soc_thermal",
+            "Type":"CPU",
+            "HotThreshold":[
+                "NAN",
+                65.0,
+                75.0,
+                95.0,
+                "NAN",
+                105.0,
+                110.0
+            ],
+            "Multiplier":0.001,
+            "Monitor":true
+        }
+    ],
+    "CoolingDevices":[
+        {
+            "Name":"thermal-cpufreq-0",
+            "Type":"CPU"
+        },
+        {
+            "Name":"thermal-gpufreq-0",
+            "Type":"GPU"
+        }
+    ]
+}

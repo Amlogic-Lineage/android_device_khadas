@@ -1,0 +1,6 @@
+
+allow kernel dolbyms12_tmpfs:file relabelfrom;
+allow kernel tmpfs:dir search;
+allow kernel dolby_lib_file:dir search;
+allow kernel dolby_lib_file:file relabelto;
+allow kernel tmpfs:file relabelfrom;

@@ -1,0 +1,3 @@
+on boot
+    chmod 664 /sys/class/meson_pm/early_suspend_trigger
+    chown root system /sys/class/meson_pm/early_suspend_trigger

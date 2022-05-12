@@ -1,0 +1,8 @@
+
+# exec for ms12 decryption
+/vendor/bin/dolby_fw_dolbyms12              u:object_r:dolbyms12_exec:s0
+/vendor/etc/ms12/libdolbyms12.so            u:object_r:dolby_lib_file:s0
+/vendor/lib/ms12                            u:object_r:dolby_mnt_point:s0
+/vendor/lib/ms12/libdolbyms12.so            u:object_r:dolby_lib_file:s0
+/dev/dolby_fw                               u:object_r:dolby_fw_device:s0
+

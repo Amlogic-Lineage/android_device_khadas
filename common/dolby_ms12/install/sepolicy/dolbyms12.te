@@ -1,0 +1,22 @@
+
+type dolbyms12, domain;
+type dolbyms12_exec, vendor_file_type, exec_type, file_type;
+type dolby_lib_file, file_type, vendor_file_type, exec_type;
+type dolby_mnt_point, file_type, vendor_file_type;
+type dolbyms12_tmpfs, file_type;
+
+init_daemon_domain(dolbyms12)
+
+# allows creating files in tmpfs
+allow dolbyms12 tmpfs:dir { add_name write };
+allow dolbyms12 tmpfs:file {create read write open getattr};
+# allows creating files on specific path
+allow dolbyms12 dolbyms12_tmpfs:file { create open };
+# allows ioctl communication to Amlogic's fw: /dev/dolby_fw.
+allow dolbyms12 dolby_fw_device:chr_file { ioctl open read write };
+allow dolbyms12_exec dolby_fw_device:chr_file { ioctl open read write };
+
+allow mediacodec dolbyms12_tmpfs:file { read getattr open };
+allow mediacodec dolby_fw_device:chr_file { open read ioctl };
+
+

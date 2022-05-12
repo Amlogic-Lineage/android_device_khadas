@@ -1,0 +1,2 @@
+allow blkid super_block_device:blk_file { getattr };
+allow blkid super_block_device:blk_file rw_file_perms;

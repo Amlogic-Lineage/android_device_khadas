@@ -1,0 +1,45 @@
+on post-fs-data
+    insmod /vendor/lib/modules/aml_aucpu.ko
+    insmod /vendor/lib/modules/dvb_demux.ko
+    insmod /vendor/lib/modules/cimax-usb.ko
+    insmod /vendor/lib/modules/ci.ko
+
+on boot
+    # DVB
+    chmod 0666 /dev/dvb0.frontend0
+    chmod 0666 /dev/dvb0.frontend1
+    chmod 0666 /dev/dvb0.frontend2
+    chmod 0666 /dev/dvb0.frontend3
+    chmod 0666 /dev/dvb0.demux0
+    chmod 0666 /dev/dvb0.demux1
+    chmod 0666 /dev/dvb0.demux2
+    chmod 0666 /dev/dvb0.demux3
+    chmod 0666 /dev/dvb0.dvr0
+    chmod 0666 /dev/dvb0.dvr1
+    chmod 0666 /dev/dvb0.dvr2
+    chmod 0666 /dev/dvb0.dvr3
+    chmod 0666 /dev/dvb0.ca0
+    chmod 0666 /dev/dvb0.ca1
+    chmod 0666 /dev/dvb0.ca2
+    chmod 0666 /dev/dvb0.ca3
+    chmod 0666 /dev/aml_dsm
+
+    chown media system /dev/dvb0.frontend0
+    chown media system /dev/dvb0.frontend1
+    chown media system /dev/dvb0.frontend2
+    chown media system /dev/dvb0.frontend3
+    chown media system /dev/dvb0.demux0
+    chown media system /dev/dvb0.demux1
+    chown media system /dev/dvb0.demux2
+    chown media system /dev/dvb0.demux3
+    chown media system /dev/dvb0.dvr0
+    chown media system /dev/dvb0.dvr1
+    chown media system /dev/dvb0.dvr2
+    chown media system /dev/dvb0.dvr3
+    chown media system /dev/dvb0.ca0
+    chown media system /dev/dvb0.ca1
+    chown media system /dev/dvb0.ca2
+    chown media system /dev/dvb0.ca3
+    chown media system /dev/aml_dsm
+
+    chown media system /sys/class/stb/tsn_source

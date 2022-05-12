@@ -1,0 +1,4 @@
+type device_stpbt, dev_type,fs_type;
+allow bluetooth system_control_service:service_manager find;
+allow bluetooth device_stpbt:chr_file { open read write };
+allow system_server vendor_platform_prop:file { open read getattr map};

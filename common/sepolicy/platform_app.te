@@ -1,0 +1,46 @@
+get_prop(platform_app, vendor_media_prop)
+get_prop(system_app, vendor_media_prop)
+
+#allow platform_app vendor_file:file { getattr read open execute };
+
+allow platform_app hdmicecd_hwservice:hwservice_manager { find };
+allow platform_app hdmicecd:binder { call transfer };
+allow platform_app systemcontrol_hwservice:hwservice_manager { find };
+allow platform_app system_control:binder { call transfer };
+allow platform_app droidmount_service:service_manager { find };
+allow platform_app subtitle_service:service_manager { find };
+allow platform_app iso9660:dir { search open read getattr };
+allow platform_app iso9660:file { open read getattr };
+allow platform_app update_engine_service:service_manager { find };
+allow platform_app update_engine:binder { call transfer};
+allow platform_app droidvold_hwservice:hwservice_manager { find };
+allow platform_app droidvold:binder { call transfer };
+allow platform_app tvserver_hwservice:hwservice_manager { find };
+allow platform_app tvserver:binder { call transfer };
+allow platform_app dvb_device:chr_file { open read write ioctl getattr};
+
+allow platform_app subtitleserver_hwservice:hwservice_manager { find };
+allow platform_app subtitleserver:binder { call transfer };
+
+allow platform_app imageserver_hwservice:hwservice_manager { find };
+allow platform_app imageserver:binder { call transfer };
+allow platform_app debugfs_mali:dir search;
+allow platform_app hal_graphics_allocator_default_tmpfs:file rw_file_perms;
+allow platform_app sysfs_amhdmitx:dir { search };
+allow platform_app sysfs_amhdmitx:file { read };
+
+allow platform_app dtvkitserver_hwservice:hwservice_manager { find };
+allow platform_app dtvkitserver:binder {call transfer};
+
+get_prop(platform_app, vendor_platform_prop)
+get_prop(platform_app, vendor_tv_prop)
+get_prop(platform_app, vendor_netflix_prop)
+get_prop(dtvkitserver, vendor_tv_prop)
+set_prop(dtvkitserver, vendor_tv_prop)
+allow platform_app subtitleserver:binder { call transfer };
+allow platform_app dtvkit_data_file:dir { search open read getattr };
+
+allow platform_app screencontrol_hwservice:hwservice_manager { find };
+allow platform_app screen_control:binder { call };
+
+allow platform_app self:netlink_kobject_uevent_socket { create read bind getopt setopt };

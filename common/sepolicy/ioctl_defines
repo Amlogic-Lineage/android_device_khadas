@@ -1,0 +1,1 @@
+define(`MMC_IOC_MULTI_CMD', `0xc048b301')

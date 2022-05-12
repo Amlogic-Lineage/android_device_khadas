@@ -1,0 +1,3 @@
+on early-init
+    symlink /dev/dtb /dev/block/platform/${ro.boot.boot_devices}/by-name/dt_a
+    symlink /dev/dtb /dev/block/platform/${ro.boot.boot_devices}/by-name/dt_b

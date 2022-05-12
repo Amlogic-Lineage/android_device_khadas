@@ -1,0 +1,2 @@
+on early-init
+    insmod /vendor/lib/modules/si2159_fe.ko

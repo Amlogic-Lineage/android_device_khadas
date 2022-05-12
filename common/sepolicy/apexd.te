@@ -1,0 +1,2 @@
+allow apexd super_block_device:chr_file rw_file_perms;
+allow apexd super_block_device:blk_file rw_file_perms;

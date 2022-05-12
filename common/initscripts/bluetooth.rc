@@ -1,0 +1,12 @@
+on property:vendor.sys.mtkbtdriver=true
+    insmod /vendor/lib/modules/btmtksdio.ko
+
+on boot
+    chown bluetooth bluetooth /proc/bluetooth/sleep/btwrite
+    chown bluetooth bluetooth /proc/bluetooth/sleep/lpm
+    chmod 0660 /proc/bluetooth/sleep/btwrite
+    chmod 0660 /proc/bluetooth/sleep/lpm
+
+    insmod /vendor/lib/modules/btusb.ko
+
+
