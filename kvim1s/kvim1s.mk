@@ -133,6 +133,10 @@ ifeq ($(TARGET_BUILD_LIVETV),true)
 PRODUCT_PACKAGES += \
     droidlogic.tv.software.core.xml
 
+#KVIM1S app
+PRODUCT_PACKAGES += \
+    FactoryTest
+
 #dvbstack
 BOARD_HAS_ADTV := true
 #tuner
