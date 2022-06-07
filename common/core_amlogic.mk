@@ -167,7 +167,7 @@ PRODUCT_PACKAGES += \
     LatinIME \
     NativeImagePlayer \
     imageserver \
-    MboxLauncher \
+    Launcher3 \
     DLNA \
     BluetoothRemote \
     Gallery2 \
