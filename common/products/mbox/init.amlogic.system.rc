@@ -68,6 +68,7 @@ on boot
 
     chmod 666 /sys/class/video/show_first_frame_nosync
     chown media system /sys/class/video/show_first_frame_nosync
+    chmod 666 /sys/class/rtc/rtc0/bootalarm
 
     #0: normal user and root user can read
     #1: only root user can read
