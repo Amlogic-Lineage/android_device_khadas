@@ -164,7 +164,7 @@ PRODUCT_PACKAGES += \
     WifiOverlay \
     AppInstaller \
     FileBrowser \
-    RemoteIME \
+    LatinIME \
     NativeImagePlayer \
     imageserver \
     MboxLauncher \
