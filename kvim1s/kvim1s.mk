@@ -45,7 +45,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Inherit Go default properties, sets is-low-ram-device flag etc.
 #call build/make/target/product/go_defaults.mk
 PRODUCT_PROPERTY_OVERRIDES += \
-     ro.config.low_ram=true \
      ro.config.max_starting_bg=4
 
 # Speed profile services and wifi-service to reduce RAM and storage.
