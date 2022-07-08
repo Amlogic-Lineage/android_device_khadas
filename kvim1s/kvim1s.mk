@@ -135,7 +135,9 @@ PRODUCT_PACKAGES += \
 #KVIM1S app
 PRODUCT_PACKAGES += \
     FactoryTest \
-    SchPwrOnOff
+    SchPwrOnOff \
+    KSettings \
+    KTools
 
 #dvbstack
 BOARD_HAS_ADTV := true
