@@ -167,7 +167,7 @@ PRODUCT_PACKAGES += \
     LatinIME \
     NativeImagePlayer \
     imageserver \
-    Launcher3 \
+    Launcher3QuickStep \
     DLNA \
     BluetoothRemote \
     Gallery2 \
