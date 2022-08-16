@@ -46,8 +46,8 @@ PRODUCT_PACKAGES += \
 endif
 
 # LiveTv
-PRODUCT_PACKAGES += \
-    DroidLiveTvSettings
+#PRODUCT_PACKAGES += \
+#    DroidLiveTvSettings
 endif
 
 # DTVKit
@@ -77,6 +77,7 @@ PRODUCT_PACKAGES += \
 
 #Tvsettings
 PRODUCT_PACKAGES += \
+    DroidTvSettings \
     Settings
 
 PRODUCT_COPY_FILES += \
