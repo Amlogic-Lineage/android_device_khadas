@@ -33,3 +33,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #media
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.media.dv.standalone.component=true
+#adb
+PRODUCT_PROPERTY_OVERRIDES += \
+    service.adb.tcp.port=5555
