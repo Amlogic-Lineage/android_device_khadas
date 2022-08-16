@@ -21,6 +21,8 @@ ifneq ($(BOARD_COMPILE_ATV),false)
   BOARD_COMPILE_CTS := true
 endif
 
+BOARD_COMPILE_ATV := false
+BOARD_COMPILE_CTS := false
 PRODUCT_DIR := kvim1s
 #CONFIG_DEVICE_LOW_RAM := true
 ifeq ($(CONFIG_DEVICE_LOW_RAM),true)
