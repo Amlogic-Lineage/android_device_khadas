@@ -139,6 +139,7 @@ PRODUCT_PACKAGES += \
     FactoryTest \
     SchPwrOnOff \
     KSettings \
+    DocumentsUI \
     KTools
 
 #dvbstack
