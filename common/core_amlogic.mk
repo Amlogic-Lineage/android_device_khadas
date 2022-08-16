@@ -278,6 +278,10 @@ PRODUCT_PACKAGES += \
     memtrack.amlogic \
     screen_source.amlogic
 
+#add device owner feature
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.software.device_admin.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.device_admin.xml
+
 #glscaler and 3d format api
 PRODUCT_PACKAGES += \
     libdisplaysetting
