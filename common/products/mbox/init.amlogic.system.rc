@@ -69,10 +69,11 @@ on boot
     chmod 666 /sys/class/video/show_first_frame_nosync
     chown media system /sys/class/video/show_first_frame_nosync
  
-    chmod 666 /sys/class/mcu/ageing_test
-    chmod 666 /sys/class/mcu/poweroff
-    chmod 666 /sys/class/mcu/rst
-    chmod 666 /sys/class/mcu/redled
+    chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq
+    chmod 444 /sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_cur_freq
+    chmod 444 /sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_cur_freq
+    chmod 444 /sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_cur_freq
+
     chmod 666 /sys/class/leds/state_led/state_brightness
     chmod 666 /sys/class/leds/state_led/breath
     
@@ -83,6 +84,16 @@ on boot
     chmod 666 /sys/class/fan/trigger_temp_high
     chmod 666 /sys/class/fan/trigger_temp_low
     chmod 666 /sys/class/fan/trigger_temp_mid
+    chmod 666 /sys/class/mcu/poweroff
+    chmod 666 /sys/class/mcu/rst
+    chmod 666 /sys/class/mcu/redled
+
+    chmod 666 /sys/class/mcu/wol_enable
+    chmod 666 /sys/class/mcu/ageing_test
+
+    chmod 666 /sys/class/efuse/mac
+    chmod 666 /sys/class/efuse/usid
+
     chmod 666 /sys/class/rtc/rtc0/bootalarm
 
     #0: normal user and root user can read

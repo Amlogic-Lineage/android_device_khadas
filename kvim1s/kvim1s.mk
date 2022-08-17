@@ -142,6 +142,14 @@ PRODUCT_PACKAGES += \
     DocumentsUI \
     KTools
 
+ifeq ($(BUILD_WITH_GAPPS_CONFIG),true)
+
+else
+PRODUCT_PACKAGES += TTS
+PRODUCT_COPY_FILES += \
+	device/khadas/kvim1s/TTS_so/libtts_android.so:system/lib64/libtts_android.so \
+	device/khadas/kvim1s/TTS_so/libtts_android_neon.so:system/lib64/libtts_android_neon.so
+endif
 #dvbstack
 BOARD_HAS_ADTV := true
 #tuner
@@ -225,6 +233,8 @@ PRODUCT_BRAND := Droidlogic
 PRODUCT_MODEL := $(TARGET_PRODUCT)
 PRODUCT_MANUFACTURER := Droidlogic
 
+PRODUCT_PROPERTY_OVERRIDES += \
+        ro.build.display.id=vim1s-android11-64bit-v$(shell date +%y%m%d)
 PRODUCT_TYPE := mbox
 
 BOARD_AML_VENDOR_PATH := vendor/amlogic/common/
