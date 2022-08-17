@@ -147,6 +147,7 @@ PRODUCT_PACKAGES += \
     DocumentsUI \
     KTools
 
+BUILD_WITH_GAPPS_CONFIG=false
 ifeq ($(BUILD_WITH_GAPPS_CONFIG),true)
 
 else
