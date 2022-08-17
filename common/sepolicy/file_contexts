@@ -414,7 +414,7 @@
 /vendor/bin/hw/dtvkitserver      u:object_r:dtvkitserver_exec:s0
 #/vendor/bin/vmx_indiv         u:object_r:vmx_indiv_exec:s0
 
-
+/system/bin/preinstall\.sh          u:object_r:shell_exec:s0
 ## keylayout is vendor config file! must update!
 /(vendor|system/vendor)/usr/keylayout(/.*)?               u:object_r:vendor_configs_file:s0
 /(vendor|system/vendor)/usr/idc(/.*)?                     u:object_r:vendor_configs_file:s0

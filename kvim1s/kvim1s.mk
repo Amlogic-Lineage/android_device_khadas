@@ -24,6 +24,11 @@ endif
 BOARD_COMPILE_ATV := false
 BOARD_COMPILE_CTS := false
 PRODUCT_DIR := kvim1s
+$(shell python device/khadas/kvim1s/auto_generator.py preinstall)
+-include device/khadas/kvim1s/preinstall/preinstall.mk
+PRODUCT_COPY_FILES += \
+    device/khadas/kvim1s/preinstall/preinstall.sh:system/bin/preinstall.sh
+
 #CONFIG_DEVICE_LOW_RAM := true
 ifeq ($(CONFIG_DEVICE_LOW_RAM),true)
 # Enable DM file pre-opting to reduce first boot time
