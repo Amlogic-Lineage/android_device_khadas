@@ -25,7 +25,7 @@ vendor/amlogic/common/wifi_bt/bluetooth/configs/5_4
 vendor/amlogic/common/gpu/bifrost
 vendor/amlogic/common/tdk_linuxdriver
 hardware/amlogic/media_modules
-device/amlogic/common/dolby_ms12/kmod
+device/khadas/common/dolby_ms12/kmod
 "
 
 STOP_SHIP_TRACEPRINTK=1

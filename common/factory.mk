@@ -299,7 +299,7 @@ $(call dist-for-goals, droidcore, $(INSTALLED_AMLOGIC_BOOTLOADER_TARGET))
 
 
 ifeq ($(TARGET_SUPPORT_USB_BURNING_V2),true)
-INSTALLED_AML_UPGRADE_PACKAGE_TARGET := $(PRODUCT_OUT)/aml_upgrade_package.img
+INSTALLED_AML_UPGRADE_PACKAGE_TARGET := $(PRODUCT_OUT)/update.img
 $(warning will keep $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET))
 $(call dist-for-goals, droidcore, $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET))
 
@@ -538,7 +538,7 @@ PRODUCT_CFG_EMMC_LGC_TABLE := $(KERNEL_ROOTDIR)/$(KERNEL_DEVICETREE_DIR)/$(TARGE
 AML_DTB_CRC_TOOL		:= $(BOARD_AML_VENDOR_PATH)/tools/aml_upgrade/dtb_pc
 AML_IMG_PKG_TOOL		:= $(BOARD_AML_VENDOR_PATH)/tools/aml_upgrade/aml_image_v2_packer
 ifeq ($(PRODUCT_CFG_EMMC_CAP),)
-	PRODUCT_CFG_EMMC_CAP := bootloader/uboot-repo/bl33/v2015/include/emmc_partitions.h
+	PRODUCT_CFG_EMMC_CAP := bootloader/uboot/include/emmc_partitions.h
 endif
 
 $(INSTALLED_AML_EMMC_BIN): $(INSTALLED_AML_UPGRADE_PACKAGE_TARGET) $(PRODUCT_CFG_EMMC_CAP) \

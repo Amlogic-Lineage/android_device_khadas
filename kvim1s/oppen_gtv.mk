@@ -19,4 +19,4 @@ PRODUCT_BRAND := Amlogic
 
 ATV_LAUNCHER := amati
 
-$(call inherit-product, device/amlogic/oppen/oppen.mk)
+$(call inherit-product, device/khadas/kvim1s/kvim1s.mk)

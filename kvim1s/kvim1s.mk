@@ -242,6 +242,9 @@ PRODUCT_MANUFACTURER := Droidlogic
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.build.display.id=vim1s-android11-64bit-v$(shell date +%y%m%d)
 PRODUCT_TYPE := mbox
+# Non updatable APEX
+OVERRIDE_TARGET_FLATTEN_APEX := true
+PRODUCT_PROPERTY_OVERRIDES += ro.apex.updatable=false
 
 BOARD_AML_VENDOR_PATH := vendor/amlogic/common/
 BOARD_WIDEVINE_TA_PATH := vendor/amlogic/

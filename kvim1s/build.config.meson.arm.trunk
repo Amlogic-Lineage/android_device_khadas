@@ -1,6 +1,6 @@
 . common/build.config.common
 . common/build.config.arm
-. device/amlogic/common/kernelbuild/build.config.common
+. device/khadas/common/kernelbuild/build.config.common
 
 DEFCONFIG=meson64_a32_defconfig
 EXTRA_CMDS=''
@@ -11,8 +11,8 @@ GPU_DRV_VERSION=r25p0
 KERNEL_DEVICETREE=s4_s905y4_ap222_drm
 KERNEL_DEVICETREE_DDR_1G=s4_s905y4_ap222_drm_1g
 DTBO_DEVICETREE=android_overlay_dt
-PRODUCT_DIRNAME=device/amlogic/oppen
-BOARD_DEVICENAME=oppen
+PRODUCT_DIRNAME=device/khadas/kvim1s
+BOARD_DEVICENAME=kvim1s
 
 ENABLE_KASAN=false
 
@@ -26,7 +26,7 @@ vendor/amlogic/common/wifi_bt/bluetooth/configs/5_4
 vendor/amlogic/common/gpu/bifrost
 vendor/amlogic/common/tdk_linuxdriver
 hardware/amlogic/media_modules
-device/amlogic/common/dolby_ms12/kmod
+device/khadas/common/dolby_ms12/kmod
 "
 
 STOP_SHIP_TRACEPRINTK=1

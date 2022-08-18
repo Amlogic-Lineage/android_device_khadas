@@ -1,6 +1,6 @@
 #!/bin/bash
 
-readonly oppenDIR=device/amlogic/oppen
+readonly oppenDIR=device/khadas/kvim1s
 readonly TOOLS_DIR="$NEWTONDIR"/tools
 readonly KEY_DIR="$oppenDIR"/recovery/releasetools/keys
 readonly DEVICE_DIR="$oppenDIR"/upgrade

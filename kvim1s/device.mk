@@ -30,7 +30,7 @@ ifeq ($(TARGET_BUILD_IRDETO),true)
 DEVICE_MANIFEST_FILE += device/khadas/$(PRODUCT_DIR)/newdevices/manifest_irdeto.xml
 endif
 
-DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/amlogic/common/hidl_manifests/newdevices/device_matrix_product_amlogic.xml
+DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += device/khadas/common/hidl_manifests/newdevices/device_matrix_product_amlogic.xml
 
 ifeq ($(BUILD_WITH_MIRACAST),true)
 DEVICE_MANIFEST_FILE += device/khadas/common/hidl_manifests/newdevices/manifest_wfd.xml
