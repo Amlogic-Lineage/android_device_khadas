@@ -4,6 +4,7 @@ key 103   DPAD_UP
 key 108   DPAD_DOWN
 key 105   DPAD_LEFT
 key 106   DPAD_RIGHT
+key 28    DPAD_CENTER
 key 232    DPAD_CENTER
 key 114   VOLUME_DOWN
 key 63   F5
