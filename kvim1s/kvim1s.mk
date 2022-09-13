@@ -23,6 +23,7 @@ endif
 
 BOARD_COMPILE_ATV := false
 BOARD_COMPILE_CTS := false
+BOARD_PLAYREADY_LEVEL := 1
 PRODUCT_DIR := kvim1s
 $(shell python device/khadas/kvim1s/auto_generator.py preinstall)
 -include device/khadas/kvim1s/preinstall/preinstall.mk
