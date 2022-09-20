@@ -168,7 +168,8 @@ PRODUCT_PACKAGES += \
     NativeImagePlayer \
     imageserver \
     Launcher3QuickStep \
-    DLNA \
+    StorageManager \
+    WallpaperCropper \
     BluetoothRemote \
     Gallery2 \
     MusicFX \
