@@ -75,9 +75,11 @@
 /dev/sw_sync              0666   system       graphics
 
 #possible serial
+/dev/ttyS0                0660   bluetooth    bluetooth
 /dev/ttyS1                0660   bluetooth    bluetooth
-/dev/ttyS2                0660   bluetooth    bluetooth
+/dev/ttyS2                0666   system       system
 /dev/ttyS3                0666   system       system
+/dev/ttyS4                0666   system       system
 /dev/ttya0                0660   system       system
 /dev/ttya1                0660   system       system
 /dev/ptya0                0660   system       system
