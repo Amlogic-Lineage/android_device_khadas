@@ -14,8 +14,8 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/kvim1s.mk
+PRODUCT_MAKEFILES := $(LOCAL_DIR)/s4vim.mk
 COMMON_LUNCH_CHOICES := \
-    kvim1s-eng \
-    kvim1s-user \
-    kvim1s-userdebug
+    s4vim-eng \
+    s4vim-user \
+    s4vim-userdebug

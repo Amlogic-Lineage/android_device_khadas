@@ -24,11 +24,11 @@ endif
 BOARD_COMPILE_ATV := false
 BOARD_COMPILE_CTS := false
 BOARD_PLAYREADY_LEVEL := 1
-PRODUCT_DIR := kvim1s
-$(shell python device/khadas/kvim1s/auto_generator.py preinstall)
--include device/khadas/kvim1s/preinstall/preinstall.mk
+PRODUCT_DIR := s4vim
+$(shell python device/khadas/s4vim/auto_generator.py preinstall)
+-include device/khadas/s4vim/preinstall/preinstall.mk
 PRODUCT_COPY_FILES += \
-    device/khadas/kvim1s/preinstall/preinstall.sh:system/bin/preinstall.sh
+    device/khadas/s4vim/preinstall/preinstall.sh:system/bin/preinstall.sh
 
 #CONFIG_DEVICE_LOW_RAM := true
 ifeq ($(CONFIG_DEVICE_LOW_RAM),true)
@@ -140,7 +140,7 @@ ifeq ($(TARGET_BUILD_LIVETV),true)
 PRODUCT_PACKAGES += \
     droidlogic.tv.software.core.xml
 
-#KVIM1S app
+#S4VIM app
 PRODUCT_PACKAGES += \
     FactoryTest \
     SchPwrOnOff \
@@ -153,8 +153,8 @@ ifeq ($(BUILD_WITH_GAPPS_CONFIG),true)
 else
 PRODUCT_PACKAGES += TTS
 PRODUCT_COPY_FILES += \
-	device/khadas/kvim1s/TTS_so/libtts_android.so:system/lib64/libtts_android.so \
-	device/khadas/kvim1s/TTS_so/libtts_android_neon.so:system/lib64/libtts_android_neon.so
+	device/khadas/s4vim/TTS_so/libtts_android.so:system/lib64/libtts_android.so \
+	device/khadas/s4vim/TTS_so/libtts_android_neon.so:system/lib64/libtts_android_neon.so
 endif
 #dvbstack
 BOARD_HAS_ADTV := true
@@ -240,7 +240,7 @@ PRODUCT_MODEL := $(TARGET_PRODUCT)
 PRODUCT_MANUFACTURER := Droidlogic
 
 PRODUCT_PROPERTY_OVERRIDES += \
-        ro.build.display.id=vim1s-android11-64bit-v$(shell date +%y%m%d)
+        ro.build.display.id=s4vim-android11-64bit-v$(shell date +%y%m%d)
 PRODUCT_TYPE := mbox
 # Non updatable APEX
 OVERRIDE_TARGET_FLATTEN_APEX := true

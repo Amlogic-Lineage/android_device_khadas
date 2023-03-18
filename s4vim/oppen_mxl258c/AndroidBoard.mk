@@ -13,7 +13,7 @@
 # limitations under the License.
 
 LOCAL_PATH := $(call my-dir)
-LOCAL_PATH := device/khadas/kvim1s
+LOCAL_PATH := device/khadas/s4vim
 
 
 include $(LOCAL_PATH)/kernel_config_build.mk

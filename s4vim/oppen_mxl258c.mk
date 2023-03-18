@@ -12,4 +12,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-$(call inherit-product, device/khadas/kvim1s/kvim1s.mk)
+$(call inherit-product, device/khadas/s4vim/s4vim.mk)

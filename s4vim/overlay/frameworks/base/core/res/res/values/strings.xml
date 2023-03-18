@@ -17,5 +17,5 @@
  */
 -->
 <resources>
-<string name="wifi_tether_configure_ssid_default">VIM1S</string>
+<string name="wifi_tether_configure_ssid_default">S4VIM</string>
 </resources>

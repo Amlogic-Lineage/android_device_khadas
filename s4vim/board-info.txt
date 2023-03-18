@@ -1,2 +1,2 @@
-require board=kvim1s
+require board=s4vim
 require version-bootloader=01.01.210304.105627
