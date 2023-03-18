@@ -1,0 +1,33 @@
+. common/build.config.common
+. common/build.config.aarch64
+. device/khadas/common/kernelbuild/build.config.common
+
+DEFCONFIG=meson64_a64_defconfig
+EXTRA_CMDS=''
+
+#It is a must to set GPU driver's version
+GPU_DRV_VERSION=r25p0
+
+KERNEL_DEVICETREE=kvim1s
+DTBO_DEVICETREE=android_overlay_dt
+PRODUCT_DIRNAME=device/khadas/kvim1s
+BOARD_DEVICENAME=kvim1s
+
+ENABLE_KASAN=false
+
+# Not saving any kernel images. This build step is meant purely to generate the .kos.
+FILES=""
+
+
+EXT_MODULES="
+vendor/amlogic/common/wifi_bt/wifi/configs/5_4
+vendor/amlogic/common/wifi_bt/bluetooth/configs/5_4
+vendor/amlogic/common/gpu/bifrost
+vendor/amlogic/common/tdk_linuxdriver
+hardware/amlogic/media_modules
+device/khadas/common/dolby_ms12/kmod
+"
+
+STOP_SHIP_TRACEPRINTK=1
+
+BOARD_REMOVE_CONFIG=meson64_a64_s4_remove_config
