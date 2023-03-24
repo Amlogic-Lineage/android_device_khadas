@@ -25,10 +25,10 @@ BOARD_COMPILE_ATV := false
 BOARD_COMPILE_CTS := false
 BOARD_PLAYREADY_LEVEL := 1
 PRODUCT_DIR := s4vim
-$(shell python device/khadas/s4vim/auto_generator.py preinstall)
--include device/khadas/s4vim/preinstall/preinstall.mk
-PRODUCT_COPY_FILES += \
-    device/khadas/s4vim/preinstall/preinstall.sh:system/bin/preinstall.sh
+#$(shell python device/khadas/s4vim/auto_generator.py preinstall)
+#-include device/khadas/s4vim/preinstall/preinstall.mk
+#PRODUCT_COPY_FILES += \
+#    device/khadas/s4vim/preinstall/preinstall.sh:system/bin/preinstall.sh
 
 #CONFIG_DEVICE_LOW_RAM := true
 ifeq ($(CONFIG_DEVICE_LOW_RAM),true)
@@ -134,7 +134,7 @@ include device/khadas/common/video_algorithm/hdr10_tmo/hdr10_tmo.mk
 #                            TV
 #
 ########################################################################
-TARGET_BUILD_LIVETV := true
+TARGET_BUILD_LIVETV := false
 #TARGET_BUILD_IRDETO := true
 ifeq ($(TARGET_BUILD_LIVETV),true)
 PRODUCT_PACKAGES += \
@@ -252,7 +252,7 @@ BOARD_WIDEVINE_TA_PATH := vendor/amlogic/
 OTA_UP_PART_NUM_CHANGED := true
 
 PLATFORM_TDK_VERSION := 38
-BOARD_AML_SOC_TYPE ?= S905Y4
+BOARD_AML_SOC_TYPE ?= S905W2
 BOARD_AML_TDK_KEY_PATH := device/khadas/common/tdk_keys/
 BUILD_WITH_AVB := true
 BUILD_WITH_UDC := false
